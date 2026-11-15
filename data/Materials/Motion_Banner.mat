@@ -1,0 +1,672 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 0
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "shaded",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "metallic",
+         "link": "arm.b",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "world_position_offset",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "two_sided",
+         "value": "on"
+        },
+        {
+         "name": "max_world_position_offset",
+         "value": "0.35"
+        }
+       ]
+      },
+      {
+       "id": "world",
+       "type": "world_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "local",
+       "type": "transform",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "from",
+         "value": "world"
+        },
+        {
+         "name": "to",
+         "value": "object"
+        },
+        {
+         "name": "kind",
+         "value": "position"
+        }
+       ]
+      },
+      {
+       "id": "clock",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "phase_space",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          4.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "phase_time",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "clock",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          3.200000047683716
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "phase",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "phase_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "phase_time",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripple_main",
+       "type": "sine",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "phase",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fine_space",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local.out.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          6.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fine_phase",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "phase",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.7000000476837159
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fine_in",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fine_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "fine_phase",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripple_fine",
+       "type": "sine",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "fine_in",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripple_small",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripple_fine",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripple",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripple_main",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "ripple_small",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "amplitude",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.07000000029802323
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lift",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripple",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "amplitude",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "zero_xy",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "local_offset",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "zero_xy",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "lift",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "offset",
+       "type": "transform",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "local_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "from",
+         "value": "object"
+        },
+        {
+         "name": "to",
+         "value": "world"
+        },
+        {
+         "name": "kind",
+         "value": "direction"
+        }
+       ]
+      },
+      {
+       "id": "shade_raw",
+       "type": "constant_bias_scale",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "ripple",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "bias",
+         "link": "",
+         "value": [
+          1.2999999523162842
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shade",
+       "type": "vertex_interpolator",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "shade_raw",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "",
+         "value": [
+          2.0,
+          1.2000000476837159
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "22ad39fe-6c95-ea41-8f1f-b3437d99392f"
+       },
+       "texture_key": "app:/data/Textures/quatrefoil_jacquard_fabric/quatrefoil_jacquard_fabric_diff_2k.jpg"
+      },
+      {
+       "id": "normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Normal Map"
+        }
+       ],
+       "texture": {
+        "uid": "0bad0d0b-4974-a646-9788-b66af51c9a72"
+       },
+       "texture_key": "app:/data/Textures/quatrefoil_jacquard_fabric/quatrefoil_jacquard_fabric_nor_gl_2k.jpg"
+      },
+      {
+       "id": "arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        },
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "fcef4f20-d578-874f-962e-ebca5428cbea"
+       },
+       "texture_key": "app:/data/Textures/quatrefoil_jacquard_fabric/quatrefoil_jacquard_fabric_arm_2k.jpg"
+      },
+      {
+       "id": "shaded",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

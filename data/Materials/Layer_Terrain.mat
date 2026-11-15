@@ -1,0 +1,1086 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "material_attributes",
+         "link": "snowy",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "",
+         "value": [
+          1.600000023841858,
+          1.600000023841858
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rock_color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "9b53d39c-c878-ae42-90bd-3f869e6b5823"
+       },
+       "texture_key": "app:/data/Textures/rock_face_03/rock_face_03_diff_2k.jpg"
+      },
+      {
+       "id": "rock_normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "a15e4775-afea-8544-b5f5-f7fe9fb46e40"
+       },
+       "texture_key": "app:/data/Textures/rock_face_03/rock_face_03_nor_gl_2k.jpg"
+      },
+      {
+       "id": "rock_arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "69a810ce-7143-954b-bcec-4eb7bbb0ea57"
+       },
+       "texture_key": "app:/data/Textures/rock_face_03/rock_face_03_arm_2k.jpg"
+      },
+      {
+       "id": "rock",
+       "type": "make_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "rock_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "rock_arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "rock_arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "rock_normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grass_color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "97cf38be-153d-604c-9ede-c081bd3c7699"
+       },
+       "texture_key": "app:/data/Textures/sparse_grass/sparse_grass_diff_2k.jpg"
+      },
+      {
+       "id": "grass_normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "d8cc0e6e-ca8f-da48-b800-7633ddd77ba3"
+       },
+       "texture_key": "app:/data/Textures/sparse_grass/sparse_grass_nor_gl_2k.jpg"
+      },
+      {
+       "id": "grass_arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "716a917d-82b9-f44b-8590-1b2b7361a684"
+       },
+       "texture_key": "app:/data/Textures/sparse_grass/sparse_grass_arm_2k.jpg"
+      },
+      {
+       "id": "grass",
+       "type": "make_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "grass_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "grass_arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "grass_arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "grass_normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snow_color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "1ab4e191-4a05-3c46-8570-505dd3b747ed"
+       },
+       "texture_key": "app:/data/Textures/snow_02/snow_02_diff_2k.jpg"
+      },
+      {
+       "id": "snow_normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "08b8ac52-986c-7447-b678-1faa0defdfed"
+       },
+       "texture_key": "app:/data/Textures/snow_02/snow_02_nor_gl_2k.jpg"
+      },
+      {
+       "id": "snow_arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "c6f2578f-2ce8-b44c-b452-877ed3aab6f5"
+       },
+       "texture_key": "app:/data/Textures/snow_02/snow_02_arm_2k.jpg"
+      },
+      {
+       "id": "snow",
+       "type": "make_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "snow_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "snow_arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "snow_arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "snow_normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mud_color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "97291fa9-206c-de45-8421-3b9ff407c429"
+       },
+       "texture_key": "app:/data/Textures/brown_mud_02/brown_mud_02_diff_2k.jpg"
+      },
+      {
+       "id": "mud_normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [],
+       "texture": {
+        "uid": "23838f0c-2980-3e4f-a66a-abf6774a3552"
+       },
+       "texture_key": "app:/data/Textures/brown_mud_02/brown_mud_02_nor_gl_2k.jpg"
+      },
+      {
+       "id": "mud_arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "07601349-4ea1-9f4f-8bc4-b86b8e4d9436"
+       },
+       "texture_key": "app:/data/Textures/brown_mud_02/brown_mud_02_arm_2k.jpg"
+      },
+      {
+       "id": "mud",
+       "type": "make_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "mud_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "mud_arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "mud_arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "mud_normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "normal",
+       "type": "vertex_normal",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "world",
+       "type": "world_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "pivot",
+       "type": "object_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "world.xyz.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pivot.xyz.y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "breakup_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          1.5
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "breakup_flat",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          1.5
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "value"
+        }
+       ]
+      },
+      {
+       "id": "breakup",
+       "type": "quality_switch",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "high",
+         "link": "breakup_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "low",
+         "link": "breakup_flat",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "breakup_centered",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "breakup",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flat_breakup",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "breakup_centered",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flatness",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "normal.xyz.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "flat_breakup",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grass_mask",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.7200000286102295
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.8199999928474426
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "flatness",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snow_breakup",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "breakup",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snow_level",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "snow_breakup",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snow_high",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          1.25
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.4500000476837159
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "snow_level",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snow_flat",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "flatness",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snow_mask",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "snow_high",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "snow_flat",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mud_breakup",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "breakup",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mud_level",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mud_breakup",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mud_low",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.25
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "mud_level",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mud_mask",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "mud_low",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grassy",
+       "type": "blend_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rock",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "grass",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "grass_mask",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "muddy",
+       "type": "blend_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "grassy",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mud",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "mud_mask",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "snowy",
+       "type": "blend_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "muddy",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "snow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "snow_mask",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

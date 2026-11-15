@@ -1,0 +1,229 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": -310.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": -1498.0,
+        "y": 29.33332061767578
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "",
+         "value": [
+          1.5,
+          1.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "texture_sample",
+       "position": {
+        "x": -1229.0,
+        "y": 18.33332061767578
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Height Map"
+        }
+       ],
+       "texture": {
+        "uid": "05dc3a77-d6b6-7d4e-b298-bd0b919f66c3"
+       },
+       "texture_key": "app:/data/Textures/castle_brick_07/castle_brick_07_disp_2k.jpg"
+      },
+      {
+       "id": "shifted",
+       "type": "bump_offset",
+       "position": {
+        "x": -942.0,
+        "y": 40.33332061767578
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "height",
+         "link": "height.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ratio",
+         "link": "",
+         "value": [
+          0.03999999910593033
+         ]
+        },
+        {
+         "pin": "reference_plane",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "texture_sample",
+       "position": {
+        "x": -597.0,
+        "y": -183.6666717529297
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "shifted",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "4be5ebee-533d-ed43-8ad0-ca1db054c39d"
+       },
+       "texture_key": "app:/data/Textures/castle_brick_07/castle_brick_07_diff_2k.jpg"
+      },
+      {
+       "id": "normal",
+       "type": "normal_map",
+       "position": {
+        "x": -614.0,
+        "y": 264.33331298828127
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "shifted",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Normal Map"
+        }
+       ],
+       "texture": {
+        "uid": "d0b97cd5-b508-4d40-b88d-401f5d53a446"
+       },
+       "texture_key": "app:/data/Textures/castle_brick_07/castle_brick_07_nor_gl_2k.jpg"
+      },
+      {
+       "id": "arm",
+       "type": "texture_sample",
+       "position": {
+        "x": -597.0,
+        "y": 40.33332824707031
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "shifted",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        },
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "51de6ab7-7aa3-6d45-812c-269576e06f4f"
+       },
+       "texture_key": "app:/data/Textures/castle_brick_07/castle_brick_07_arm_2k.jpg"
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

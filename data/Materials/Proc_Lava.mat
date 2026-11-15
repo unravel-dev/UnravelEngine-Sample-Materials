@@ -1,0 +1,575 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "crust",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "rough",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "emissive",
+         "link": "glow_pulse",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "bumps",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flow_a",
+       "type": "panner",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "speed",
+         "link": "",
+         "value": [
+          0.03999999910593033,
+          0.014999999664723874
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flow_b",
+       "type": "panner",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "speed",
+         "link": "",
+         "value": [
+          -0.02500000037252903,
+          0.029999999329447748
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "noise_a",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "flow_a",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "noise_b",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "flow_b",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          11.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "simplex"
+        }
+       ]
+      },
+      {
+       "id": "heat",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "noise_a",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "noise_b",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "cracks",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.2199999988079071
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.41999998688697817
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "heat",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glow",
+       "type": "color_ramp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "cracks",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color0",
+         "link": "",
+         "value": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+         ]
+        },
+        {
+         "pin": "position0",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color1",
+         "link": "",
+         "value": [
+          1.5,
+          0.15000000596046449,
+          0.0,
+          1.0
+         ]
+        },
+        {
+         "pin": "position1",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        },
+        {
+         "pin": "color2",
+         "link": "",
+         "value": [
+          5.0,
+          1.399999976158142,
+          0.15000000596046449,
+          1.0
+         ]
+        },
+        {
+         "pin": "position2",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "color3",
+         "link": "",
+         "value": [
+          9.0,
+          5.0,
+          1.2000000476837159,
+          1.0
+         ]
+        },
+        {
+         "pin": "position3",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "count",
+         "value": "4"
+        },
+        {
+         "name": "interpolation",
+         "value": "linear"
+        }
+       ]
+      },
+      {
+       "id": "pulse",
+       "type": "wave",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "frequency",
+         "link": "",
+         "value": [
+          0.3499999940395355
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "shape",
+         "value": "sine"
+        }
+       ]
+      },
+      {
+       "id": "pulse_range",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "pulse",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glow_pulse",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "glow.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pulse_range",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rock",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.05000000074505806,
+          0.03999999910593033,
+          0.03999999910593033
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "molten",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.25,
+          0.07999999821186066,
+          0.029999999329447748
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "crust",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rock",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "molten",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "cracks",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "solid",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "cracks",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "solid",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.004000000189989805
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bumps",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.9200000166893005
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "cracks",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

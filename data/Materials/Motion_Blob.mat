@@ -1,0 +1,437 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "world_position_offset",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "base_color",
+         "link": "",
+         "value": [
+          0.6000000238418579,
+          0.019999999552965165,
+          0.07999999821186066
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          0.15000000596046449
+         ]
+        },
+        {
+         "pin": "emissive",
+         "link": "glow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "subsurface_color",
+         "link": "",
+         "value": [
+          0.800000011920929,
+          0.05000000074505806,
+          0.10000000149011612
+         ]
+        },
+        {
+         "pin": "subsurface_opacity",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "max_world_position_offset",
+         "value": "0.25"
+        }
+       ]
+      },
+      {
+       "id": "world",
+       "type": "world_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "clock",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "drift_dir",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.0,
+          1.0,
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drift_speed",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "clock",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drift_time",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "drift_dir",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "drift_speed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drift",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "drift_time",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bulge",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "drift",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          2.200000047683716
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "simplex"
+        }
+       ]
+      },
+      {
+       "id": "breath",
+       "type": "wave",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "frequency",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "shape",
+         "value": "sine"
+        }
+       ]
+      },
+      {
+       "id": "bulge_centered",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bulge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.3499999940395355
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "breath_range",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.07999999821186066
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "breath",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bulge_centered",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "breath_range",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "normal",
+       "type": "vertex_normal",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "offset",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glow_color",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.2000000476837159,
+          0.10000000149011612,
+          0.4000000059604645
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glow_rim",
+       "type": "fresnel",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "power",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glow",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "glow_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "glow_rim",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

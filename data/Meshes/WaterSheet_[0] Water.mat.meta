@@ -1,0 +1,16 @@
+{
+ "meta": {
+  "type": ".mat",
+  "uid": "db336dae-a52c-434b-a009-3ea4fd753200",
+  "importer": {
+   "polymorphic_id": 0
+  },
+  "header": {
+   "polymorphic_id": 0
+  },
+  "generated": {
+   "source_uid": "0c06daea-7c96-1545-8582-ebde9fdf7124",
+   "fingerprint": "42b2f1214cec6efb61bf9661caabec18"
+  }
+ }
+}

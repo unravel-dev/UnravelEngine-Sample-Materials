@@ -1,0 +1,440 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "metallic",
+         "link": "arm.b",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "emissive",
+         "link": "burn.rgb",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "cycle",
+       "type": "wave",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "frequency",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "shape",
+         "value": "triangle"
+        }
+       ]
+      },
+      {
+       "id": "threshold",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.25
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "cycle",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mask",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "threshold",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "cut",
+       "type": "discard",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "mask",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "threshold",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge_width",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "mask",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "edge_width",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "burn",
+       "type": "color_ramp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color0",
+         "link": "",
+         "value": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+         ]
+        },
+        {
+         "pin": "position0",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color1",
+         "link": "",
+         "value": [
+          3.0,
+          0.6000000238418579,
+          0.05000000074505806,
+          1.0
+         ]
+        },
+        {
+         "pin": "position1",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "color2",
+         "link": "",
+         "value": [
+          12.0,
+          6.0,
+          1.5,
+          1.0
+         ]
+        },
+        {
+         "pin": "position2",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "count",
+         "value": "3"
+        },
+        {
+         "name": "interpolation",
+         "value": "linear"
+        }
+       ]
+      },
+      {
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "",
+         "value": [
+          2.0,
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "544be415-e62c-6d44-8dea-10539c9cbac1"
+       },
+       "texture_key": "app:/data/Textures/rusty_metal_04/rusty_metal_04_diff_2k.jpg"
+      },
+      {
+       "id": "normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Normal Map"
+        }
+       ],
+       "texture": {
+        "uid": "97fae7a4-46c2-e84f-9718-3a694bc6acf1"
+       },
+       "texture_key": "app:/data/Textures/rusty_metal_04/rusty_metal_04_nor_gl_2k.jpg"
+      },
+      {
+       "id": "arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        },
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "18dc128b-c5b8-8b49-8e34-ec666a9064d0"
+       },
+       "texture_key": "app:/data/Textures/rusty_metal_04/rusty_metal_04_arm_2k.jpg"
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

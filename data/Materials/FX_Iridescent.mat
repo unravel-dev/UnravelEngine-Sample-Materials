@@ -1,0 +1,220 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "coat",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "metallic",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          0.18000000715255738
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rim",
+       "type": "fresnel",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "power",
+         "link": "",
+         "value": [
+          1.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "hue",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rim",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "saturation_value",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.75,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "hsv",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "hue",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "saturation_value",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "film",
+       "type": "hsv_to_rgb",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "hsv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "base",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.07999999821186066,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Base Color"
+        }
+       ]
+      },
+      {
+       "id": "coat",
+       "type": "blend",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base",
+         "link": "base.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "blend",
+         "link": "film",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "rim",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "mode",
+         "value": "screen"
+        }
+       ]
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,323 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "emissive",
+         "link": "color",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "normal",
+       "type": "vertex_normal",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "light_dir",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.44999998807907107,
+          0.800000011920929,
+          0.3499999940395355
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "light",
+       "type": "normalize",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "light_dir",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lit",
+       "type": "dot",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "light",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "facing",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "lit",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bands",
+       "type": "color_ramp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "facing",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color0",
+         "link": "",
+         "value": [
+          0.05999999865889549,
+          0.029999999329447748,
+          0.11999999731779099,
+          1.0
+         ]
+        },
+        {
+         "pin": "position0",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color1",
+         "link": "",
+         "value": [
+          0.3499999940395355,
+          0.11999999731779099,
+          0.44999998807907107,
+          1.0
+         ]
+        },
+        {
+         "pin": "position1",
+         "link": "",
+         "value": [
+          0.25
+         ]
+        },
+        {
+         "pin": "color2",
+         "link": "",
+         "value": [
+          0.949999988079071,
+          0.44999998807907107,
+          0.6000000238418579,
+          1.0
+         ]
+        },
+        {
+         "pin": "position2",
+         "link": "",
+         "value": [
+          0.6499999761581421
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "count",
+         "value": "3"
+        },
+        {
+         "name": "interpolation",
+         "value": "constant"
+        }
+       ]
+      },
+      {
+       "id": "edge",
+       "type": "fresnel",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "power",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rim",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "outline",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.019999999552965165,
+          0.0,
+          0.029999999329447748
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bands.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "outline",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "rim",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

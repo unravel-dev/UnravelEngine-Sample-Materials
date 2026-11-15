@@ -1,0 +1,366 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "metallic",
+         "link": "arm.b",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "world_position_offset",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "max_world_position_offset",
+         "value": "0.4"
+        }
+       ]
+      },
+      {
+       "id": "world",
+       "type": "world_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "pivot",
+       "type": "object_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "world.xyz.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pivot.xyz.y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "clock",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "swing_time",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "clock",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "swing",
+       "type": "sine",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "swing_time",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "twist",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "angle",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "twist",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "swing",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "offset",
+       "type": "rotate_about_axis",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "axis",
+         "link": "",
+         "value": [
+          0.0,
+          1.0
+         ]
+        },
+        {
+         "pin": "angle",
+         "link": "angle",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "pivot",
+         "link": "pivot",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "result",
+         "value": "offset"
+        }
+       ]
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "7bceab0f-0bbf-274f-8842-e0354559a1a0"
+       },
+       "texture_key": "app:/data/Textures/metal_plate/metal_plate_diff_2k.jpg"
+      },
+      {
+       "id": "normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Normal Map"
+        }
+       ],
+       "texture": {
+        "uid": "f2008460-86e6-ce44-84ce-251eac3af39c"
+       },
+       "texture_key": "app:/data/Textures/metal_plate/metal_plate_nor_gl_2k.jpg"
+      },
+      {
+       "id": "arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        },
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "e69cf74a-bf3d-2c49-8b44-0f8606d99846"
+       },
+       "texture_key": "app:/data/Textures/metal_plate/metal_plate_arm_2k.jpg"
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,323 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "tinted",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "rough_scaled",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "metallic",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tiling",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.5
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Tiling"
+        },
+        {
+         "name": "description",
+         "value": "How many times the maps repeat across the UV."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.25"
+        },
+        {
+         "name": "slider_max",
+         "value": "8.0"
+        },
+        {
+         "name": "per_instance",
+         "value": "off"
+        }
+       ]
+      },
+      {
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "tiling",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tint",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Tint"
+        },
+        {
+         "name": "description",
+         "value": "Multiplies the color map."
+        }
+       ]
+      },
+      {
+       "id": "roughness_scale",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Roughness Scale"
+        },
+        {
+         "name": "description",
+         "value": "Multiplies the roughness map."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "2.0"
+        }
+       ]
+      },
+      {
+       "id": "color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "9f39b3f9-7b7f-6947-8813-2596e382f769"
+       },
+       "texture_key": "app:/data/Textures/brown_leather/brown_leather_albedo_2k.jpg"
+      },
+      {
+       "id": "normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Normal Map"
+        }
+       ],
+       "texture": {
+        "uid": "4df10bf4-7f70-874b-85d2-97a261ff71eb"
+       },
+       "texture_key": "app:/data/Textures/brown_leather/brown_leather_nor_gl_2k.jpg"
+      },
+      {
+       "id": "tinted",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tint.rgb",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        },
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "cc5fca1e-cf87-cb44-83ba-fde6de70afde"
+       },
+       "texture_key": "app:/data/Textures/brown_leather/brown_leather_arm_2k.jpg"
+      },
+      {
+       "id": "rough_scaled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "roughness_scale",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,159 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "scale",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Projection Scale"
+        },
+        {
+         "name": "description",
+         "value": "Repeats of the texture per meter."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.1"
+        },
+        {
+         "name": "slider_max",
+         "value": "4.0"
+        },
+        {
+         "name": "per_instance",
+         "value": "off"
+        }
+       ]
+      },
+      {
+       "id": "color",
+       "type": "triplanar_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "scale",
+         "link": "scale",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "sharpness",
+         "link": "",
+         "value": [
+          6.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "9b53d39c-c878-ae42-90bd-3f869e6b5823"
+       },
+       "texture_key": "app:/data/Textures/rock_face_03/rock_face_03_diff_2k.jpg"
+      },
+      {
+       "id": "arm",
+       "type": "triplanar_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "scale",
+         "link": "scale",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "sharpness",
+         "link": "",
+         "value": [
+          6.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        }
+       ],
+       "texture": {
+        "uid": "69a810ce-7143-954b-bcec-4eb7bbb0ea57"
+       },
+       "texture_key": "app:/data/Textures/rock_face_03/rock_face_03_arm_2k.jpg"
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,102 @@
+/* The Material Gallery's HUD: a quiet card in the lower left, sized in dp so it reads the same on any screen. */
+
+body
+{
+	font-family: "Inter";
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+#panel
+{
+	position: absolute;
+	left: 28dp;
+	bottom: 28dp;
+	width: 440dp;
+	padding: 18dp 22dp 16dp 22dp;
+	background-color: rgba(12, 12, 14, 185);
+	border-left: 3dp #d8b26a;
+	border-radius: 4dp;
+	pointer-events: auto;
+}
+
+#header
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 8dp;
+}
+
+#brand
+{
+	font-size: 11dp;
+	letter-spacing: 2dp;
+	color: #d8b26a;
+}
+
+#bay-index
+{
+	font-size: 11dp;
+	color: #9a9a9e;
+}
+
+#bay-title
+{
+	font-size: 26dp;
+	font-weight: bold;
+	color: #f4f1ea;
+	margin-bottom: 6dp;
+}
+
+#bay-text
+{
+	font-size: 15dp;
+	line-height: 21dp;
+	color: #cfcbc3;
+	margin-bottom: 14dp;
+}
+
+#controls
+{
+	display: flex;
+	flex-direction: row;
+	gap: 8dp;
+	margin-bottom: 10dp;
+}
+
+button.nav
+{
+	display: block;
+	width: 44dp;
+	height: 34dp;
+	line-height: 34dp;
+	text-align: center;
+	font-size: 20dp;
+	color: #f4f1ea;
+	background-color: rgba(255, 255, 255, 22);
+	border-radius: 3dp;
+}
+
+button.nav.wide
+{
+	width: 120dp;
+	font-size: 14dp;
+}
+
+button.nav:hover
+{
+	background-color: rgba(216, 178, 106, 90);
+}
+
+button.nav:active
+{
+	background-color: rgba(216, 178, 106, 160);
+}
+
+#keys
+{
+	font-size: 11dp;
+	color: #85827c;
+}

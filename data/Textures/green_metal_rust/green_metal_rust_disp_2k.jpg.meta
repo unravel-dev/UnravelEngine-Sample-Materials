@@ -1,0 +1,43 @@
+{
+ "meta": {
+  "type": ".jpg",
+  "uid": "2e7c2f25-9f6b-474a-85c5-a79abe2daa40",
+  "importer": {
+   "polymorphic_id": 2147483649,
+   "polymorphic_name": "texture_importer_meta",
+   "ptr_wrapper": {
+    "id": 2147483649,
+    "data": {
+     "base_type": {},
+     "type": 0,
+     "colorspace": 2,
+     "generate_mipmaps": true,
+     "invert_normal_y": false,
+     "quality": {
+      "max_size": 0,
+      "compression": 0
+     },
+     "platforms": {
+      "desktop": {
+       "is_overridden": false,
+       "quality": {
+        "max_size": 0,
+        "compression": 0
+       }
+      },
+      "android": {
+       "is_overridden": false,
+       "quality": {
+        "max_size": 0,
+        "compression": 0
+       }
+      }
+     }
+    }
+   }
+  },
+  "header": {
+   "polymorphic_id": 0
+  }
+ }
+}

@@ -1,0 +1,305 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "arm.g",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "arm.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "",
+         "value": [
+          2.0,
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "texture_object",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Height Map"
+        },
+        {
+         "name": "description",
+         "value": "The displacement map the parallax reads."
+        }
+       ],
+       "texture": {
+        "uid": "5693af90-84a3-454c-ba62-1e2e29533b16"
+       },
+       "texture_key": "app:/data/Textures/cobblestone_floor_04/cobblestone_floor_04_disp_2k.jpg"
+      },
+      {
+       "id": "depth",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.05999999865889549
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Depth"
+        },
+        {
+         "name": "description",
+         "value": "How deep the parallax reads the height map, in UV units."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "0.15"
+        }
+       ]
+      },
+      {
+       "id": "relief",
+       "type": "parallax_occlusion",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "texture",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "height_scale",
+         "link": "depth",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min_steps",
+         "link": "",
+         "value": [
+          12.0
+         ]
+        },
+        {
+         "pin": "max_steps",
+         "link": "",
+         "value": [
+          48.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "picked",
+       "type": "static_switch",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "true",
+         "link": "relief",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "false",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "value",
+         "value": "false"
+        },
+        {
+         "name": "name",
+         "value": "Parallax Occlusion"
+        },
+        {
+         "name": "description",
+         "value": "Reads the maps along the view through the height map."
+        }
+       ]
+      },
+      {
+       "id": "color",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "picked",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Color Map"
+        }
+       ],
+       "texture": {
+        "uid": "0934c61d-73db-6d4b-8af0-a9442b33bcb9"
+       },
+       "texture_key": "app:/data/Textures/cobblestone_floor_04/cobblestone_floor_04_diff_2k.jpg"
+      },
+      {
+       "id": "normal",
+       "type": "normal_map",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "picked",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Normal Map"
+        }
+       ],
+       "texture": {
+        "uid": "32669b8b-f198-db42-8177-dc7098c42e43"
+       },
+       "texture_key": "app:/data/Textures/cobblestone_floor_04/cobblestone_floor_04_nor_gl_2k.jpg"
+      },
+      {
+       "id": "arm",
+       "type": "texture_sample",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "picked",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "ARM Map"
+        },
+        {
+         "name": "description",
+         "value": "Ambient occlusion in red, roughness in green, metallic in blue."
+        }
+       ],
+       "texture": {
+        "uid": "c250a37d-9039-c141-848f-5b74e5973d5a"
+       },
+       "texture_key": "app:/data/Textures/cobblestone_floor_04/cobblestone_floor_04_arm_2k.jpg"
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

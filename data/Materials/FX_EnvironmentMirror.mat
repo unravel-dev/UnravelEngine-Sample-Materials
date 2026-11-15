@@ -1,0 +1,163 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "emissive",
+         "link": "tinted",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "studio",
+       "type": "cubemap_object",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Environment"
+        }
+       ],
+       "texture": {
+        "uid": "8b325301-5b60-fd44-8236-7044aa26c596"
+       },
+       "texture_key": "app:/data/Textures/HDRI/studio_small_09_4k.hdr"
+      },
+      {
+       "id": "reflected",
+       "type": "sample_cubemap",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "texture",
+         "link": "studio",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "clock",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "shift",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "clock",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tinted",
+       "type": "hue_saturation_value",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "color",
+         "link": "reflected.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "hue_shift",
+         "link": "shift",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "saturation",
+         "link": "",
+         "value": [
+          1.399999976158142
+         ]
+        },
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

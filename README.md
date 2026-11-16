@@ -1,26 +1,25 @@
-# Unravel Engine: Material Gallery
+# Material Gallery
 
-A walk through what Unravel's material graphs can do, from measured metals to procedural lava. Every surface in
-the hall, the floor and walls included, is a material graph: open any `.mat` in the Material Graph window
-(double-click it in the Content Browser) to see how it is built, change a value and watch the scene follow.
+![Material Gallery](thumbnail.jpg)
 
-![Physically Based](Screenshots/01-physically-based.jpg)
+A gallery hall of eight bays that walks through what the engine's material graphs can do, from measured metals to
+procedural lava. Every surface in the hall, the floor and walls included, is a material graph: open any `.mat` in
+the Material Graph window (double-click it in the Content Browser) to see how it is built, change a value and watch
+the scene follow. A sample project for [Unravel Engine](https://github.com/unravel-dev/UnravelEngine).
 
-## Running it
+## Play
 
-Open the project in the Unravel editor, open `Scenes/Gallery` and press Play, or deploy it with the Desktop, Web
-or Android profile.
+Clone this repository, or get it from the Samples page of the Unravel editor's start page, and open its folder in
+the editor. Open `data/Scenes/Gallery.spfb` and press Play.
 
-| Key | Action |
-| --- | --- |
-| 1 - 8 | Go to a bay |
-| Left / Right | The bay before or after |
-| Space | Start or stop the tour |
-| F | Free flight: hold the right mouse button to look, WASD to move, Q / E down and up, Shift to hurry, the wheel for speed |
+| Action | Keyboard and mouse | Gamepad | Touch |
+|---|---|---|---|
+| Go to a bay | 1 - 8 | - | - |
+| The bay before or after | Left / Right | - | The HUD's arrows |
+| Start or stop the tour | Space | - | Play Tour button |
+| Free flight | F; hold the right mouse button to look, WASD to move, Q / E down and up, Shift to hurry, the wheel for speed | - | - |
 
-On phones and in the browser the HUD's arrows and Play Tour button do the same.
-
-## The bays
+## What it shows
 
 1. **Physically Based.** Metals and dielectrics from the Standard graph with measured values. A 5 x 5 chart of
    metallic against roughness: one material, each sphere an instance that overrides Metallic and Roughness.
@@ -37,32 +36,42 @@ On phones and in the browser the HUD's arrows and Play Tour button do the same.
    moss on a boulder, puddles on cobblestones.
 8. **Imported Assets.** glTF models with their own maps, imported as Standard graph materials.
 
+Each graph's parameters show in the inspector and can be overridden per entity.
+
+## Screenshots
+
 | | |
-| --- | --- |
-| ![Scanned Surfaces](Screenshots/02-scanned-surfaces.jpg) | ![Depth From Height](Screenshots/03-depth-from-height.jpg) |
-| ![Procedural](Screenshots/04-procedural.jpg) | ![Stylized and Effects](Screenshots/05-stylized-and-effects.jpg) |
-| ![Motion](Screenshots/06-motion.jpg) | ![Layers](Screenshots/07-layers.jpg) |
-| ![Imported Assets](Screenshots/08-imported-assets.jpg) | ![Material Graph window](Screenshots/material-graph.jpg) |
+|---|---|
+| ![Physically Based](docs/screenshots/01-physically-based.jpg) | ![Scanned Surfaces](docs/screenshots/02-scanned-surfaces.jpg) |
+| ![Depth From Height](docs/screenshots/03-depth-from-height.jpg) | ![Procedural](docs/screenshots/04-procedural.jpg) |
+| ![Stylized and Effects](docs/screenshots/05-stylized-and-effects.jpg) | ![Motion](docs/screenshots/06-motion.jpg) |
+| ![Layers](docs/screenshots/07-layers.jpg) | ![Imported Assets](docs/screenshots/08-imported-assets.jpg) |
+| ![Material Graph window](docs/screenshots/09-material-graph.jpg) | |
 
-## Where to look
+## Project layout
 
-- `data/Materials/`: every material in the gallery. `Arch_*` are the hall, `PBR_*` the Physically Based bay,
-  `Scanned_*`, `Depth_*`, `Proc_*`, `FX_*`, `Motion_*` and `Layer_*` the bays of those names. Each graph's
-  parameters show in the inspector and can be overridden per entity.
-- `data/Scripts/GalleryTour.cs`: the camera tour and free flight. The stops are a text field on the Main
-  Camera entity, one line per bay.
-- `data/UI/gallery_hud.rhtml` and `.rcss`: the HUD.
+| Path | What it holds |
+|---|---|
+| `data/Scenes/Gallery.spfb` | The hall and its eight bays. |
+| `data/Materials/` | Every material in the gallery. `Arch_*` are the hall, `PBR_*` the Physically Based bay, `Scanned_*`, `Depth_*`, `Proc_*`, `FX_*`, `Motion_*` and `Layer_*` the bays of those names. |
+| `data/Scripts/GalleryTour.cs` | The camera tour and free flight. The stops are a text field on the Main Camera entity, one line per bay. |
+| `data/Scripts/Turntable.cs` | Turns the exhibits on their stands. |
+| `data/UI/gallery_hud.rhtml`, `gallery_hud.rcss` | The HUD. |
 
 ## Platforms
 
-The Desktop profile draws everything at High material quality. The Web and Android profiles cook the graph
-materials at Low Material Quality, so their Quality Switch nodes take the cheaper branch (the terrain's noise, for
-one), and their lighting settings are lighter.
+| Profile | Notes |
+|---|---|
+| Desktop | Windows or Linux, as the editor runs on; every material at High material quality. |
+| Android | Graph materials cooked at Low material quality, so their Quality Switch nodes take the cheaper branch, and lighter lighting settings. |
+| Web | The browser player, at Low material quality and with lighter lighting settings, as Android. |
+
+Deploy from the editor's Deploy window with a profile from `profiles/`.
 
 ## Credits
 
-Textures, HDRIs and models are CC0 from Poly Haven, ambientCG and the Khronos glTF sample assets: see
-[CREDITS.md](CREDITS.md). The hall, the shader ball, the banner, the water sheet, the column and the terrain are
+Textures, HDRIs and models are CC0 from Poly Haven, ambientCG and the Khronos glTF sample assets; every one is listed
+in [CREDITS.md](CREDITS.md). The hall, the shader ball, the banner, the water sheet, the column and the terrain are
 meshes generated for this sample.
 
-The sample's own files are under the MIT license: see [LICENSE](LICENSE).
+Code and all other content are under the MIT license in [LICENSE](LICENSE).

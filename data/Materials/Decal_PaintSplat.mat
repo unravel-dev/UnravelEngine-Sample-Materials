@@ -1,0 +1,367 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "decal_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "paint_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "gloss",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "centre",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5,
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "offset",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "radius",
+       "type": "length",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "distance",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "radius",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "splash_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          6.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "noise_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "splash_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wobble",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "noise_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ragged",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wobble",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.6200000047683716
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "ragged",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shape",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "paint_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.8500000238418579,
+          0.07999999821186066,
+          0.41999998688697817,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Paint Color"
+        },
+        {
+         "name": "description",
+         "value": "The paint's colour."
+        }
+       ]
+      },
+      {
+       "id": "gloss",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.18000000715255738
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Paint Roughness"
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "1.0"
+        }
+       ]
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

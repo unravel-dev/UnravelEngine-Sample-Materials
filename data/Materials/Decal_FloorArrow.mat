@@ -1,0 +1,389 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "decal_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "paint_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "opacity",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "head_v",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.7799999713897705
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "head_uv",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.u",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "head_v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "head",
+       "type": "polygon",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "head_uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "sides",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        },
+        {
+         "pin": "width",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "height",
+         "link": "",
+         "value": [
+          0.41999998688697817
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stem_offset",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.0,
+          -0.15000000596046449
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stem_uv",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "stem_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stem",
+       "type": "rectangle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "stem_uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "width",
+         "link": "",
+         "value": [
+          0.2800000011920929
+         ]
+        },
+        {
+         "pin": "height",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "arrow",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "head",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "stem",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wear_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          22.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wear",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "wear_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "paint",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "arrow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wear",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "paint_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.949999988079071,
+          0.7200000286102295,
+          0.07999999821186066,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Paint Color"
+        },
+        {
+         "name": "description",
+         "value": "The paint's colour."
+        }
+       ]
+      },
+      {
+       "id": "opacity",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "paint",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.9200000166893005
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

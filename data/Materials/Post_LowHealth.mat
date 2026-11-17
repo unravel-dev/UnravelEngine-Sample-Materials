@@ -1,0 +1,490 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "post_process_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "color",
+         "link": "color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "strength",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "location",
+         "value": "after_tonemapping"
+        }
+       ]
+      },
+      {
+       "id": "scene",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": [
+        {
+         "name": "source",
+         "value": "scene_color"
+        }
+       ]
+      },
+      {
+       "id": "uv",
+       "type": "screen_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "centre",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5,
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "from_centre",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge_length",
+       "type": "length",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "from_centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge_distance",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge_length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.399999976158142
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.949999988079071
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "edge_distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grey_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grey",
+       "type": "desaturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "color",
+         "link": "scene.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "amount",
+         "link": "grey_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tint",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5,
+          0.0,
+          0.0,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Tint"
+        },
+        {
+         "name": "description",
+         "value": "The colour the edges go."
+        }
+       ]
+      },
+      {
+       "id": "time",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "beat_speed",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "time.seconds",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "beat",
+       "type": "sine",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "beat_speed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pulse_depth",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "beat",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.25
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pulse",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pulse_depth",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "red_edge",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pulse",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "red_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "red_edge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "grey",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tint.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "red_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "strength",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Strength"
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "1.0"
+        }
+       ]
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

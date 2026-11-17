@@ -1,0 +1,1166 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "decal_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "opacity",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "roughness",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "thickness",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "centre",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5,
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "offset",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "radius",
+       "type": "length",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "distance",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "radius",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "direction",
+       "type": "normalize",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "noise_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wobble",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "noise_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ragged",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wobble",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "core_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.2800000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.36000001430511477
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "ragged",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "core",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "core_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "direction",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          3.5
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach_sharp",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.8500000238418579
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "reach_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach_scaled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "reach_sharp",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "reach_scaled",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach_start",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "reach",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05999999865889549
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spike_end",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "reach_start",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "reach",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "narrow_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "direction",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          16.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "narrow",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.6200000047683716
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "narrow_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spike_body",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "spike_end",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spikes",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "spike_body",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "narrow",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "cells",
+       "type": "voronoi",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          15.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dot_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.09000000357627869
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "cells.distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dot",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "dot_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "kept",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.7200000286102295
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring_inner",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.949999988079071
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring_outer",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "ring_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ring_inner",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "ring_outer",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dots_kept",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "dot",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "kept",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drops",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "dots_kept",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "ring",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "core_or_spikes",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "core",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "spikes",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shape",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "core_or_spikes",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "drops",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "age",
+       "type": "decal_data",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "dry",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "age.normalized_age",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fresh_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.30000001192092898,
+          0.0,
+          0.009999999776482582,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Fresh Color"
+        },
+        {
+         "name": "description",
+         "value": "The blood's colour while it is wet."
+        }
+       ]
+      },
+      {
+       "id": "dried_color",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.07999999821186066,
+          0.014000000432133675,
+          0.009999999776482582,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fresh_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "dried_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "dry",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "roughness",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.07999999821186066
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "dry",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height_noise",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.029999999329447748
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "core",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "height_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thickness",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "opacity",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.9700000286102295
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

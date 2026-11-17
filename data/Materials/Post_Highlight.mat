@@ -1,0 +1,895 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "post_process_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "color",
+         "link": "highlight_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "opacity",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "location",
+         "value": "before_transparent"
+        }
+       ]
+      },
+      {
+       "id": "uv",
+       "type": "screen_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "screen",
+       "type": "screen_size",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "texel",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "screen.texel",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "axis_x",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "step_x",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "texel",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "axis_x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "axis_y",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.0,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "step_y",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "texel",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "axis_y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mask",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": [
+        {
+         "name": "source",
+         "value": "custom_mask"
+        }
+       ]
+      },
+      {
+       "id": "uv_right",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "step_x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv_left",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "step_x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv_up",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "step_y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv_down",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "step_y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mask_right",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv_right",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "source",
+         "value": "custom_mask"
+        }
+       ]
+      },
+      {
+       "id": "delta_right",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "mask_right.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mask.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "difference_right",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "delta_right",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mask_left",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv_left",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "source",
+         "value": "custom_mask"
+        }
+       ]
+      },
+      {
+       "id": "delta_left",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "mask_left.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mask.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "difference_left",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "delta_left",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mask_up",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv_up",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "source",
+         "value": "custom_mask"
+        }
+       ]
+      },
+      {
+       "id": "delta_up",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "mask_up.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mask.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "difference_up",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "delta_up",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "mask_down",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv_down",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "source",
+         "value": "custom_mask"
+        }
+       ]
+      },
+      {
+       "id": "delta_down",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "mask_down.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mask.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "difference_down",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "delta_down",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sum_x",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "difference_right",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "difference_left",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sum_y",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "difference_up",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "difference_down",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sum",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "sum_x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "sum_y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "sum",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "scene_depth",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": [
+        {
+         "name": "source",
+         "value": "scene_depth"
+        }
+       ]
+      },
+      {
+       "id": "custom_depth",
+       "type": "scene_texture",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": [
+        {
+         "name": "source",
+         "value": "custom_depth"
+        }
+       ]
+      },
+      {
+       "id": "depth_bias",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "scene_depth.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "behind",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "depth_bias",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "custom_depth.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "masked",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "mask.r",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "hidden_mask",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "behind",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "masked",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fill",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Hidden Fill"
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "1.0"
+        }
+       ]
+      },
+      {
+       "id": "hidden",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "hidden_mask",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "fill",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "highlight_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0,
+          0.6200000047683716,
+          0.11999999731779099,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Highlight Color"
+        },
+        {
+         "name": "description",
+         "value": "The outline's colour."
+        }
+       ]
+      },
+      {
+       "id": "opacity",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "hidden",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

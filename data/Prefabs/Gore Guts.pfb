@@ -1,0 +1,2582 @@
+{
+ "version": 1,
+ "statements": {
+  "overrides": [],
+  "removed_entities": [],
+  "removed_instances": []
+ },
+ "entities": [
+  {
+   "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+   "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gore Guts",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": -10.0,
+       "z": 81.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": -0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "nil",
+      "uid": "nil"
+     },
+     "children": [
+      {
+       "prefab_uid": "173e8953-baa2-dd4a-8a28-185a8f82ed6c",
+       "uid": "fda1b933-e951-8c4a-9bd7-113ae252e846"
+      },
+      {
+       "prefab_uid": "6fa537a1-92fc-c945-8416-75538b930f8c",
+       "uid": "e9990e93-6110-8540-ab62-d89adb1bb6f7"
+      },
+      {
+       "prefab_uid": "33655418-e711-214d-abdf-1243fb93c97a",
+       "uid": "b072e056-68d2-a54b-9422-7878e69c715b"
+      },
+      {
+       "prefab_uid": "f32673b7-1b8f-e04b-97a1-eb92d06ef532",
+       "uid": "5847373a-66cb-d644-8e28-0c73402733de"
+      },
+      {
+       "prefab_uid": "6a39eac3-123a-c944-ae1a-9f5946cd1890",
+       "uid": "42d018b4-3acb-bf40-833e-98c86a7f8bf1"
+      },
+      {
+       "prefab_uid": "daafd03c-893d-c446-91f8-bbd0379754e6",
+       "uid": "c3b2fd52-8115-584f-9baf-2b3d901759d7"
+      },
+      {
+       "prefab_uid": "6b59d48e-b2e6-e14c-85b8-1a65fbdd647c",
+       "uid": "5dc1c8ba-e9b9-024f-aae8-0e4b05cf07f2"
+      },
+      {
+       "prefab_uid": "767e3d1c-8593-d047-80d1-4ea6f6435937",
+       "uid": "f0b5ee77-c6c4-5544-aa78-b3339e56aa21"
+      },
+      {
+       "prefab_uid": "2828a155-aec7-3d47-9d76-7b61dd2f6a56",
+       "uid": "dffab268-16fe-4e42-ba7d-6b66108f04af"
+      },
+      {
+       "prefab_uid": "71fe0933-9542-a54b-8752-3e0ec6b6f9c0",
+       "uid": "c4a82f6b-6f9d-a544-8c28-3bf45d962753"
+      },
+      {
+       "prefab_uid": "3cc7722f-b40f-4f43-95ad-4ac85f144847",
+       "uid": "86bfc353-7144-8c44-bfb9-1c260d7341d8"
+      },
+      {
+       "prefab_uid": "2e166f0a-4064-dd44-a9e9-447c4b427f45",
+       "uid": "dcfcd383-80e2-b849-8c0e-2abca15ef63b"
+      },
+      {
+       "prefab_uid": "07afa179-544a-b94d-8184-73adb90282c7",
+       "uid": "2aa9f101-8272-7549-a1c8-44bfe7dcf2e4"
+      },
+      {
+       "prefab_uid": "439fa06d-f870-394d-bb2f-73cef91a5210",
+       "uid": "f43a92db-3acc-cd4b-91db-0bf4d84ed1c9"
+      },
+      {
+       "prefab_uid": "d7d292a3-c5d2-bf4b-844e-6e5ee8b8dde2",
+       "uid": "499fecba-6cc5-6b49-9add-46306da5a5bc"
+      },
+      {
+       "prefab_uid": "1059f7a8-05b3-8b4e-8e34-f351c3949d05",
+       "uid": "910d60c8-b70d-254f-bebf-a071cc9f1c6d"
+      },
+      {
+       "prefab_uid": "d7c6693d-deb2-7246-a141-3b96da1913be",
+       "uid": "a4135295-be39-8641-ab78-afae3a21f15c"
+      }
+     ],
+     "active": true
+    }
+   }
+  },
+  {
+   "prefab_uid": "173e8953-baa2-dd4a-8a28-185a8f82ed6c",
+   "uid": "fda1b933-e951-8c4a-9bd7-113ae252e846",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "fda1b933-e951-8c4a-9bd7-113ae252e846"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 1",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "173e8953-baa2-dd4a-8a28-185a8f82ed6c",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "bc53e268-dde9-a243-bb47-8ec301ce4fe6",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "6fa537a1-92fc-c945-8416-75538b930f8c",
+   "uid": "e9990e93-6110-8540-ab62-d89adb1bb6f7",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "e9990e93-6110-8540-ab62-d89adb1bb6f7"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 2",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "6fa537a1-92fc-c945-8416-75538b930f8c",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.23999977111816407,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "d9a6f282-02ff-0041-ac4d-30ea1b161a5b",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "33655418-e711-214d-abdf-1243fb93c97a",
+   "uid": "b072e056-68d2-a54b-9422-7878e69c715b",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "b072e056-68d2-a54b-9422-7878e69c715b"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 3",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "33655418-e711-214d-abdf-1243fb93c97a",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.4799995422363281,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "33672c9f-77d6-7849-898a-490e09d0ac32",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "f32673b7-1b8f-e04b-97a1-eb92d06ef532",
+   "uid": "5847373a-66cb-d644-8e28-0c73402733de",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "5847373a-66cb-d644-8e28-0c73402733de"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 4",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "f32673b7-1b8f-e04b-97a1-eb92d06ef532",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.7200002670288086,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "4c0ddf86-3eb7-a346-8247-c454a4002893",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "6a39eac3-123a-c944-ae1a-9f5946cd1890",
+   "uid": "42d018b4-3acb-bf40-833e-98c86a7f8bf1",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "42d018b4-3acb-bf40-833e-98c86a7f8bf1"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 5",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "6a39eac3-123a-c944-ae1a-9f5946cd1890",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.9600000381469727,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "b4a0a928-dfc3-da47-82ca-b64e9d6c3c2f",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "daafd03c-893d-c446-91f8-bbd0379754e6",
+   "uid": "c3b2fd52-8115-584f-9baf-2b3d901759d7",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "c3b2fd52-8115-584f-9baf-2b3d901759d7"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 6",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "daafd03c-893d-c446-91f8-bbd0379754e6",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.1999998092651368,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "9a4abb28-4400-3c4d-a1af-da164799bed2",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "6b59d48e-b2e6-e14c-85b8-1a65fbdd647c",
+   "uid": "5dc1c8ba-e9b9-024f-aae8-0e4b05cf07f2",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "5dc1c8ba-e9b9-024f-aae8-0e4b05cf07f2"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 7",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "6b59d48e-b2e6-e14c-85b8-1a65fbdd647c",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.4399995803833008,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "d447bff8-86cc-bf48-b507-8630f714146a",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "767e3d1c-8593-d047-80d1-4ea6f6435937",
+   "uid": "f0b5ee77-c6c4-5544-aa78-b3339e56aa21",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "f0b5ee77-c6c4-5544-aa78-b3339e56aa21"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 8",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "767e3d1c-8593-d047-80d1-4ea6f6435937",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.6800003051757813,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "14008a5f-dd53-4848-b675-ece3890ac65a",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "2828a155-aec7-3d47-9d76-7b61dd2f6a56",
+   "uid": "dffab268-16fe-4e42-ba7d-6b66108f04af",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "dffab268-16fe-4e42-ba7d-6b66108f04af"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut 9",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "2828a155-aec7-3d47-9d76-7b61dd2f6a56",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.9200000762939454,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 0.09000000357627869,
+       "y": 0.15000000596046449,
+       "z": 0.09000000357627869
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_model_component": true,
+    "model_component": {
+     "enabled": true,
+     "static": true,
+     "casts_shadow": true,
+     "receive_decals": 0,
+     "post_process_mask": 0,
+     "model": {
+      "lods": [
+       {
+        "uid": "2a2b9805-cfd5-bd53-ba6a-ef6b05667095"
+       }
+      ],
+      "materials": [
+       {
+        "uid": "4c286910-cf21-5447-b31d-61b2c914a934"
+       }
+      ],
+      "material_instances": [],
+      "lod_override_enabled": false,
+      "lod_override_level": 0,
+      "lod_selection_bias": 0.0,
+      "lod_transition_time": {
+       "count": 0.0
+      }
+     }
+    },
+    "has_physics_component": true,
+    "physics_component": {
+     "is_using_gravity": true,
+     "body_type": 2,
+     "is_sensor": false,
+     "is_autoscaled": true,
+     "sensor_events": true,
+     "collision_events": true,
+     "sensor_exit_on_destroy": true,
+     "collision_exit_on_destroy": false,
+     "mass": 0.11999999731779099,
+     "include_layers": {
+      "mask": -1
+     },
+     "exclude_layers": {
+      "mask": 0
+     },
+     "freeze_position": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "freeze_rotation": {
+      "x": false,
+      "y": false,
+      "z": false
+     },
+     "material": {
+      "uid": "nil"
+     },
+     "shapes": [
+      {
+       "shape": {
+        "index": 2,
+        "data": {
+         "center": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         },
+         "radius": 0.5,
+         "length": 2.0,
+         "rotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+         }
+        }
+       }
+      }
+     ],
+     "gravity_scale": 1.0,
+     "linear_damping": 0.4000000059604645,
+     "angular_damping": 1.5,
+     "is_continuous": false,
+     "can_sleep": true,
+     "surface_velocity": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "interpolate": false
+    },
+    "has_script_component": true,
+    "script_component": {
+     "script_components": [
+      {
+       "type": "GoreChunk",
+       "@slot": "1a5b8242-9461-5849-a696-6485678686c5",
+       "splatter": {
+        "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
+       },
+       "sizeRange": {
+        "x": 0.05999999865889549,
+        "y": 0.14000000059604646
+       },
+       "maxSplatters": 2,
+       "minSpeed": 0.6000000238418579,
+       "lifetime": 30.0
+      }
+     ]
+    }
+   }
+  },
+  {
+   "prefab_uid": "71fe0933-9542-a54b-8752-3e0ec6b6f9c0",
+   "uid": "c4a82f6b-6f9d-a544-8c28-3bf45d962753",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "c4a82f6b-6f9d-a544-8c28-3bf45d962753"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 1",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "71fe0933-9542-a54b-8752-3e0ec6b6f9c0",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.11999988555908203,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "173e8953-baa2-dd4a-8a28-185a8f82ed6c",
+      "uid": "fda1b933-e951-8c4a-9bd7-113ae252e846"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "6fa537a1-92fc-c945-8416-75538b930f8c",
+      "uid": "e9990e93-6110-8540-ab62-d89adb1bb6f7"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "3cc7722f-b40f-4f43-95ad-4ac85f144847",
+   "uid": "86bfc353-7144-8c44-bfb9-1c260d7341d8",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "86bfc353-7144-8c44-bfb9-1c260d7341d8"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 2",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "3cc7722f-b40f-4f43-95ad-4ac85f144847",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.3599996566772461,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "6fa537a1-92fc-c945-8416-75538b930f8c",
+      "uid": "e9990e93-6110-8540-ab62-d89adb1bb6f7"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "33655418-e711-214d-abdf-1243fb93c97a",
+      "uid": "b072e056-68d2-a54b-9422-7878e69c715b"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "2e166f0a-4064-dd44-a9e9-447c4b427f45",
+   "uid": "dcfcd383-80e2-b849-8c0e-2abca15ef63b",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "dcfcd383-80e2-b849-8c0e-2abca15ef63b"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 3",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "2e166f0a-4064-dd44-a9e9-447c4b427f45",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.6000003814697266,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "33655418-e711-214d-abdf-1243fb93c97a",
+      "uid": "b072e056-68d2-a54b-9422-7878e69c715b"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "f32673b7-1b8f-e04b-97a1-eb92d06ef532",
+      "uid": "5847373a-66cb-d644-8e28-0c73402733de"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "07afa179-544a-b94d-8184-73adb90282c7",
+   "uid": "2aa9f101-8272-7549-a1c8-44bfe7dcf2e4",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "2aa9f101-8272-7549-a1c8-44bfe7dcf2e4"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 4",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "07afa179-544a-b94d-8184-73adb90282c7",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 0.8400001525878906,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "f32673b7-1b8f-e04b-97a1-eb92d06ef532",
+      "uid": "5847373a-66cb-d644-8e28-0c73402733de"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "6a39eac3-123a-c944-ae1a-9f5946cd1890",
+      "uid": "42d018b4-3acb-bf40-833e-98c86a7f8bf1"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "439fa06d-f870-394d-bb2f-73cef91a5210",
+   "uid": "f43a92db-3acc-cd4b-91db-0bf4d84ed1c9",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "f43a92db-3acc-cd4b-91db-0bf4d84ed1c9"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 5",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "439fa06d-f870-394d-bb2f-73cef91a5210",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.0799999237060547,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "6a39eac3-123a-c944-ae1a-9f5946cd1890",
+      "uid": "42d018b4-3acb-bf40-833e-98c86a7f8bf1"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "daafd03c-893d-c446-91f8-bbd0379754e6",
+      "uid": "c3b2fd52-8115-584f-9baf-2b3d901759d7"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "d7d292a3-c5d2-bf4b-844e-6e5ee8b8dde2",
+   "uid": "499fecba-6cc5-6b49-9add-46306da5a5bc",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "499fecba-6cc5-6b49-9add-46306da5a5bc"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 6",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "d7d292a3-c5d2-bf4b-844e-6e5ee8b8dde2",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.3199996948242188,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "daafd03c-893d-c446-91f8-bbd0379754e6",
+      "uid": "c3b2fd52-8115-584f-9baf-2b3d901759d7"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "6b59d48e-b2e6-e14c-85b8-1a65fbdd647c",
+      "uid": "5dc1c8ba-e9b9-024f-aae8-0e4b05cf07f2"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "1059f7a8-05b3-8b4e-8e34-f351c3949d05",
+   "uid": "910d60c8-b70d-254f-bebf-a071cc9f1c6d",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "910d60c8-b70d-254f-bebf-a071cc9f1c6d"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 7",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "1059f7a8-05b3-8b4e-8e34-f351c3949d05",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.5600004196166993,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "6b59d48e-b2e6-e14c-85b8-1a65fbdd647c",
+      "uid": "5dc1c8ba-e9b9-024f-aae8-0e4b05cf07f2"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "767e3d1c-8593-d047-80d1-4ea6f6435937",
+      "uid": "f0b5ee77-c6c4-5544-aa78-b3339e56aa21"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  },
+  {
+   "prefab_uid": "d7c6693d-deb2-7246-a141-3b96da1913be",
+   "uid": "a4135295-be39-8641-ab78-afae3a21f15c",
+   "components": {
+    "has_id_component": true,
+    "id_component": {
+     "id": "a4135295-be39-8641-ab78-afae3a21f15c"
+    },
+    "has_tag_component": true,
+    "tag_component": {
+     "name": "Gut Joint 8",
+     "tag": ""
+    },
+    "has_layer_component": true,
+    "layer_component": {
+     "layers": {
+      "mask": 1
+     }
+    },
+    "has_prefab_id_component": true,
+    "prefab_id_component": {
+     "id": "d7c6693d-deb2-7246-a141-3b96da1913be",
+     "document": "9ca32d06-89e9-404c-b675-4c8a75620fe3"
+    },
+    "has_transform_component": true,
+    "transform_component": {
+     "local_transform": {
+      "position": {
+       "x": 0.0,
+       "y": 1.8000001907348633,
+       "z": 0.0
+      },
+      "rotation_euler": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      },
+      "scale": {
+       "x": 1.0,
+       "y": 1.0,
+       "z": 1.0
+      },
+      "skew": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "parent": {
+      "prefab_uid": "eb900ca3-00af-4b4f-9d9c-e1a105da0c3d",
+      "uid": "6ebadc5c-51df-b549-990f-9b3dd1d6d88d"
+     },
+     "children": [],
+     "active": true
+    },
+    "has_joint_component": true,
+    "joint_component": {
+     "type": 3,
+     "body_a": {
+      "flags": 2,
+      "prefab_uid": "767e3d1c-8593-d047-80d1-4ea6f6435937",
+      "uid": "f0b5ee77-c6c4-5544-aa78-b3339e56aa21"
+     },
+     "body_b": {
+      "flags": 2,
+      "prefab_uid": "2828a155-aec7-3d47-9d76-7b61dd2f6a56",
+      "uid": "dffab268-16fe-4e42-ba7d-6b66108f04af"
+     },
+     "anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "axis_rotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "collide_connected": false,
+     "limits": {
+      "enabled": true,
+      "lower": -45.0,
+      "upper": 45.0,
+      "cone_angle": 70.0
+     },
+     "spring": {
+      "enabled": false,
+      "frequency": 2.0,
+      "damping_ratio": 0.699999988079071,
+      "target": 0.0,
+      "target_rotation": {
+       "x": 0.0,
+       "y": 0.0,
+       "z": 0.0
+      }
+     },
+     "motor": {
+      "enabled": false,
+      "speed": 90.0,
+      "max_force": 100.0
+     },
+     "steering": {
+      "enabled": false,
+      "angle": 0.0,
+      "limit": 35.0,
+      "max_torque": 500.0
+     },
+     "friction": 0.0,
+     "distance": 0.0,
+     "connected_anchor": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+     },
+     "break_force": 0.0,
+     "break_torque": 0.0
+    }
+   }
+  }
+ ]
+}

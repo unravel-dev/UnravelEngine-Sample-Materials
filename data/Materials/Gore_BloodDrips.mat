@@ -1,0 +1,703 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "decal_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "drip_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "opacity",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "across",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.u",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          12.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "column",
+       "type": "floor",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "across",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "in_column",
+       "type": "frac",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "across",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "column_uv",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.3700000047683716
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pick",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "column_uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          0.8299999833106995
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "length_scaled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pick",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "length",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "length_scaled",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "width_scaled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pick",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "width",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "width_scaled",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "from_middle",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "in_column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "centred",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "from_middle",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stripe_start",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "width",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05999999865889549
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stripe_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "stripe_start",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "width",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "centred",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stripe",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "stripe_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "body_start",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.029999999329447748
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "body_end",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "body_start",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "body",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "body_end",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drip",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "stripe",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "body",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          8.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_wobble",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "smear_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.07999999821186066
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_depth",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "smear_wobble",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.10000000149011612
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.18000000715255738
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "smear_depth",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "smear_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shape",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "drip",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "smear",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drip_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.2199999988079071,
+          0.0,
+          0.00800000037997961,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Drip Color"
+        },
+        {
+         "name": "description",
+         "value": "The blood's colour."
+        }
+       ]
+      },
+      {
+       "id": "opacity",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.949999988079071
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

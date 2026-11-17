@@ -1,0 +1,437 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "decal_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "panel",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity",
+         "link": "opacity",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "diagonal",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.u",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "diagonal_scaled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "diagonal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bands",
+       "type": "frac",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "diagonal_scaled",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stripes",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bands",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "outer",
+       "type": "rectangle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "width",
+         "link": "",
+         "value": [
+          0.9599999785423279
+         ]
+        },
+        {
+         "pin": "height",
+         "link": "",
+         "value": [
+          0.9599999785423279
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "inner",
+       "type": "rectangle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "width",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "height",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "frame",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "outer",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "inner",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stripe_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0,
+          0.7400000095367432,
+          0.05000000074505806,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Stripe Color"
+        }
+       ]
+      },
+      {
+       "id": "black",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.019999999552965165,
+          0.019999999552965165,
+          0.019999999552965165,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "striped",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "black.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "stripe_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "stripes",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "panel",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "striped",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "black.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "frame",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "weather_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          14.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "weathering",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.15000000596046449
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "weather_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "opacity",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "outer",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "weathering",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

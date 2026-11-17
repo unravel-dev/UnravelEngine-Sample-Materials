@@ -1,0 +1,501 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "veined",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "bumps",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "texcoord",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "fold_phase",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "texcoord.v",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          60.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "folds",
+       "type": "sine",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "fold_phase",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fold_half",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "folds",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fold_amount",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fold_half",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vein_stretch",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          6.0,
+          14.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vein_uv",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "texcoord",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "vein_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "veins",
+       "type": "voronoi",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "vein_uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vein_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.03999999910593033
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "veins.edges",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vein",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "vein_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pink",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5600000023841858,
+          0.2199999988079071,
+          0.23999999463558198,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "deep_pink",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.3199999928474426,
+          0.07000000029802323,
+          0.09000000357627869,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vein_color",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.25,
+          0.019999999552965165,
+          0.05000000074505806,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fold_shade",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fold_amount",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tube",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pink.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "deep_pink.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "fold_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vein_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vein",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "veined",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tube",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "vein_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "vein_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fold_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fold_amount",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.009999999776482582
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bumps",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "fold_height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

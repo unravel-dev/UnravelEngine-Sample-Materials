@@ -63,11 +63,11 @@
          "y": 0
         },
         "viewport_size": {
-         "width": 640,
-         "height": 480
+         "width": 1920,
+         "height": 1080
         },
         "orthographic_size": 5.0,
-        "aspect_ratio": 1.3333333730697632,
+        "aspect_ratio": 1.7777777910232545,
         "aspect_locked": false,
         "frustum_locked": false
        },
@@ -28036,7 +28036,7 @@
         },
         "rotation_euler": {
          "x": 0.0,
-         "y": 0.0,
+         "y": -0.0,
          "z": 0.0
         },
         "scale": {
@@ -39226,7 +39226,7 @@
       },
       "has_physics_component": true,
       "physics_component": {
-       "is_using_gravity": false,
+       "is_using_gravity": true,
        "body_type": 1,
        "is_sensor": false,
        "is_autoscaled": true,
@@ -39379,7 +39379,7 @@
       },
       "has_physics_component": true,
       "physics_component": {
-       "is_using_gravity": false,
+       "is_using_gravity": true,
        "body_type": 1,
        "is_sensor": false,
        "is_autoscaled": true,
@@ -39538,7 +39538,7 @@
       },
       "has_physics_component": true,
       "physics_component": {
-       "is_using_gravity": false,
+       "is_using_gravity": true,
        "body_type": 1,
        "is_sensor": false,
        "is_autoscaled": true,

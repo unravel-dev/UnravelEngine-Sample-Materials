@@ -29,9 +29,12 @@ the editor. Open `data/Scenes/Gallery.spfb` and press Play.
 3. **Depth From Height.** Parallax Occlusion against the same maps as normal maps alone, and a single Bump Offset.
 4. **Procedural.** Cracked earth, marble, wood, mosaic, carbon fibre, lava, terrazzo and caustics from noise,
    Voronoi cells, waves and Color Ramps, with no textures.
-5. **Stylized and Effects.** Hologram, force field, dissolve, iridescent coating, toon shading and a cubemap mirror.
+5. **Stylized and Effects.** An additive, unlit hologram; a force field on an Order Independent shell, whose faces
+   blend without sorting; clear glass that bends the core behind it (Refraction) and frosted glass that blurs it by its
+   Roughness; dissolve, iridescent coating, toon shading and a cubemap mirror.
 6. **Motion.** World Position Offset: ferns in the wind around their own pivots with a phase per copy (Object
-   Position, Per Instance Random), a waving banner, water, a twisting column and a breathing blob. A Vertex
+   Position, Per Instance Random), a waving banner, see-through water that bends the pool floor (Refraction) and
+   clears where it is shallow (Depth Fade), a twisting column and a breathing blob. A Vertex
    Interpolator carries the banner's shading from its vertices to its pixels.
 7. **Layers.** Material Attributes blend whole surfaces: a terrain of rock, grass, mud and snow by slope and height,
    moss on a boulder, puddles on cobblestones.

@@ -1,0 +1,182 @@
+{
+ "material": {
+  "polymorphic_id": 2147483649,
+  "polymorphic_name": "graph_material",
+  "ptr_wrapper": {
+   "id": 2147483649,
+   "data": {
+    "base_type": {
+     "cull_type": 2
+    },
+    "graph": {
+     "version": 1,
+     "nodes": [
+      {
+       "id": "output",
+       "type": "surface_output",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "tint.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "metallic",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          0.029999999329447748
+         ]
+        },
+        {
+         "pin": "refraction",
+         "link": "ior",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "opacity_mask",
+         "link": "cover",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "blend_mode",
+         "value": "translucent"
+        }
+       ]
+      },
+      {
+       "id": "rim",
+       "type": "fresnel",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "power",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ior",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.5
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Index of Refraction"
+        },
+        {
+         "name": "description",
+         "value": "How much the glass bends the view: 1 not at all, glass 1.5."
+        },
+        {
+         "name": "slider_min",
+         "value": "1.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "2.0"
+        }
+       ]
+      },
+      {
+       "id": "tint",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.8500000238418579,
+          0.949999988079071,
+          0.9200000166893005,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Glass Tint"
+        }
+       ]
+      },
+      {
+       "id": "cover",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.07999999821186066
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "rim",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      }
+     ],
+     "comments": []
+    }
+   }
+  }
+ }
+}

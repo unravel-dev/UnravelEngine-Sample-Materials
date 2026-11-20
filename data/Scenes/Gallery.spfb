@@ -86,7 +86,7 @@
         {
          "type": "GalleryTour",
          "@slot": "fedbb409-4d71-ae40-91ba-d6d91c9cda59",
-         "stops": "1.60 1.70 0.40 6.0 -26.0|Physically Based|Base color, metallic and roughness: one Standard graph, its values per instance. Metals take their color from measured reflectance. Dielectrics reflect four percent at normal incidence.\n0.00 1.75 9.40 10.0 0.0|Scanned Surfaces|Photographed texture sets: color, normal, and occlusion, roughness and metallic packed in one map. A graph per set, tiling and tint exposed as parameters.\n0.00 1.80 18.60 5.0 0.0|Depth From Height|Parallax Occlusion steps through a height map along the view, so stones hide what lies behind them. Facing each: the same maps as a normal map alone.\n0.00 1.75 27.40 10.0 0.0|Procedural|No textures: noise, Voronoi cells, waves and Color Ramps make every surface here, at any resolution.\n0.00 1.75 36.40 10.0 0.0|Stylized and Effects|Emissive, translucent and cut-out looks from the same graph: Fresnel rims, scan lines, dissolving edges, toon bands, a cubemap mirror.\n0.00 2.30 45.20 18.0 0.0|Motion|World Position Offset moves vertices in the material: wind around each plant's own pivot, a banner's waves, water, a twist. Shadows and motion vectors follow.\n0.00 2.70 54.00 20.0 0.0|Layers|Material Attributes blend whole surfaces: rock, grass, mud and snow by slope and height, moss on the faces looking up, puddles in the hollows.\n0.00 2.00 62.40 11.0 0.0|Imported Assets|glTF models with their own PBR maps, imported as Standard graph materials: leather, brass, glazed ceramic, glass.\n0.00 2.40 70.80 14.0 0.0|Decals and Post Process|Decal materials lay color, normals and roughness onto whatever is in their box: puddles, markings, damage. A Post Process material draws over the view: here it outlines the exhibits marked by a Post Process Mask.\n0.00 1.85 82.20 6.0 0.0|Blood and Gore|Drag across the dummy to slash it, or click to stab. GoreDummy.cs throws every drop of blood and lays a Decal material where it lands; cuts, stumps and pools are decals too. Deep cuts cut off limbs or spill guts, prefabs with physics.",
+         "stops": "1.60 1.70 0.40 6.0 -26.0|Physically Based|Base color, metallic and roughness: one Standard graph, its values per instance. Metals take their color from measured reflectance. Dielectrics reflect four percent at normal incidence.\n0.00 1.75 9.40 10.0 0.0|Scanned Surfaces|Photographed texture sets: color, normal, and occlusion, roughness and metallic packed in one map. A graph per set, tiling and tint exposed as parameters.\n0.00 1.80 18.60 5.0 0.0|Depth From Height|Parallax Occlusion steps through a height map along the view, so stones hide what lies behind them. Facing each: the same maps as a normal map alone.\n0.00 1.75 27.40 10.0 0.0|Procedural|No textures: noise, Voronoi cells, waves and Color Ramps make every surface here, at any resolution.\n0.00 1.75 36.40 10.0 0.0|Stylized and Effects|Emissive, see-through and cut-out looks from the same graph: additive glows, glass that bends what is behind it, clear or frosted, dissolving edges, toon bands, a cubemap mirror.\n0.00 2.30 45.20 18.0 0.0|Motion|World Position Offset moves vertices in the material: wind around each plant's own pivot, a banner's waves, see-through water, a twist. Shadows and motion vectors follow.\n0.00 2.70 54.00 20.0 0.0|Layers|Material Attributes blend whole surfaces: rock, grass, mud and snow by slope and height, moss on the faces looking up, puddles in the hollows.\n0.00 2.00 62.40 11.0 0.0|Imported Assets|glTF models with their own PBR maps, imported as Standard graph materials: leather, brass, glazed ceramic, glass.\n0.00 2.40 70.80 14.0 0.0|Decals and Post Process|Decal materials lay color, normals and roughness onto whatever is in their box: puddles, markings, damage. A Post Process material draws over the view: here it outlines the exhibits marked by a Post Process Mask.\n0.00 1.85 82.20 6.0 0.0|Blood and Gore|Drag across the dummy to slash it, or click to stab. GoreDummy.cs throws every drop of blood and lays a Decal material where it lands; cuts, stumps and pools are decals too. Deep cuts cut off limbs or spill guts, prefabs with physics.",
          "glideSeconds": 2.5999999046325685,
          "dwellSeconds": 9.0,
          "autoTour": false,
@@ -777,7 +777,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -995,7 +996,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -1213,7 +1215,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -1431,7 +1434,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -1649,7 +1653,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -1867,7 +1872,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -2085,7 +2091,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -2303,7 +2310,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -2521,7 +2529,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -2739,7 +2748,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -2954,7 +2964,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -3163,7 +3174,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -3575,7 +3587,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -3662,7 +3675,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -3900,7 +3914,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -3987,7 +4002,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -4225,7 +4241,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -4312,7 +4329,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -4550,7 +4568,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -4637,7 +4656,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -4875,7 +4895,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -4962,7 +4983,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -5200,7 +5222,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -5287,7 +5310,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -5525,7 +5549,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -5612,7 +5637,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -5850,7 +5876,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -5937,7 +5964,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6175,7 +6203,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6270,7 +6299,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6365,7 +6395,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6460,7 +6491,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6555,7 +6587,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6650,7 +6683,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6745,7 +6779,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6840,7 +6875,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -6935,7 +6971,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7030,7 +7067,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7125,7 +7163,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7220,7 +7259,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7315,7 +7355,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7410,7 +7451,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7505,7 +7547,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7600,7 +7643,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7695,7 +7739,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7790,7 +7835,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7885,7 +7931,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -7980,7 +8027,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -8075,7 +8123,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -8170,7 +8219,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -8265,7 +8315,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -8360,7 +8411,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -8455,7 +8507,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -8550,7 +8603,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -9649,7 +9703,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -9736,7 +9791,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -9974,7 +10030,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -10061,7 +10118,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -10299,7 +10357,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -10386,7 +10445,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -10624,7 +10684,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -10711,7 +10772,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -10949,7 +11011,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -11036,7 +11099,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -11274,7 +11338,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -11361,7 +11426,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -11599,7 +11665,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -11686,7 +11753,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -11924,7 +11992,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12011,7 +12080,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12249,7 +12319,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12336,7 +12407,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12574,7 +12646,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12661,7 +12734,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12899,7 +12973,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -12986,7 +13061,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -13224,7 +13300,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -13311,7 +13388,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -13549,7 +13627,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -13636,7 +13715,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -13874,7 +13954,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -13961,7 +14042,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -15055,7 +15137,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -15142,7 +15225,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -15380,7 +15464,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -15545,7 +15630,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -15710,7 +15796,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -15875,7 +15962,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -16040,7 +16128,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -16205,7 +16294,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -17345,7 +17435,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -17432,7 +17523,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -17670,7 +17762,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -17757,7 +17850,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -17995,7 +18089,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -18082,7 +18177,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -18320,7 +18416,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -18407,7 +18504,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -18645,7 +18743,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -18732,7 +18831,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -18970,7 +19070,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -19057,7 +19158,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -19295,7 +19397,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -19382,7 +19485,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -19620,7 +19724,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -19707,7 +19812,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -20664,10 +20770,19 @@
          "uid": "d5e9bffb-ea36-2c46-bf2e-63a34c490216"
         },
         {
+         "uid": "d8b624f6-9fbd-1b4b-9655-d341d0365799"
+        },
+        {
          "uid": "572b112b-4eab-3e4f-bb5e-a4fa402510b6"
         },
         {
+         "uid": "ab311e63-3420-c24f-ab8f-d3f1d07cfe45"
+        },
+        {
          "uid": "5ab2e673-f7c7-af4f-8d9b-8449aabf9a39"
+        },
+        {
+         "uid": "167921e8-8109-7e4e-9d1b-c3d4107b5abd"
         },
         {
          "uid": "68233774-ad59-5e4b-8ebc-77bff144ddca"
@@ -20694,10 +20809,19 @@
          "uid": "2a8c9360-1e36-ea46-8fc4-d3a8d8c2cd11"
         },
         {
+         "uid": "cb6596e2-70b9-6246-90dc-bca2197dc58b"
+        },
+        {
          "uid": "b3dc03ab-884d-eb45-bbeb-7577be80492b"
         },
         {
+         "uid": "0634e830-f3d1-4e4c-be49-c8a0f40a9d35"
+        },
+        {
          "uid": "d1494ebb-9715-c946-9ec6-7731844f996b"
+        },
+        {
+         "uid": "d752900a-6b11-324e-a6b7-2e1b35f61c80"
         },
         {
          "uid": "b42267a7-bc76-4f4a-8a1a-e2813ddd5378"
@@ -20810,7 +20934,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -20891,7 +21016,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -21006,7 +21132,7 @@
       },
       "has_text_component": true,
       "text_component": {
-       "text": "Hologram\nFresnel rim, scrolling scan lines, a flicker from Random of the time.",
+       "text": "Hologram\nAdditive and Unlit: a Fresnel rim and scan lines that add light.",
        "is_rich": false,
        "font": {
         "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
@@ -21068,11 +21194,11 @@
         "position": {
          "x": -4.599999904632568,
          "y": 0.4000000059604645,
-         "z": 4.5
+         "z": 5.533332824707031
         },
         "rotation_euler": {
          "x": 0.0,
-         "y": 0.0,
+         "y": -0.0,
          "z": 0.0
         },
         "scale": {
@@ -21117,7 +21243,86 @@
         "lod_transition_time": {
          "count": 0.0
         }
+       },
+       "sort_priority": 0
+      }
+     }
+    },
+    {
+     "uid": "d8b624f6-9fbd-1b4b-9655-d341d0365799",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "d8b624f6-9fbd-1b4b-9655-d341d0365799"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "Plinth Glass",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
        }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": -4.599999904632568,
+         "y": 0.4000000059604645,
+         "z": 3.4666671752929689
+        },
+        "rotation_euler": {
+         "x": 0.0,
+         "y": -0.0,
+         "z": 0.0
+        },
+        "scale": {
+         "x": 0.8999999761581421,
+         "y": 0.800000011920929,
+         "z": 0.8999999761581421
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "beab12ad-4906-e94d-bb3e-d8bc01bdd4c9"
+       },
+       "children": [],
+       "active": true
+      },
+      "has_model_component": true,
+      "model_component": {
+       "enabled": true,
+       "static": true,
+       "casts_shadow": true,
+       "receive_decals": 0,
+       "post_process_mask": 0,
+       "model": {
+        "lods": [
+         {
+          "uid": "790e9074-e0a4-605b-baab-e3bff1339e45"
+         }
+        ],
+        "materials": [
+         {
+          "uid": "89d4ab8b-f891-6f4e-9af6-e6d39aa66fa3"
+         }
+        ],
+        "material_instances": [],
+        "lod_override_enabled": false,
+        "lod_override_level": 0,
+        "lod_selection_bias": 0.0,
+        "lod_transition_time": {
+         "count": 0.0
+        }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -21145,7 +21350,7 @@
         "position": {
          "x": -4.599999904632568,
          "y": 0.800000011920929,
-         "z": 4.5
+         "z": 5.533332824707031
         },
         "rotation_euler": {
          "x": 0.0,
@@ -21204,7 +21409,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -21282,6 +21488,167 @@
      }
     },
     {
+     "uid": "ab311e63-3420-c24f-ab8f-d3f1d07cfe45",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "ab311e63-3420-c24f-ab8f-d3f1d07cfe45"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "FX_Glass",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
+       }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": -4.599999904632568,
+         "y": 0.800000011920929,
+         "z": 3.4666671752929689
+        },
+        "rotation_euler": {
+         "x": 0.0,
+         "y": -65.0,
+         "z": 0.0
+        },
+        "scale": {
+         "x": 1.0,
+         "y": 1.0,
+         "z": 1.0
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "beab12ad-4906-e94d-bb3e-d8bc01bdd4c9"
+       },
+       "children": [
+        {
+         "uid": "985f676f-d3f4-7b4b-95fb-5853dcc16e53"
+        }
+       ],
+       "active": true
+      },
+      "has_model_component": true,
+      "model_component": {
+       "enabled": true,
+       "static": true,
+       "casts_shadow": true,
+       "receive_decals": 0,
+       "post_process_mask": 0,
+       "model": {
+        "lods": [
+         {
+          "uid": "b8a5feb9-01b0-524d-ae93-ebf898fb7977"
+         }
+        ],
+        "materials": [
+         {
+          "uid": "687f249e-025f-b14b-8a5c-a5bdb36a92bd"
+         },
+         {
+          "uid": "d78ed18f-0fb5-ce4c-a8ed-921d0aebcf66"
+         },
+         {
+          "uid": "1fb354df-6729-4d47-b4ab-18f269a52ebf"
+         }
+        ],
+        "material_instances": [],
+        "lod_override_enabled": false,
+        "lod_override_level": 0,
+        "lod_selection_bias": 0.0,
+        "lod_transition_time": {
+         "count": 0.0
+        }
+       },
+       "sort_priority": 0
+      }
+     }
+    },
+    {
+     "uid": "985f676f-d3f4-7b4b-95fb-5853dcc16e53",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "985f676f-d3f4-7b4b-95fb-5853dcc16e53"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "ShaderBall",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
+       }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": -0.0
+        },
+        "rotation_euler": {
+         "x": -180.0,
+         "y": -0.000005008956122765085,
+         "z": 180.0
+        },
+        "scale": {
+         "x": 1.0,
+         "y": 1.0,
+         "z": 1.0
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "ab311e63-3420-c24f-ab8f-d3f1d07cfe45"
+       },
+       "children": [],
+       "active": true
+      },
+      "has_submesh_component": true,
+      "submesh_component": {
+       "entries": [
+        {
+         "submesh_index": 0,
+         "stable_id": 1064620592,
+         "casts_shadow": true,
+         "enabled": true
+        },
+        {
+         "submesh_index": 1,
+         "stable_id": 1081398211,
+         "casts_shadow": true,
+         "enabled": true
+        },
+        {
+         "submesh_index": 2,
+         "stable_id": 1098175830,
+         "casts_shadow": true,
+         "enabled": true
+        }
+       ]
+      }
+     }
+    },
+    {
      "uid": "5ab2e673-f7c7-af4f-8d9b-8449aabf9a39",
      "components": {
       "has_id_component": true,
@@ -21305,7 +21672,7 @@
         "position": {
          "x": -4.144999980926514,
          "y": 0.6600000262260437,
-         "z": 4.5
+         "z": 5.533332824707031
         },
         "rotation_euler": {
          "x": 0.0,
@@ -21332,6 +21699,94 @@
       "has_text_component": true,
       "text_component": {
        "text": "Dissolve\nNoise against a moving threshold: Discard cuts, the edge burns.",
+       "is_rich": false,
+       "font": {
+        "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
+       },
+       "font_size": 10,
+       "auto_size": false,
+       "auto_size_range": {
+        "min": 18,
+        "max": 72
+       },
+       "alignment": 10,
+       "overflow": 1,
+       "area": {
+        "width": 16.0,
+        "height": 6.0
+       },
+       "buffer_type": 0,
+       "style": {
+        "opacity": 1.0,
+        "text_color": 4292601322,
+        "background_color": 0,
+        "foreground_color": 0,
+        "overline_color": 4294967295,
+        "underline_color": 4294967295,
+        "strike_color": 4294967295,
+        "outline_color": 4278190080,
+        "shadow_color": 4278190080,
+        "shadow_softener": 1.0,
+        "shadow_offsets": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "style_flags": 0
+       }
+      }
+     }
+    },
+    {
+     "uid": "167921e8-8109-7e4e-9d1b-c3d4107b5abd",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "167921e8-8109-7e4e-9d1b-c3d4107b5abd"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "Plaque Glass",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
+       }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": -4.144999980926514,
+         "y": 0.6600000262260437,
+         "z": 3.4666671752929689
+        },
+        "rotation_euler": {
+         "x": 0.0,
+         "y": -90.0,
+         "z": 0.0
+        },
+        "scale": {
+         "x": 0.05000000074505806,
+         "y": 0.05000000074505806,
+         "z": 0.05000000074505806
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "beab12ad-4906-e94d-bb3e-d8bc01bdd4c9"
+       },
+       "children": [],
+       "active": true
+      },
+      "has_text_component": true,
+      "text_component": {
+       "text": "Glass\nTranslucent with Refraction 1.5: the core bends through the shell.",
        "is_rich": false,
        "font": {
         "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
@@ -21442,7 +21897,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -21529,7 +21985,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -21767,7 +22224,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -21854,7 +22312,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -22004,7 +22463,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -22058,7 +22518,7 @@
       },
       "has_text_component": true,
       "text_component": {
-       "text": "Force Field\n3D Voronoi cells pulsing over a translucent shell.",
+       "text": "Force Field\nVoronoi cells on an Order Independent shell: no sorting pops.",
        "is_rich": false,
        "font": {
         "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
@@ -22120,11 +22580,11 @@
         "position": {
          "x": 4.599999904632568,
          "y": 0.4000000059604645,
-         "z": 4.5
+         "z": 5.533332824707031
         },
         "rotation_euler": {
          "x": 0.0,
-         "y": 0.0,
+         "y": -0.0,
          "z": 0.0
         },
         "scale": {
@@ -22169,7 +22629,86 @@
         "lod_transition_time": {
          "count": 0.0
         }
+       },
+       "sort_priority": 0
+      }
+     }
+    },
+    {
+     "uid": "cb6596e2-70b9-6246-90dc-bca2197dc58b",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "cb6596e2-70b9-6246-90dc-bca2197dc58b"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "Plinth Frosted Glass",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
        }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": 4.599999904632568,
+         "y": 0.4000000059604645,
+         "z": 3.4666671752929689
+        },
+        "rotation_euler": {
+         "x": 0.0,
+         "y": -0.0,
+         "z": 0.0
+        },
+        "scale": {
+         "x": 0.8999999761581421,
+         "y": 0.800000011920929,
+         "z": 0.8999999761581421
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "beab12ad-4906-e94d-bb3e-d8bc01bdd4c9"
+       },
+       "children": [],
+       "active": true
+      },
+      "has_model_component": true,
+      "model_component": {
+       "enabled": true,
+       "static": true,
+       "casts_shadow": true,
+       "receive_decals": 0,
+       "post_process_mask": 0,
+       "model": {
+        "lods": [
+         {
+          "uid": "790e9074-e0a4-605b-baab-e3bff1339e45"
+         }
+        ],
+        "materials": [
+         {
+          "uid": "89d4ab8b-f891-6f4e-9af6-e6d39aa66fa3"
+         }
+        ],
+        "material_instances": [],
+        "lod_override_enabled": false,
+        "lod_override_level": 0,
+        "lod_selection_bias": 0.0,
+        "lod_transition_time": {
+         "count": 0.0
+        }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -22197,12 +22736,12 @@
         "position": {
          "x": 4.599999904632568,
          "y": 0.800000011920929,
-         "z": 4.5
+         "z": 5.533332824707031
         },
         "rotation_euler": {
-         "x": 0.0,
-         "y": 115.0,
-         "z": 0.0
+         "x": 180.0,
+         "y": 64.99999237060547,
+         "z": 180.0
         },
         "scale": {
          "x": 1.0,
@@ -22256,7 +22795,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -22334,6 +22874,167 @@
      }
     },
     {
+     "uid": "0634e830-f3d1-4e4c-be49-c8a0f40a9d35",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "0634e830-f3d1-4e4c-be49-c8a0f40a9d35"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "FX_FrostedGlass",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
+       }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": 4.599999904632568,
+         "y": 0.800000011920929,
+         "z": 3.4666671752929689
+        },
+        "rotation_euler": {
+         "x": -180.0,
+         "y": 64.99999237060547,
+         "z": -180.0
+        },
+        "scale": {
+         "x": 1.0,
+         "y": 1.0,
+         "z": 1.0
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "beab12ad-4906-e94d-bb3e-d8bc01bdd4c9"
+       },
+       "children": [
+        {
+         "uid": "60dacf32-9d51-aa40-8b03-0210bbbc3014"
+        }
+       ],
+       "active": true
+      },
+      "has_model_component": true,
+      "model_component": {
+       "enabled": true,
+       "static": true,
+       "casts_shadow": true,
+       "receive_decals": 0,
+       "post_process_mask": 0,
+       "model": {
+        "lods": [
+         {
+          "uid": "b8a5feb9-01b0-524d-ae93-ebf898fb7977"
+         }
+        ],
+        "materials": [
+         {
+          "uid": "702c4dd7-4d9c-654e-b67d-c9e3b0f4f89b"
+         },
+         {
+          "uid": "d78ed18f-0fb5-ce4c-a8ed-921d0aebcf66"
+         },
+         {
+          "uid": "1fb354df-6729-4d47-b4ab-18f269a52ebf"
+         }
+        ],
+        "material_instances": [],
+        "lod_override_enabled": false,
+        "lod_override_level": 0,
+        "lod_selection_bias": 0.0,
+        "lod_transition_time": {
+         "count": 0.0
+        }
+       },
+       "sort_priority": 0
+      }
+     }
+    },
+    {
+     "uid": "60dacf32-9d51-aa40-8b03-0210bbbc3014",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "60dacf32-9d51-aa40-8b03-0210bbbc3014"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "ShaderBall",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
+       }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": -0.0
+        },
+        "rotation_euler": {
+         "x": -180.0,
+         "y": -0.000005008956122765085,
+         "z": 180.0
+        },
+        "scale": {
+         "x": 1.0,
+         "y": 1.0,
+         "z": 1.0
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "0634e830-f3d1-4e4c-be49-c8a0f40a9d35"
+       },
+       "children": [],
+       "active": true
+      },
+      "has_submesh_component": true,
+      "submesh_component": {
+       "entries": [
+        {
+         "submesh_index": 0,
+         "stable_id": 1064620592,
+         "casts_shadow": true,
+         "enabled": true
+        },
+        {
+         "submesh_index": 1,
+         "stable_id": 1081398211,
+         "casts_shadow": true,
+         "enabled": true
+        },
+        {
+         "submesh_index": 2,
+         "stable_id": 1098175830,
+         "casts_shadow": true,
+         "enabled": true
+        }
+       ]
+      }
+     }
+    },
+    {
      "uid": "d1494ebb-9715-c946-9ec6-7731844f996b",
      "components": {
       "has_id_component": true,
@@ -22357,7 +23058,7 @@
         "position": {
          "x": 4.144999980926514,
          "y": 0.6600000262260437,
-         "z": 4.5
+         "z": 5.533332824707031
         },
         "rotation_euler": {
          "x": 0.0,
@@ -22384,6 +23085,94 @@
       "has_text_component": true,
       "text_component": {
        "text": "Iridescent Coating\nHue from the viewing angle, screened over a dark metal.",
+       "is_rich": false,
+       "font": {
+        "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
+       },
+       "font_size": 10,
+       "auto_size": false,
+       "auto_size_range": {
+        "min": 18,
+        "max": 72
+       },
+       "alignment": 10,
+       "overflow": 1,
+       "area": {
+        "width": 16.0,
+        "height": 6.0
+       },
+       "buffer_type": 0,
+       "style": {
+        "opacity": 1.0,
+        "text_color": 4292601322,
+        "background_color": 0,
+        "foreground_color": 0,
+        "overline_color": 4294967295,
+        "underline_color": 4294967295,
+        "strike_color": 4294967295,
+        "outline_color": 4278190080,
+        "shadow_color": 4278190080,
+        "shadow_softener": 1.0,
+        "shadow_offsets": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "style_flags": 0
+       }
+      }
+     }
+    },
+    {
+     "uid": "d752900a-6b11-324e-a6b7-2e1b35f61c80",
+     "components": {
+      "has_id_component": true,
+      "id_component": {
+       "id": "d752900a-6b11-324e-a6b7-2e1b35f61c80"
+      },
+      "has_tag_component": true,
+      "tag_component": {
+       "name": "Plaque Frosted Glass",
+       "tag": ""
+      },
+      "has_layer_component": true,
+      "layer_component": {
+       "layers": {
+        "mask": 1
+       }
+      },
+      "has_transform_component": true,
+      "transform_component": {
+       "local_transform": {
+        "position": {
+         "x": 4.144999980926514,
+         "y": 0.6600000262260437,
+         "z": 3.4666671752929689
+        },
+        "rotation_euler": {
+         "x": 0.0,
+         "y": 90.0,
+         "z": 0.0
+        },
+        "scale": {
+         "x": 0.05000000074505806,
+         "y": 0.05000000074505806,
+         "z": 0.05000000074505806
+        },
+        "skew": {
+         "x": 0.0,
+         "y": 0.0,
+         "z": 0.0
+        }
+       },
+       "parent": {
+        "uid": "beab12ad-4906-e94d-bb3e-d8bc01bdd4c9"
+       },
+       "children": [],
+       "active": true
+      },
+      "has_text_component": true,
+      "text_component": {
+       "text": "Frosted Glass\nRough refraction: the core blurs by the glass's Roughness.",
        "is_rich": false,
        "font": {
         "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
@@ -22494,7 +23283,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -22581,7 +23371,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -23714,7 +24505,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -23795,7 +24587,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -24183,7 +24976,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -24571,7 +25365,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -24955,7 +25750,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25032,7 +25828,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25197,7 +25994,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25278,7 +26076,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25416,7 +26215,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25493,7 +26293,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25658,7 +26459,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25735,7 +26537,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25812,7 +26615,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25889,7 +26693,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -25966,7 +26771,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26047,7 +26853,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26185,7 +26992,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26262,7 +27070,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26316,7 +27125,7 @@
       },
       "has_text_component": true,
       "text_component": {
-       "text": "Water\nCrossing sine waves move the sheet, and Normal From Height lights them.",
+       "text": "Water\nTranslucent waves bend the pool floor (Refraction), clearer where shallow (Depth Fade).",
        "is_rich": false,
        "font": {
         "uid": "12c7fa32-e115-dd4b-925b-d8d95b59aae8"
@@ -26431,7 +27240,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26569,7 +27379,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26646,7 +27457,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26811,7 +27623,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -26888,7 +27701,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28004,7 +28818,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28085,7 +28900,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28223,7 +29039,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28300,7 +29117,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28465,7 +29283,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28552,7 +29371,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28790,7 +29610,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -28877,7 +29698,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -29115,7 +29937,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -29192,7 +30015,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -29269,7 +30093,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -30394,7 +31219,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -30471,7 +31297,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -30640,7 +31467,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -30778,7 +31606,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -30947,7 +31776,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -31085,7 +31915,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -31266,7 +32097,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -31610,7 +32442,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -31779,7 +32612,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -31917,7 +32751,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -32086,7 +32921,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -32224,7 +33060,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -32393,7 +33230,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -33411,7 +34249,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -33498,7 +34337,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -33736,7 +34576,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -33823,7 +34664,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -34061,7 +34903,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -34148,7 +34991,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -34386,7 +35230,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -34463,7 +35308,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -36445,7 +37291,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -36598,7 +37445,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -36836,7 +37684,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -36989,7 +37838,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -37227,7 +38077,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -37380,7 +38231,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -37618,7 +38470,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -37695,7 +38548,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       }
      }
     },
@@ -38627,7 +39481,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -38767,7 +39622,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -38974,7 +39830,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -39222,7 +40079,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -39375,7 +40233,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {
@@ -39534,7 +40393,8 @@
         "lod_transition_time": {
          "count": 0.0
         }
-       }
+       },
+       "sort_priority": 0
       },
       "has_physics_component": true,
       "physics_component": {

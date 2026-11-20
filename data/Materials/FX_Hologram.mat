@@ -20,20 +20,6 @@
        },
        "inputs": [
         {
-         "pin": "base_color",
-         "link": "",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "roughness",
-         "link": "",
-         "value": [
-          0.4000000059604645
-         ]
-        },
-        {
          "pin": "emissive",
          "link": "glow",
          "value": [
@@ -50,8 +36,12 @@
        ],
        "settings": [
         {
-         "name": "translucent",
-         "value": "on"
+         "name": "blend_mode",
+         "value": "additive"
+        },
+        {
+         "name": "shading_model",
+         "value": "unlit"
         },
         {
          "name": "two_sided",

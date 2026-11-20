@@ -15,17 +15,10 @@
        "id": "output",
        "type": "surface_output",
        "position": {
-        "x": 0.0,
+        "x": -310.0,
         "y": 0.0
        },
        "inputs": [
-        {
-         "pin": "base_color",
-         "link": "",
-         "value": [
-          0.0
-         ]
-        },
         {
          "pin": "emissive",
          "link": "glow",
@@ -43,7 +36,15 @@
        ],
        "settings": [
         {
-         "name": "translucent",
+         "name": "blend_mode",
+         "value": "translucent"
+        },
+        {
+         "name": "shading_model",
+         "value": "unlit"
+        },
+        {
+         "name": "order_independent",
          "value": "on"
         },
         {
@@ -56,8 +57,8 @@
        "id": "position",
        "type": "world_position",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2975.0,
+        "y": 154.0
        },
        "inputs": [],
        "settings": []
@@ -66,8 +67,8 @@
        "id": "clock",
        "type": "time",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -3537.0,
+        "y": 368.0
        },
        "inputs": [],
        "settings": []
@@ -76,8 +77,8 @@
        "id": "up",
        "type": "vector3",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -3257.0,
+        "y": 233.0
        },
        "inputs": [
         {
@@ -95,8 +96,8 @@
        "id": "rise_speed",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -3193.0,
+        "y": 413.0
        },
        "inputs": [
         {
@@ -120,8 +121,8 @@
        "id": "rise",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2946.0,
+        "y": 312.0
        },
        "inputs": [
         {
@@ -145,8 +146,8 @@
        "id": "moving",
        "type": "add",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2728.0,
+        "y": 222.0
        },
        "inputs": [
         {
@@ -170,8 +171,8 @@
        "id": "cells",
        "type": "voronoi_3d",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2510.0,
+        "y": 222.0
        },
        "inputs": [
         {
@@ -202,8 +203,8 @@
        "id": "line_edge",
        "type": "smoothstep",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1735.0,
+        "y": 99.0
        },
        "inputs": [
         {
@@ -234,8 +235,8 @@
        "id": "lines",
        "type": "one_minus",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1503.0,
+        "y": 99.0
        },
        "inputs": [
         {
@@ -252,8 +253,8 @@
        "id": "rim",
        "type": "fresnel",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1285.0,
+        "y": -24.0
        },
        "inputs": [
         {
@@ -270,8 +271,8 @@
        "id": "cell_phase",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2180.0,
+        "y": 345.0
        },
        "inputs": [
         {
@@ -295,8 +296,8 @@
        "id": "pulse_phase",
        "type": "add",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1962.0,
+        "y": 323.0
        },
        "inputs": [
         {
@@ -320,8 +321,8 @@
        "id": "pulse",
        "type": "wave",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1744.0,
+        "y": 323.0
        },
        "inputs": [
         {
@@ -345,8 +346,8 @@
        "id": "pulse_range",
        "type": "lerp",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1503.0,
+        "y": 279.0
        },
        "inputs": [
         {
@@ -377,8 +378,8 @@
        "id": "cell_lines",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1223.0,
+        "y": 178.0
        },
        "inputs": [
         {
@@ -402,8 +403,8 @@
        "id": "intensity",
        "type": "add",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1005.0,
+        "y": 66.0
        },
        "inputs": [
         {
@@ -427,8 +428,8 @@
        "id": "tint",
        "type": "color_parameter",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -787.0,
+        "y": -68.0
        },
        "inputs": [
         {
@@ -453,8 +454,8 @@
        "id": "glow",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -528.0,
+        "y": -46.0
        },
        "inputs": [
         {
@@ -478,8 +479,8 @@
        "id": "alpha_scale",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -746.0,
+        "y": 156.0
        },
        "inputs": [
         {
@@ -503,8 +504,8 @@
        "id": "alpha",
        "type": "saturate",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -528.0,
+        "y": 156.0
        },
        "inputs": [
         {

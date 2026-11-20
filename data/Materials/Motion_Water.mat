@@ -48,14 +48,25 @@
          ]
         },
         {
-         "pin": "emissive",
-         "link": "glow",
+         "pin": "refraction",
+         "link": "",
+         "value": [
+          1.3300000429153443
+         ]
+        },
+        {
+         "pin": "opacity_mask",
+         "link": "opacity",
          "value": [
           0.0
          ]
         }
        ],
        "settings": [
+        {
+         "name": "blend_mode",
+         "value": "translucent"
+        },
         {
          "name": "max_world_position_offset",
          "value": "0.3"
@@ -849,195 +860,18 @@
        "settings": []
       },
       {
-       "id": "deep",
-       "type": "vector3",
+       "id": "depth",
+       "type": "depth_fade",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "value",
+         "pin": "distance",
          "link": "",
          "value": [
-          0.004999999888241291,
-          0.029999999329447748,
-          0.05000000074505806
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_scale",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "across",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          3.200000047683716
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_time",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "clock",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.5
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_position",
-       "type": "append",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "caustic_scale",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "caustic_time",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_cells",
-       "type": "voronoi_3d",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "position",
-         "link": "caustic_position",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_edge",
-       "type": "smoothstep",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "min",
-         "link": "",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "max",
-         "link": "",
-         "value": [
-          0.07000000029802323
-         ]
-        },
-        {
-         "pin": "in",
-         "link": "caustic_cells.edges",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_line",
-       "type": "one_minus",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "in",
-         "link": "caustic_edge",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic",
-       "type": "power",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "caustic_line",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          4.0
+          0.6000000238418579
          ]
         }
        ],
@@ -1055,22 +889,61 @@
          "pin": "power",
          "link": "",
          "value": [
-          2.0
+          3.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "seen_through",
-       "type": "one_minus",
+       "id": "depth_cover",
+       "type": "multiply",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "in",
+         "pin": "a",
+         "link": "depth",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "cover",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "depth_cover",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "alpha",
          "link": "glancing",
          "value": [
           0.0
@@ -1080,20 +953,25 @@
        "settings": []
       },
       {
-       "id": "shallow",
-       "type": "vector3",
+       "id": "opacity",
+       "type": "maximum",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "value",
-         "link": "",
+         "pin": "a",
+         "link": "cover",
          "value": [
-          0.019999999552965165,
-          0.1599999964237213,
-          0.20000000298023225
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "foam",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -1101,38 +979,6 @@
       },
       {
        "id": "body",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "deep",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "shallow",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "seen_through",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_color",
        "type": "vector3",
        "position": {
         "x": 0.0,
@@ -1143,59 +989,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.05000000074505806,
-          0.12999999523162843,
-          0.14000000059604646
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "caustic_seen",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "caustic",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "seen_through",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "glow",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "caustic_color",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "caustic_seen",
-         "value": [
-          0.0
+          0.009999999776482582,
+          0.07000000029802323,
+          0.07999999821186066
          ]
         }
        ],

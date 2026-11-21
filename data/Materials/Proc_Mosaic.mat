@@ -27,6 +27,13 @@
          ]
         },
         {
+         "pin": "metallic",
+         "link": "metal",
+         "value": [
+          0.0
+         ]
+        },
+        {
          "pin": "roughness",
          "link": "rough",
          "value": [
@@ -62,21 +69,21 @@
          "pin": "scale",
          "link": "",
          "value": [
-          9.0
+          14.0
          ]
         },
         {
          "pin": "randomness",
          "link": "",
          "value": [
-          0.800000011920929
+          0.3499999940395355
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "grout",
+       "id": "face",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -87,14 +94,14 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.02500000037252903
+          0.03500000014901161
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.05000000074505806
+          0.05999999865889549
          ]
         },
         {
@@ -108,7 +115,7 @@
        "settings": []
       },
       {
-       "id": "hue_seed",
+       "id": "hue",
        "type": "random",
        "position": {
         "x": 0.0,
@@ -126,7 +133,7 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.47999998927116396
+          0.5
          ]
         },
         {
@@ -140,7 +147,64 @@
        "settings": []
       },
       {
-       "id": "seed_shift",
+       "id": "saturation_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "saturation",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "saturation_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.8500000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "value_seed",
        "type": "add",
        "position": {
         "x": 0.0,
@@ -165,7 +229,7 @@
        "settings": []
       },
       {
-       "id": "value_seed",
+       "id": "value",
        "type": "random",
        "position": {
         "x": 0.0,
@@ -174,7 +238,7 @@
        "inputs": [
         {
          "pin": "seed",
-         "link": "seed_shift",
+         "link": "value_seed",
          "value": [
           0.0
          ]
@@ -183,14 +247,14 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.44999998807907107
+          0.30000001192092898
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.8999999761581421
+          0.800000011920929
          ]
         }
        ],
@@ -206,16 +270,16 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "hue_seed",
+         "link": "hue",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "",
+         "link": "saturation",
          "value": [
-          0.699999988079071
+          0.0
          ]
         }
        ],
@@ -238,7 +302,7 @@
         },
         {
          "pin": "b",
-         "link": "value_seed",
+         "link": "value",
          "value": [
           0.0
          ]
@@ -247,7 +311,7 @@
        "settings": []
       },
       {
-       "id": "tile",
+       "id": "glass_srgb",
        "type": "hsv_to_rgb",
        "position": {
         "x": 0.0,
@@ -265,7 +329,7 @@
        "settings": []
       },
       {
-       "id": "tile_linear",
+       "id": "glass",
        "type": "color_space",
        "position": {
         "x": 0.0,
@@ -274,7 +338,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "tile",
+         "link": "glass_srgb",
          "value": [
           0.0
          ]
@@ -288,6 +352,126 @@
        ]
       },
       {
+       "id": "gold_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          29.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "gold_pick",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "gold_seed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "gold",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.9200000166893005
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "gold_pick",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "gold_leaf",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0,
+          0.7599999904632568,
+          0.3400000035762787
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tile",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "glass",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "gold_leaf",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "gold",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
        "id": "grout_color",
        "type": "vector3",
        "position": {
@@ -299,9 +483,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.5,
-          0.47999998927116396,
-          0.44999998807907107
+          0.36000001430511477,
+          0.3400000035762787,
+          0.3100000023841858
          ]
         }
        ],
@@ -324,14 +508,263 @@
         },
         {
          "pin": "b",
-         "link": "tile_linear",
+         "link": "tile",
          "value": [
           0.0
          ]
         },
         {
          "pin": "alpha",
-         "link": "grout",
+         "link": "face",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_seed_x",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          41.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_x",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "tilt_seed_x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          -1.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_seed_y",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          43.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_y",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "tilt_seed_y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          -1.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "uv",
+       "type": "texcoord",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "tilt_u",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.u",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_v",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt_u",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tile_height",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "face",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_amount",
          "value": [
           0.0
          ]
@@ -349,7 +782,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "grout",
+         "link": "tile_height",
          "value": [
           0.0
          ]
@@ -358,7 +791,96 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.004000000189989805
+          0.0020000000949949028
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "metal",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "gold",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "face",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tile_rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.05999999865889549
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.2199999988079071
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "gold",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tile_rough",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "face",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -390,38 +912,6 @@
        "settings": []
       },
       {
-       "id": "rough",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.8999999761581421
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.11999999731779099
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "grout",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
        "id": "cavity",
        "type": "lerp",
        "position": {
@@ -433,7 +923,7 @@
          "pin": "a",
          "link": "",
          "value": [
-          0.5
+          0.44999998807907107
          ]
         },
         {
@@ -445,7 +935,7 @@
         },
         {
          "pin": "alpha",
-         "link": "grout",
+         "link": "face",
          "value": [
           0.0
          ]

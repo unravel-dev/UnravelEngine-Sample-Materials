@@ -28,14 +28,21 @@
         },
         {
          "pin": "opacity",
-         "link": "shape",
+         "link": "damp",
          "value": [
           0.0
          ]
         },
         {
          "pin": "roughness",
-         "link": "wet_roughness",
+         "link": "roughness",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "surface_opacity",
+         "link": "damp",
          "value": [
           0.0
          ]
@@ -46,9 +53,21 @@
          "value": [
           0.0
          ]
+        },
+        {
+         "pin": "normal_opacity",
+         "link": "water",
+         "value": [
+          0.0
+         ]
         }
        ],
-       "settings": []
+       "settings": [
+        {
+         "name": "normal_blend",
+         "value": "replace"
+        }
+       ]
       },
       {
        "id": "uv",
@@ -166,18 +185,23 @@
          "pin": "scale",
          "link": "",
          "value": [
-          4.0
+          3.0
          ]
         },
         {
          "pin": "octaves",
          "link": "",
          "value": [
-          3.0
+          4.0
          ]
         }
        ],
-       "settings": []
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
       },
       {
        "id": "noise_centred",
@@ -223,7 +247,7 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.6000000238418579
+          0.699999988079071
          ]
         }
        ],
@@ -255,7 +279,7 @@
        "settings": []
       },
       {
-       "id": "rim",
+       "id": "shore",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -266,14 +290,14 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.6200000047683716
+          0.5799999833106995
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.800000011920929
+          0.6200000047683716
          ]
         },
         {
@@ -287,7 +311,7 @@
        "settings": []
       },
       {
-       "id": "shape",
+       "id": "water",
        "type": "one_minus",
        "position": {
         "x": 0.0,
@@ -296,7 +320,57 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "rim",
+         "link": "shore",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "damp_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.5799999833106995
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.8199999928474426
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "ragged",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "damp",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "damp_edge",
          "value": [
           0.0
          ]
@@ -331,7 +405,7 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.699999988079071
+          0.550000011920929
          ]
         }
        ],
@@ -355,8 +429,8 @@
        ]
       },
       {
-       "id": "wet_color",
-       "type": "multiply",
+       "id": "damp_darkening",
+       "type": "lerp",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -364,7 +438,39 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "surface.rgb",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "damp",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "soaked",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "damp_darkening",
          "value": [
           0.0
          ]
@@ -375,66 +481,31 @@
          "value": [
           0.0
          ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "ripples",
-       "type": "noise",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
+        },
         {
-         "pin": "uv",
-         "link": "uv",
+         "pin": "alpha",
+         "link": "water",
          "value": [
           0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          7.0
-         ]
-        },
-        {
-         "pin": "octaves",
-         "link": "",
-         "value": [
-          2.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "ripple_normal",
-       "type": "normal_from_height",
+       "id": "floor_roughness",
+       "type": "scene_texture",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
-       "inputs": [
+       "inputs": [],
+       "settings": [
         {
-         "pin": "height",
-         "link": "ripples",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "strength",
-         "link": "",
-         "value": [
-          0.05000000074505806
-         ]
+         "name": "source",
+         "value": "roughness"
         }
-       ],
-       "settings": []
+       ]
       },
       {
        "id": "wet_roughness",
@@ -448,7 +519,7 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.03999999910593033
+          0.019999999552965165
          ]
         }
        ],
@@ -466,6 +537,169 @@
          "value": "1.0"
         }
        ]
+      },
+      {
+       "id": "roughness",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "floor_roughness.r",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wet_roughness",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "water",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drift",
+       "type": "panner",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "speed",
+         "link": "",
+         "value": [
+          0.009999999776482582,
+          0.006000000052154064
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripples",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "drift",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          22.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "ripple_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripples",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.00039999998989515007
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripple_normal",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "ripple_height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wet_color",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "surface.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "soaked",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
       }
      ],
      "comments": []

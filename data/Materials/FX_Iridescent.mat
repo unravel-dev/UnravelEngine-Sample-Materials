@@ -21,7 +21,7 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "coat",
+         "link": "tinted",
          "value": [
           0.0
          ]
@@ -30,21 +30,21 @@
          "pin": "metallic",
          "link": "",
          "value": [
-          0.8999999761581421
+          1.0
          ]
         },
         {
          "pin": "roughness",
          "link": "",
          "value": [
-          0.18000000715255738
+          0.14000000059604646
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "rim",
+       "id": "glancing",
        "type": "fresnel",
        "position": {
         "x": 0.0,
@@ -55,50 +55,6 @@
          "pin": "power",
          "link": "",
          "value": [
-          1.5
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "hue",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "rim",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.800000011920929
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "saturation_value",
-       "type": "vector2",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "value",
-         "link": "",
-         "value": [
-          0.75,
           1.0
          ]
         }
@@ -106,8 +62,104 @@
        "settings": []
       },
       {
-       "id": "hsv",
-       "type": "append",
+       "id": "facing",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "glancing",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "world",
+       "type": "world_position",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "local",
+       "type": "transform",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "from",
+         "value": "world"
+        },
+        {
+         "name": "to",
+         "value": "object"
+        },
+        {
+         "name": "kind",
+         "value": "position"
+        }
+       ]
+      },
+      {
+       "id": "thickness_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "local",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          2.5
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "thickness",
+       "type": "lerp",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -115,14 +167,21 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "hue",
+         "link": "",
          "value": [
-          0.0
+          0.6000000238418579
          ]
         },
         {
          "pin": "b",
-         "link": "saturation_value",
+         "link": "",
+         "value": [
+          1.600000023841858
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "thickness_noise",
          "value": [
           0.0
          ]
@@ -132,7 +191,194 @@
       },
       {
        "id": "film",
-       "type": "hsv_to_rgb",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.399999976158142
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Film Thickness"
+        },
+        {
+         "name": "description",
+         "value": "How many colour cycles the film runs through."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.2"
+        },
+        {
+         "name": "slider_max",
+         "value": "4.0"
+        }
+       ]
+      },
+      {
+       "id": "path_thickness",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "thickness",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "film",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "path_angle",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "facing",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "path",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "path_thickness",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "path_angle",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "channel_phase",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.0,
+          0.33000001311302187,
+          0.6700000166893005
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "phases",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "path",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "channel_phase",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "phase",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "phases",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          6.283180236816406
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "interference",
+       "type": "cosine",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -140,9 +386,59 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "hsv",
+         "link": "phase",
          "value": [
           0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "film_swing",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "interference",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.3400000035762787
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "film_color",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "film_swing",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5199999809265137
          ]
         }
        ],
@@ -160,9 +456,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.05000000074505806,
-          0.05000000074505806,
-          0.07999999821186066,
+          0.5600000023841858,
+          0.5699999928474426,
+          0.5799999833106995,
           1.0
          ]
         }
@@ -170,46 +466,38 @@
        "settings": [
         {
          "name": "name",
-         "value": "Base Color"
+         "value": "Metal Color"
+        },
+        {
+         "name": "description",
+         "value": "The bare metal's colour under the film."
         }
        ]
       },
       {
-       "id": "coat",
-       "type": "blend",
+       "id": "tinted",
+       "type": "multiply",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "base",
+         "pin": "a",
+         "link": "film_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
          "link": "base.rgb",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "blend",
-         "link": "film",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "opacity",
-         "link": "rim",
          "value": [
           0.0
          ]
         }
        ],
-       "settings": [
-        {
-         "name": "mode",
-         "value": "screen"
-        }
-       ]
+       "settings": []
       }
      ],
      "comments": []

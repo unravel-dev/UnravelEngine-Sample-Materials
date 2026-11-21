@@ -37,11 +37,30 @@
          "pin": "roughness",
          "link": "",
          "value": [
-          0.4000000059604645
+          0.029999999329447748
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "surface",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "normal_opacity",
+         "link": "shape",
+         "value": [
+          0.0
          ]
         }
        ],
-       "settings": []
+       "settings": [
+        {
+         "name": "normal_blend",
+         "value": "replace"
+        }
+       ]
       },
       {
        "id": "uv",
@@ -166,11 +185,16 @@
          "pin": "octaves",
          "link": "",
          "value": [
-          3.0
+          4.0
          ]
         }
        ],
-       "settings": []
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
       },
       {
        "id": "noise_centred",
@@ -248,29 +272,22 @@
        "settings": []
       },
       {
-       "id": "rim",
-       "type": "smoothstep",
+       "id": "inside",
+       "type": "subtract",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "min",
-         "link": "",
-         "value": [
-          0.550000011920929
-         ]
-        },
-        {
-         "pin": "max",
+         "pin": "a",
          "link": "",
          "value": [
           0.6000000238418579
          ]
         },
         {
-         "pin": "in",
+         "pin": "b",
          "link": "ragged",
          "value": [
           0.0
@@ -281,15 +298,29 @@
       },
       {
        "id": "shape",
-       "type": "one_minus",
+       "type": "smoothstep",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.009999999776482582
+         ]
+        },
+        {
          "pin": "in",
-         "link": "rim",
+         "link": "inside",
          "value": [
           0.0
          ]
@@ -309,9 +340,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.3199999928474426,
-          0.0,
-          0.009999999776482582,
+          0.15000000596046449,
+          0.003000000026077032,
+          0.006000000052154064,
           1.0
          ]
         }
@@ -323,33 +354,12 @@
         },
         {
          "name": "description",
-         "value": "The colour where the pool is deep."
+         "value": "The colour where the pool is thin."
         }
        ]
       },
       {
-       "id": "thin_color",
-       "type": "color",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "value",
-         "link": "",
-         "value": [
-          0.1599999964237213,
-          0.004000000189989805,
-          0.006000000052154064,
-          1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "thinning",
+       "id": "thick",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -360,19 +370,51 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.30000001192092898
+          0.0
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.5799999833106995
+          0.25
          ]
         },
         {
          "pin": "in",
-         "link": "ragged",
+         "link": "inside",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thickness_shade",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "thick",
          "value": [
           0.0
          ]
@@ -382,7 +424,7 @@
       },
       {
        "id": "color",
-       "type": "lerp",
+       "type": "multiply",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -397,16 +439,221 @@
         },
         {
          "pin": "b",
-         "link": "thin_color.rgb",
+         "link": "thickness_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
          "value": [
           0.0
          ]
         },
         {
-         "pin": "alpha",
-         "link": "thinning",
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.03999999910593033
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "inside",
          "value": [
           0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_width",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "bead_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead_width",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripples",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          9.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "ripple_relief",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripples",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "relief",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bead",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "ripple_relief",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "relief",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.001500000013038516
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "surface",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
          ]
         }
        ],

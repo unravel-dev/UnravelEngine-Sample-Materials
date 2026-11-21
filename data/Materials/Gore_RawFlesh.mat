@@ -28,7 +28,7 @@
         },
         {
          "pin": "roughness",
-         "link": "sheen",
+         "link": "wet",
          "value": [
           0.0
          ]
@@ -38,6 +38,22 @@
          "link": "bumps",
          "value": [
           0.0
+         ]
+        },
+        {
+         "pin": "subsurface_color",
+         "link": "",
+         "value": [
+          0.11999999731779099,
+          0.00800000037997961,
+          0.00800000037997961
+         ]
+        },
+        {
+         "pin": "subsurface_opacity",
+         "link": "",
+         "value": [
+          0.800000011920929
          ]
         }
        ],
@@ -91,7 +107,7 @@
          "link": "",
          "value": [
           1.5,
-          22.0
+          26.0
          ]
         }
        ],
@@ -152,10 +168,141 @@
          ]
         }
        ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "bundle_stretch",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0,
+          4.0
+         ]
+        }
+       ],
        "settings": []
       },
       {
-       "id": "fat_noise",
+       "id": "bundle_space",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bundle_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bundles",
+       "type": "voronoi",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "bundle_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        },
+        {
+         "pin": "randomness",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sheath_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "bundles.edges",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sheath",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "sheath_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling_noise",
        "type": "noise",
        "position": {
         "x": 0.0,
@@ -173,7 +320,88 @@
          "pin": "scale",
          "link": "",
          "value": [
-          4.0
+          2.5
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          5.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "fleck_stretch",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0,
+          5.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fleck_space",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "fleck_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fleck_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "fleck_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          5.0
          ]
         },
         {
@@ -184,10 +412,15 @@
          ]
         }
        ],
-       "settings": []
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
       },
       {
-       "id": "fat",
+       "id": "flecks",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -198,21 +431,221 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.7200000286102295
+          0.6600000262260437
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.7799999713897705
+          0.7200000286102295
          ]
         },
         {
          "pin": "in",
-         "link": "fat_noise",
+         "link": "fleck_noise",
          "value": [
           0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling_veins_doubled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "marbling_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling_veins_offset",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "marbling_veins_doubled",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling_veins_centred",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "marbling_veins_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling_veins_near",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "marbling_veins_centred",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling_veins",
+       "type": "power",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "marbling_veins_near",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          40.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "marbling",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "marbling_veins",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_amount",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "marbling",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "flecks",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "fat_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dark_meat",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.07500000298023224,
+          0.004999999888241291,
+          0.00800000037997961,
+          1.0
          ]
         }
        ],
@@ -231,8 +664,8 @@
          "link": "",
          "value": [
           0.20000000298023225,
-          0.012000000104308129,
-          0.01600000075995922,
+          0.017999999225139619,
+          0.02199999988079071,
           1.0
          ]
         }
@@ -240,42 +673,32 @@
        "settings": []
       },
       {
-       "id": "dark_meat",
-       "type": "color",
+       "id": "fibre_tone",
+       "type": "lerp",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "value",
+         "pin": "a",
          "link": "",
          "value": [
-          0.07000000029802323,
-          0.003000000026077032,
-          0.006000000052154064,
+          0.20000000298023225
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
           1.0
          ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "fat_color",
-       "type": "color",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
+        },
         {
-         "pin": "value",
-         "link": "",
+         "pin": "alpha",
+         "link": "fibres",
          "value": [
-          0.8500000238418579,
-          0.7400000095367432,
-          0.6000000238418579,
-          1.0
+          0.0
          ]
         }
        ],
@@ -305,9 +728,107 @@
         },
         {
          "pin": "alpha",
-         "link": "fibres",
+         "link": "fibre_tone",
          "value": [
           0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sheath_color",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.41999998688697817,
+          0.2199999988079071,
+          0.20000000298023225
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sheath_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "sheath",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.15000000596046449
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "with_sheath",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "meat",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "sheath_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "sheath_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_color",
+       "type": "color",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.699999988079071,
+          0.5799999833106995,
+          0.4399999976158142,
+          1.0
          ]
         }
        ],
@@ -323,7 +844,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "meat",
+         "link": "with_sheath",
          "value": [
           0.0
          ]
@@ -346,7 +867,82 @@
        "settings": []
       },
       {
-       "id": "sheen",
+       "id": "sheath_groove",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "sheath",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fibre_relief",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fibres",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "sheath_groove",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fibre_relief",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.003000000026077032
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wet",
        "type": "lerp",
        "position": {
         "x": 0.0,
@@ -357,14 +953,14 @@
          "pin": "a",
          "link": "",
          "value": [
-          0.2199999988079071
+          0.18000000715255738
          ]
         },
         {
          "pin": "b",
          "link": "",
          "value": [
-          0.4000000059604645
+          0.3199999928474426
          ]
         },
         {
@@ -372,31 +968,6 @@
          "link": "fibres",
          "value": [
           0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "fibre_height",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "fibres",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.014999999664723874
          ]
         }
        ],
@@ -412,7 +983,7 @@
        "inputs": [
         {
          "pin": "height",
-         "link": "fibre_height",
+         "link": "height",
          "value": [
           0.0
          ]
@@ -421,7 +992,7 @@
          "pin": "strength",
          "link": "",
          "value": [
-          0.800000011920929
+          1.0
          ]
         }
        ],

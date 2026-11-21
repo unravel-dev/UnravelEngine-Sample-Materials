@@ -37,7 +37,63 @@
        "settings": []
       },
       {
-       "id": "cells",
+       "id": "uv",
+       "type": "tiling_offset",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "tiling",
+         "link": "",
+         "value": [
+          2.0,
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "jag",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          90.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "large_cells",
        "type": "voronoi",
        "position": {
         "x": 0.0,
@@ -45,10 +101,17 @@
        },
        "inputs": [
         {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
          "pin": "scale",
          "link": "",
          "value": [
-          16.0
+          9.0
          ]
         },
         {
@@ -62,7 +125,82 @@
        "settings": []
       },
       {
-       "id": "chip_edge",
+       "id": "large_jag_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "jag",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_jag",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_jag_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.041999999433755878
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_chipped",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_cells.edges",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "large_jag",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_shape",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -73,19 +211,19 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.2800000011920929
+          0.07000000029802323
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.33000001311302187
+          0.08749999850988388
          ]
         },
         {
          "pin": "in",
-         "link": "cells.distance",
+         "link": "large_chipped",
          "value": [
           0.0
          ]
@@ -94,25 +232,7 @@
        "settings": []
       },
       {
-       "id": "chip",
-       "type": "one_minus",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "in",
-         "link": "chip_edge",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "kind",
+       "id": "large_pick",
        "type": "random",
        "position": {
         "x": 0.0,
@@ -121,7 +241,7 @@
        "inputs": [
         {
          "pin": "seed",
-         "link": "cells.cell",
+         "link": "large_cells.cell",
          "value": [
           0.0
          ]
@@ -130,7 +250,75 @@
        "settings": []
       },
       {
-       "id": "palette",
+       "id": "large_kept",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "large_pick",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_kind_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          7.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_kind",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "large_kind_seed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_stones",
        "type": "color_ramp",
        "position": {
         "x": 0.0,
@@ -139,7 +327,7 @@
        "inputs": [
         {
          "pin": "value",
-         "link": "kind",
+         "link": "large_kind",
          "value": [
           0.0
          ]
@@ -148,9 +336,9 @@
          "pin": "color0",
          "link": "",
          "value": [
-          0.05000000074505806,
-          0.05000000074505806,
-          0.05000000074505806,
+          0.6200000047683716,
+          0.6000000238418579,
+          0.5600000023841858,
           1.0
          ]
         },
@@ -165,9 +353,9 @@
          "pin": "color1",
          "link": "",
          "value": [
-          0.75,
-          0.7300000190734863,
-          0.699999988079071,
+          0.25999999046325686,
+          0.25999999046325686,
+          0.25,
           1.0
          ]
         },
@@ -182,9 +370,9 @@
          "pin": "color2",
          "link": "",
          "value": [
-          0.550000011920929,
-          0.18000000715255738,
-          0.07999999821186066,
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02800000086426735,
           1.0
          ]
         },
@@ -192,16 +380,16 @@
          "pin": "position2",
          "link": "",
          "value": [
-          0.550000011920929
+          0.44999998807907107
          ]
         },
         {
          "pin": "color3",
          "link": "",
          "value": [
-          0.20000000298023225,
-          0.3499999940395355,
-          0.25,
+          0.30000001192092898,
+          0.10000000149011612,
+          0.04500000178813934,
           1.0
          ]
         },
@@ -209,16 +397,16 @@
          "pin": "position3",
          "link": "",
          "value": [
-          0.75
+          0.6200000047683716
          ]
         },
         {
          "pin": "color4",
          "link": "",
          "value": [
-          0.8500000238418579,
-          0.6000000238418579,
-          0.30000001192092898,
+          0.10999999940395355,
+          0.17000000178813935,
+          0.11999999731779099,
           1.0
          ]
         },
@@ -226,14 +414,31 @@
          "pin": "position4",
          "link": "",
          "value": [
+          0.7400000095367432
+         ]
+        },
+        {
+         "pin": "color5",
+         "link": "",
+         "value": [
+          0.5,
+          0.3799999952316284,
+          0.23999999463558198,
           1.0
+         ]
+        },
+        {
+         "pin": "position5",
+         "link": "",
+         "value": [
+          0.8600000143051148
          ]
         }
        ],
        "settings": [
         {
          "name": "count",
-         "value": "5"
+         "value": "6"
         },
         {
          "name": "interpolation",
@@ -242,7 +447,649 @@
        ]
       },
       {
-       "id": "matrix",
+       "id": "large_shade_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          13.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_shade",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "large_shade_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.100000023841858
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_mask",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "large_kept",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "large_color",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_stones.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "large_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_offset",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.3700000047683716,
+          0.7099999785423279
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_uv",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_cells",
+       "type": "voronoi",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "small_uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          26.0
+         ]
+        },
+        {
+         "pin": "randomness",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_jag_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "jag",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_jag",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_jag_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05400000140070915
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_chipped",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_cells.edges",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_jag",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_shape",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.09000000357627869
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.11249999701976776
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "small_chipped",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_pick",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "small_cells.cell",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_kept",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_pick",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_kind_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          7.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_kind",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "small_kind_seed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_stones",
+       "type": "color_ramp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "small_kind",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color0",
+         "link": "",
+         "value": [
+          0.6200000047683716,
+          0.6000000238418579,
+          0.5600000023841858,
+          1.0
+         ]
+        },
+        {
+         "pin": "position0",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "color1",
+         "link": "",
+         "value": [
+          0.25999999046325686,
+          0.25999999046325686,
+          0.25,
+          1.0
+         ]
+        },
+        {
+         "pin": "position1",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "color2",
+         "link": "",
+         "value": [
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02800000086426735,
+          1.0
+         ]
+        },
+        {
+         "pin": "position2",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "color3",
+         "link": "",
+         "value": [
+          0.30000001192092898,
+          0.10000000149011612,
+          0.04500000178813934,
+          1.0
+         ]
+        },
+        {
+         "pin": "position3",
+         "link": "",
+         "value": [
+          0.6200000047683716
+         ]
+        },
+        {
+         "pin": "color4",
+         "link": "",
+         "value": [
+          0.10999999940395355,
+          0.17000000178813935,
+          0.11999999731779099,
+          1.0
+         ]
+        },
+        {
+         "pin": "position4",
+         "link": "",
+         "value": [
+          0.7400000095367432
+         ]
+        },
+        {
+         "pin": "color5",
+         "link": "",
+         "value": [
+          0.5,
+          0.3799999952316284,
+          0.23999999463558198,
+          1.0
+         ]
+        },
+        {
+         "pin": "position5",
+         "link": "",
+         "value": [
+          0.8600000143051148
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "count",
+         "value": "6"
+        },
+        {
+         "name": "interpolation",
+         "value": "constant"
+        }
+       ]
+      },
+      {
+       "id": "small_shade_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          13.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_shade",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "small_shade_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.100000023841858
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_mask",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_kept",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_color",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_stones.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sand",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          400.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "value"
+        }
+       ]
+      },
+      {
+       "id": "cement_color",
        "type": "vector3",
        "position": {
         "x": 0.0,
@@ -253,9 +1100,141 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.8199999928474426,
-          0.800000011920929,
-          0.75
+          0.5600000023841858,
+          0.5400000214576721,
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "sand_shade",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.059999942779541
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "sand",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "cement",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cement_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "sand_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "not_large",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "large_mask",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "small_only",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "small_mask",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "not_large",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "with_small",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cement",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "small_only",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -271,21 +1250,46 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "matrix",
+         "link": "with_small",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "palette.rgb",
+         "link": "large_color",
          "value": [
           0.0
          ]
         },
         {
          "pin": "alpha",
-         "link": "chip",
+         "link": "large_mask",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stone",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "large_mask",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "small_mask",
          "value": [
           0.0
          ]
@@ -305,19 +1309,19 @@
          "pin": "a",
          "link": "",
          "value": [
-          0.3499999940395355
+          0.1599999964237213
          ]
         },
         {
          "pin": "b",
          "link": "",
          "value": [
-          0.11999999731779099
+          0.07000000029802323
          ]
         },
         {
          "pin": "alpha",
-         "link": "chip",
+         "link": "stone",
          "value": [
           0.0
          ]

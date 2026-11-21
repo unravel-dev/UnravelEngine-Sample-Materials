@@ -21,7 +21,7 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "drip_color.rgb",
+         "link": "shaded",
          "value": [
           0.0
          ]
@@ -37,7 +37,14 @@
          "pin": "roughness",
          "link": "",
          "value": [
-          0.11999999731779099
+          0.07000000029802323
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "relief_normal",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -51,6 +58,31 @@
         "y": 0.0
        },
        "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "v_in_columns",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          16.100000381469728
+         ]
+        }
+       ],
        "settings": []
       },
       {
@@ -72,7 +104,7 @@
          "pin": "b",
          "link": "",
          "value": [
-          12.0
+          14.0
          ]
         }
        ],
@@ -115,8 +147,40 @@
        "settings": []
       },
       {
-       "id": "column_uv",
-       "type": "append",
+       "id": "length",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.25
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.949999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "width_seed",
+       "type": "add",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -133,14 +197,246 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.3700000047683716
+          5.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "pick",
+       "id": "width",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "width_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.09000000357627869
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.2199999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "centre_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "centre",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "centre_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "present_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          17.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "present_pick",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "present_seed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "present",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "present_pick",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "column_far",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          7.300000190734863
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander_v",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander_uv",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column_far",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wander_v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander_noise",
        "type": "noise",
        "position": {
         "x": 0.0,
@@ -149,123 +445,21 @@
        "inputs": [
         {
          "pin": "uv",
-         "link": "column_uv",
+         "link": "wander_uv",
          "value": [
           0.0
          ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          0.8299999833106995
-         ]
         }
        ],
-       "settings": []
-      },
-      {
-       "id": "length_scaled",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
+       "settings": [
         {
-         "pin": "a",
-         "link": "pick",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.75
-         ]
+         "name": "type",
+         "value": "gradient"
         }
-       ],
-       "settings": []
+       ]
       },
       {
-       "id": "length",
-       "type": "add",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "length_scaled",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.20000000298023225
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "width_scaled",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "pick",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.30000001192092898
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "width",
-       "type": "add",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "width_scaled",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.11999999731779099
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "from_middle",
+       "id": "wander_centred",
        "type": "subtract",
        "position": {
         "x": 0.0,
@@ -274,7 +468,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "in_column",
+         "link": "wander_noise",
          "value": [
           0.0
          ]
@@ -290,7 +484,182 @@
        "settings": []
       },
       {
-       "id": "centred",
+       "id": "wander",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "wander_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "run_raw",
+       "type": "divide",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.v",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "length",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "run",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "run_raw",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thinning",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "run",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "narrowed",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "width",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "thinning",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wandering_centre",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "centre",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wander",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "from_centre",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "in_column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wandering_centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "offset",
        "type": "abs",
        "position": {
         "x": 0.0,
@@ -299,7 +668,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "from_middle",
+         "link": "from_centre",
          "value": [
           0.0
          ]
@@ -308,8 +677,8 @@
        "settings": []
       },
       {
-       "id": "stripe_start",
-       "type": "subtract",
+       "id": "stem_inner",
+       "type": "multiply",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -317,7 +686,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "width",
+         "link": "narrowed",
          "value": [
           0.0
          ]
@@ -326,14 +695,14 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.05999999865889549
+          0.699999988079071
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "stripe_edge",
+       "id": "stem_edge",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -342,21 +711,21 @@
        "inputs": [
         {
          "pin": "min",
-         "link": "stripe_start",
+         "link": "stem_inner",
          "value": [
           0.0
          ]
         },
         {
          "pin": "max",
-         "link": "width",
+         "link": "narrowed",
          "value": [
           0.0
          ]
         },
         {
          "pin": "in",
-         "link": "centred",
+         "link": "offset",
          "value": [
           0.0
          ]
@@ -365,7 +734,7 @@
        "settings": []
       },
       {
-       "id": "stripe",
+       "id": "stem_width",
        "type": "one_minus",
        "position": {
         "x": 0.0,
@@ -374,7 +743,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "stripe_edge",
+         "link": "stem_edge",
          "value": [
           0.0
          ]
@@ -383,8 +752,8 @@
        "settings": []
       },
       {
-       "id": "body_start",
-       "type": "subtract",
+       "id": "stem_end",
+       "type": "step",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -392,55 +761,248 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "length",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.029999999329447748
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "body_end",
-       "type": "smoothstep",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "min",
-         "link": "body_start",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "max",
-         "link": "length",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "in",
          "link": "uv.v",
          "value": [
           0.0
          ]
+        },
+        {
+         "pin": "b",
+         "link": "length",
+         "value": [
+          0.0
+         ]
         }
        ],
        "settings": []
       },
       {
-       "id": "body",
+       "id": "stem",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "stem_width",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "stem_end",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_size",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "width",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.2999999523162842
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "end_in_columns",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          16.100000381469728
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_centre",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "end_in_columns",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead_size",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_v",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "v_in_columns",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead_centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_offset",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "offset",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead_v",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_inner",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bead_size",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_distance",
+       "type": "length",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "bead_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "bead_inner",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "bead_size",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "bead_distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead",
        "type": "one_minus",
        "position": {
         "x": 0.0,
@@ -449,7 +1011,150 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "body_end",
+         "link": "bead_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "u_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv.u",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "from_middle_u",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "u_centred",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_width",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.2800000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.3400000035762787
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "from_middle_u",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "under_smear",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "smear_width",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "stem_or_bead",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "stem",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "present_under",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "present",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "under_smear",
          "value": [
           0.0
          ]
@@ -467,14 +1172,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "stripe",
+         "link": "stem_or_bead",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "body",
+         "link": "present_under",
          "value": [
           0.0
          ]
@@ -501,22 +1206,133 @@
          "pin": "scale",
          "link": "",
          "value": [
-          8.0
+          6.0
          ]
         },
         {
          "pin": "octaves",
          "link": "",
          "value": [
-          3.0
+          4.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "smear_centre",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5,
+          0.10000000149011612
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "smear_wobble",
+       "id": "from_smear",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "smear_centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_aspect",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.2999999523162842,
+          4.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_offset",
        "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "from_smear",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "smear_aspect",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_distance",
+       "type": "length",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "smear_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_centred",
+       "type": "subtract",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -533,14 +1349,39 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.07999999821186066
+          0.5
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "smear_depth",
+       "id": "smear_wobble",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "smear_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.3499999940395355
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear_reach",
        "type": "add",
        "position": {
         "x": 0.0,
@@ -549,7 +1390,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "uv.v",
+         "link": "smear_distance",
          "value": [
           0.0
          ]
@@ -576,19 +1417,19 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.10000000149011612
+          0.4000000059604645
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.18000000715255738
+          0.4399999976158142
          ]
         },
         {
          "pin": "in",
-         "link": "smear_depth",
+         "link": "smear_reach",
          "value": [
           0.0
          ]
@@ -640,6 +1481,56 @@
        "settings": []
       },
       {
+       "id": "thick_smear",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "smear",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thick",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bead",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "thick_smear",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
        "id": "drip_color",
        "type": "color_parameter",
        "position": {
@@ -651,9 +1542,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.2199999988079071,
-          0.0,
-          0.00800000037997961,
+          0.15000000596046449,
+          0.003000000026077032,
+          0.006000000052154064,
           1.0
          ]
         }
@@ -668,6 +1559,138 @@
          "value": "The blood's colour."
         }
        ]
+      },
+      {
+       "id": "thick_shade",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "thick",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shaded",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "drip_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "thick_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead_relief",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bead",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "relief",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead_relief",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "relief",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.0012000000569969416
+         ]
+        }
+       ],
+       "settings": []
       },
       {
        "id": "opacity",
@@ -688,7 +1711,32 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.949999988079071
+          0.9700000286102295
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "relief_normal",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
          ]
         }
        ],

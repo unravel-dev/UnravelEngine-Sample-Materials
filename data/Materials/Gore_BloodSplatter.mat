@@ -21,7 +21,7 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "color",
+         "link": "shaded",
          "value": [
           0.0
          ]
@@ -166,7 +166,7 @@
        "settings": []
       },
       {
-       "id": "edge_noise",
+       "id": "scallop_noise",
        "type": "noise",
        "position": {
         "x": 0.0,
@@ -175,7 +175,7 @@
        "inputs": [
         {
          "pin": "uv",
-         "link": "uv",
+         "link": "direction",
          "value": [
           0.0
          ]
@@ -184,46 +184,21 @@
          "pin": "scale",
          "link": "",
          "value": [
-          5.0
+          9.0
          ]
         },
         {
          "pin": "octaves",
          "link": "",
          "value": [
-          4.0
+          2.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "noise_centred",
-       "type": "subtract",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "edge_noise",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.5
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "wobble",
+       "id": "scallop_fine",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -232,7 +207,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "noise_centred",
+         "link": "scallop_noise",
          "value": [
           0.0
          ]
@@ -241,14 +216,64 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.44999998807907107
+          0.07000000029802323
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "ragged",
+       "id": "lobe_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "direction",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          2.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "scallop_broad",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "lobe_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "scallops",
        "type": "add",
        "position": {
         "x": 0.0,
@@ -257,14 +282,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "distance",
+         "link": "scallop_fine",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "wobble",
+         "link": "scallop_broad",
          "value": [
           0.0
          ]
@@ -273,7 +298,57 @@
        "settings": []
       },
       {
-       "id": "core_edge",
+       "id": "edge",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "scallops",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "inside",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "body",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -284,37 +359,19 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.2800000011920929
+          0.0
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.36000001430511477
+          0.012000000104308129
          ]
         },
         {
          "pin": "in",
-         "link": "ragged",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "core",
-       "type": "one_minus",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "in",
-         "link": "core_edge",
+         "link": "inside",
          "value": [
           0.0
          ]
@@ -341,53 +398,14 @@
          "pin": "scale",
          "link": "",
          "value": [
-          3.5
-         ]
-        },
-        {
-         "pin": "octaves",
-         "link": "",
-         "value": [
-          2.0
+          5.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "reach_sharp",
-       "type": "smoothstep",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "min",
-         "link": "",
-         "value": [
-          0.4000000059604645
-         ]
-        },
-        {
-         "pin": "max",
-         "link": "",
-         "value": [
-          0.8500000238418579
-         ]
-        },
-        {
-         "pin": "in",
-         "link": "reach_noise",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "reach_scaled",
+       "id": "reach_length",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -396,7 +414,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "reach_sharp",
+         "link": "reach_noise",
          "value": [
           0.0
          ]
@@ -405,7 +423,7 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.6000000238418579
+          0.3199999928474426
          ]
         }
        ],
@@ -421,23 +439,48 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "reach_scaled",
+         "link": "edge",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "",
+         "link": "reach_length",
          "value": [
-          0.30000001192092898
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "reach_start",
+       "id": "past_edge",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spine_span",
        "type": "subtract",
        "position": {
         "x": 0.0,
@@ -453,39 +496,32 @@
         },
         {
          "pin": "b",
-         "link": "",
+         "link": "edge",
          "value": [
-          0.05999999865889549
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "spike_end",
-       "type": "smoothstep",
+       "id": "beyond_raw",
+       "type": "divide",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "min",
-         "link": "reach_start",
+         "pin": "a",
+         "link": "past_edge",
          "value": [
           0.0
          ]
         },
         {
-         "pin": "max",
-         "link": "reach",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "in",
-         "link": "distance",
+         "pin": "b",
+         "link": "spine_span",
          "value": [
           0.0
          ]
@@ -494,7 +530,25 @@
        "settings": []
       },
       {
-       "id": "narrow_noise",
+       "id": "beyond",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "beyond_raw",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lobe",
        "type": "noise",
        "position": {
         "x": 0.0,
@@ -512,14 +566,146 @@
          "pin": "scale",
          "link": "",
          "value": [
-          16.0
+          26.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "narrow",
+       "id": "narrowing",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "beyond",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spine_narrow",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.5799999833106995
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "narrowing",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "narrowing_end",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "beyond",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spine_narrow_end",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.6200000047683716
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "narrowing_end",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spine_width",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "spine_narrow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "spine_narrow_end",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "lobe",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "spine_stop",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -530,19 +716,19 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.5
+          0.9200000166893005
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.6200000047683716
+          1.0
          ]
         },
         {
          "pin": "in",
-         "link": "narrow_noise",
+         "link": "beyond",
          "value": [
           0.0
          ]
@@ -551,7 +737,7 @@
        "settings": []
       },
       {
-       "id": "spike_body",
+       "id": "spine_end",
        "type": "one_minus",
        "position": {
         "x": 0.0,
@@ -560,7 +746,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "spike_end",
+         "link": "spine_stop",
          "value": [
           0.0
          ]
@@ -569,7 +755,7 @@
        "settings": []
       },
       {
-       "id": "spikes",
+       "id": "spine",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -578,14 +764,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "spike_body",
+         "link": "spine_width",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "narrow",
+         "link": "spine_end",
          "value": [
           0.0
          ]
@@ -612,7 +798,64 @@
          "pin": "scale",
          "link": "",
          "value": [
-          15.0
+          16.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "drop_size",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.1599999964237213
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dot_inner",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "drop_size",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
          ]
         }
        ],
@@ -628,16 +871,16 @@
        "inputs": [
         {
          "pin": "min",
-         "link": "",
+         "link": "dot_inner",
          "value": [
-          0.05000000074505806
+          0.0
          ]
         },
         {
          "pin": "max",
-         "link": "",
+         "link": "drop_size",
          "value": [
-          0.09000000357627869
+          0.0
          ]
         },
         {
@@ -669,8 +912,33 @@
        "settings": []
       },
       {
-       "id": "kept",
-       "type": "step",
+       "id": "thinning_far",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thinning",
+       "type": "add",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -680,12 +948,80 @@
          "pin": "a",
          "link": "",
          "value": [
-          0.7200000286102295
+          0.44999998807907107
          ]
         },
         {
          "pin": "b",
+         "link": "thinning_far",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "keep_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
          "link": "cells.cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "keep_pick",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "keep_seed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "kept",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "thinning",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "keep_pick",
          "value": [
           0.0
          ]
@@ -705,7 +1041,7 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.30000001192092898
+          0.3499999940395355
          ]
         },
         {
@@ -851,7 +1187,7 @@
        "settings": []
       },
       {
-       "id": "core_or_spikes",
+       "id": "body_or_spines",
        "type": "maximum",
        "position": {
         "x": 0.0,
@@ -860,14 +1196,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "core",
+         "link": "body",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "spikes",
+         "link": "spine",
          "value": [
           0.0
          ]
@@ -885,7 +1221,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "core_or_spikes",
+         "link": "body_or_spines",
          "value": [
           0.0
          ]
@@ -893,6 +1229,38 @@
         {
          "pin": "b",
          "link": "drops",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thick",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "inside",
          "value": [
           0.0
          ]
@@ -954,9 +1322,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.30000001192092898,
-          0.0,
-          0.009999999776482582,
+          0.17000000178813935,
+          0.004000000189989805,
+          0.007000000216066837,
           1.0
          ]
         }
@@ -984,9 +1352,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.07999999821186066,
-          0.014000000432133675,
-          0.009999999776482582,
+          0.054999999701976779,
+          0.010999999940395356,
+          0.007000000216066837,
           1.0
          ]
         }
@@ -1037,7 +1405,7 @@
          "pin": "a",
          "link": "",
          "value": [
-          0.07999999821186066
+          0.05000000074505806
          ]
         },
         {
@@ -1058,7 +1426,39 @@
        "settings": []
       },
       {
-       "id": "height_noise",
+       "id": "thickness_shade",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "thick",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shaded",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -1067,7 +1467,107 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "edge_noise",
+         "link": "color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "thickness_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rim_width",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.029999999329447748
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "inside",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rim_bead",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "rim_width",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rim",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "body",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "rim_bead",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pool_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "shape",
          "value": [
           0.0
          ]
@@ -1076,7 +1576,107 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.029999999329447748
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rim_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rim",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "thick_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "thick",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bead",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rim_height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "thick_height",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "relief",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pool_height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "bead",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -1092,16 +1692,41 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "core",
+         "link": "relief",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "height_noise",
+         "link": "",
+         "value": [
+          0.001500000013038516
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "opacity",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "shape",
          "value": [
           0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.9800000190734863
          ]
         }
        ],
@@ -1127,31 +1752,6 @@
          "link": "",
          "value": [
           1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "opacity",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "shape",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.9700000286102295
          ]
         }
        ],

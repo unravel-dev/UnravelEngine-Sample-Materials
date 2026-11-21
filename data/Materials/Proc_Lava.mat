@@ -21,7 +21,7 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "crust",
+         "link": "color",
          "value": [
           0.0
          ]
@@ -35,7 +35,7 @@
         },
         {
          "pin": "emissive",
-         "link": "glow_pulse",
+         "link": "glow.rgb",
          "value": [
           0.0
          ]
@@ -51,7 +51,7 @@
        "settings": []
       },
       {
-       "id": "flow_a",
+       "id": "flow",
        "type": "panner",
        "position": {
         "x": 0.0,
@@ -62,34 +62,15 @@
          "pin": "speed",
          "link": "",
          "value": [
-          0.03999999910593033,
-          0.014999999664723874
+          0.006000000052154064,
+          0.003000000026077032
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "flow_b",
-       "type": "panner",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "speed",
-         "link": "",
-         "value": [
-          -0.02500000037252903,
-          0.029999999329447748
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "noise_a",
+       "id": "meander",
        "type": "noise",
        "position": {
         "x": 0.0,
@@ -98,53 +79,16 @@
        "inputs": [
         {
          "pin": "uv",
-         "link": "flow_a",
+         "link": "flow",
          "value": [
           0.0
          ]
         },
         {
          "pin": "scale",
-         "link": "",
-         "value": [
-          5.0
-         ]
-        },
-        {
-         "pin": "octaves",
          "link": "",
          "value": [
           4.0
-         ]
-        }
-       ],
-       "settings": [
-        {
-         "name": "type",
-         "value": "gradient"
-        }
-       ]
-      },
-      {
-       "id": "noise_b",
-       "type": "noise",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "uv",
-         "link": "flow_b",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          11.0
          ]
         },
         {
@@ -158,12 +102,37 @@
        "settings": [
         {
          "name": "type",
-         "value": "simplex"
+         "value": "gradient"
         }
        ]
       },
       {
-       "id": "heat",
+       "id": "meander_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "meander",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "meander_amount",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -172,14 +141,39 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "noise_a",
+         "link": "meander_centred",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "noise_b",
+         "link": "",
+         "value": [
+          0.07999999821186066
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bent",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "flow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "meander_amount",
          "value": [
           0.0
          ]
@@ -188,7 +182,95 @@
        "settings": []
       },
       {
-       "id": "cracks",
+       "id": "plates",
+       "type": "voronoi",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "bent",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          6.0
+         ]
+        },
+        {
+         "pin": "randomness",
+         "link": "",
+         "value": [
+          0.8999999761581421
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "churn_flow",
+       "type": "panner",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "speed",
+         "link": "",
+         "value": [
+          -0.019999999552965165,
+          0.012000000104308129
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "churn",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "churn_flow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          9.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "widening",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -199,16 +281,322 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.2199999988079071
+          0.30000001192092898
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.41999998688697817
+          0.75
          ]
         },
+        {
+         "pin": "in",
+         "link": "churn",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "width",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.00800000037997961
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.07000000029802323
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "widening",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "crack_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "width",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "plates.edges",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "crack",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "crack_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bleed_edge",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.1599999964237213
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "plates.edges",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bleed",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "bleed_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flicker_flow",
+       "type": "panner",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "speed",
+         "link": "",
+         "value": [
+          0.05000000074505806,
+          -0.03999999910593033
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flicker_noise",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "flicker_flow",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          14.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "flicker",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "flicker_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "crack_heat",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "crack",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "flicker",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "edge_heat",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bleed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.2199999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "heat",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "crack_heat",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "edge_heat",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "temperature",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
         {
          "pin": "in",
          "link": "heat",
@@ -229,7 +617,7 @@
        "inputs": [
         {
          "pin": "value",
-         "link": "cracks",
+         "link": "temperature",
          "value": [
           0.0
          ]
@@ -255,8 +643,8 @@
          "pin": "color1",
          "link": "",
          "value": [
-          1.5,
-          0.15000000596046449,
+          0.25,
+          0.00800000037997961,
           0.0,
           1.0
          ]
@@ -265,16 +653,16 @@
          "pin": "position1",
          "link": "",
          "value": [
-          0.4000000059604645
+          0.11999999731779099
          ]
         },
         {
          "pin": "color2",
          "link": "",
          "value": [
-          5.0,
-          1.399999976158142,
-          0.15000000596046449,
+          2.5,
+          0.25,
+          0.009999999776482582,
           1.0
          ]
         },
@@ -282,21 +670,38 @@
          "pin": "position2",
          "link": "",
          "value": [
-          0.800000011920929
+          0.4000000059604645
          ]
         },
         {
          "pin": "color3",
          "link": "",
          "value": [
-          9.0,
-          5.0,
-          1.2000000476837159,
+          8.0,
+          1.7999999523162842,
+          0.15000000596046449,
           1.0
          ]
         },
         {
          "pin": "position3",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        },
+        {
+         "pin": "color4",
+         "link": "",
+         "value": [
+          16.0,
+          7.5,
+          1.7999999523162842,
+          1.0
+         ]
+        },
+        {
+         "pin": "position4",
          "link": "",
          "value": [
           1.0
@@ -306,7 +711,7 @@
        "settings": [
         {
          "name": "count",
-         "value": "4"
+         "value": "5"
         },
         {
          "name": "interpolation",
@@ -315,62 +720,26 @@
        ]
       },
       {
-       "id": "pulse",
-       "type": "wave",
+       "id": "rope_stretch",
+       "type": "vector2",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "frequency",
+         "pin": "value",
          "link": "",
          "value": [
-          0.3499999940395355
-         ]
-        }
-       ],
-       "settings": [
-        {
-         "name": "shape",
-         "value": "sine"
-        }
-       ]
-      },
-      {
-       "id": "pulse_range",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.75
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          1.0
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "pulse",
-         "value": [
-          0.0
+          3.0,
+          18.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "glow_pulse",
+       "id": "rope_space",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -379,14 +748,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "glow.rgb",
+         "link": "bent",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "pulse_range",
+         "link": "rope_stretch",
          "value": [
           0.0
          ]
@@ -395,7 +764,81 @@
        "settings": []
       },
       {
-       "id": "rock",
+       "id": "ropes",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "rope_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "crust_tone",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "bent",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          20.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "basalt",
        "type": "vector3",
        "position": {
         "x": 0.0,
@@ -406,16 +849,16 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.05000000074505806,
-          0.03999999910593033,
-          0.03999999910593033
+          0.017999999225139619,
+          0.01600000075995922,
+          0.014999999664723874
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "molten",
+       "id": "ashen",
        "type": "vector3",
        "position": {
         "x": 0.0,
@@ -426,9 +869,41 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.25,
-          0.07999999821186066,
-          0.029999999329447748
+          0.05999999865889549,
+          0.05000000074505806,
+          0.04500000178813934
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ashing",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "crust_tone",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -444,21 +919,21 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "rock",
+         "link": "basalt",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "molten",
+         "link": "ashen",
          "value": [
           0.0
          ]
         },
         {
          "pin": "alpha",
-         "link": "cracks",
+         "link": "ashing",
          "value": [
           0.0
          ]
@@ -476,7 +951,82 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "cracks",
+         "link": "crack",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rope_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ropes",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rope_relief",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "rope_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "crust_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "solid",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "rope_relief",
          "value": [
           0.0
          ]
@@ -494,7 +1044,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "solid",
+         "link": "crust_height",
          "value": [
           0.0
          ]
@@ -503,7 +1053,155 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.004000000189989805
+          0.006000000052154064
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "molten",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.30000001192092898,
+          0.05999999865889549,
+          0.009999999776482582
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "color",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "crust",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "molten",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "crack",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glassy",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "crust_tone",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "crust_rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.8500000238418579
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "glassy",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "crust_rough",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "crack",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -529,38 +1227,6 @@
          "link": "",
          "value": [
           1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "rough",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.9200000166893005
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.5
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "cracks",
-         "value": [
-          0.0
          ]
         }
        ],

@@ -21,21 +21,28 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "base",
+         "link": "flop",
          "value": [
           0.0
          ]
         },
         {
          "pin": "metallic",
-         "link": "metal",
+         "link": "",
          "value": [
-          0.0
+          0.6499999761581421
          ]
         },
         {
          "pin": "roughness",
-         "link": "rough",
+         "link": "",
+         "value": [
+          0.1599999964237213
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
          "value": [
           0.0
          ]
@@ -55,9 +62,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.5,
+          0.41999998688697817,
+          0.012000000104308129,
           0.019999999552965165,
-          0.029999999329447748,
           1.0
          ]
         }
@@ -81,7 +88,7 @@
          "pin": "scale",
          "link": "",
          "value": [
-          450.0
+          700.0
          ]
         },
         {
@@ -95,7 +102,7 @@
        "settings": []
       },
       {
-       "id": "flake_value",
+       "id": "tilt_x",
        "type": "random",
        "position": {
         "x": 0.0,
@@ -108,23 +115,12 @@
          "value": [
           0.0
          ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "sparkle",
-       "type": "smoothstep",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
+        },
         {
          "pin": "min",
          "link": "",
          "value": [
-          0.8500000238418579
+          -1.0
          ]
         },
         {
@@ -133,10 +129,120 @@
          "value": [
           1.0
          ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "flakes.cell",
+         "value": [
+          0.0
+         ]
         },
         {
-         "pin": "in",
-         "link": "flake_value",
+         "pin": "b",
+         "link": "",
+         "value": [
+          19.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_y",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "tilt_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          -1.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flake_tilt",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.11999999731779099
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Flake Sparkle"
+        },
+        {
+         "name": "description",
+         "value": "How far the flakes tilt from the surface: more sparkles more."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "0.5"
+        }
+       ]
+      },
+      {
+       "id": "tilt_xy",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt_x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_y",
          "value": [
           0.0
          ]
@@ -145,7 +251,75 @@
        "settings": []
       },
       {
-       "id": "coat",
+       "id": "tilt",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt_xy",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "flake_tilt",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "flake_normal",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "normal",
+       "type": "normalize",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "flake_normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grazing",
        "type": "fresnel",
        "position": {
         "x": 0.0,
@@ -156,35 +330,15 @@
          "pin": "power",
          "link": "",
          "value": [
-          5.0
+          2.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "flake_color",
-       "type": "vector3",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "value",
-         "link": "",
-         "value": [
-          0.8999999761581421,
-          0.8500000238418579,
-          0.800000011920929
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "flake_mix",
-       "type": "multiply",
+       "id": "flop_amount",
+       "type": "lerp",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -192,24 +346,31 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "sparkle",
+         "link": "",
          "value": [
-          0.0
+          1.0
          ]
         },
         {
          "pin": "b",
          "link": "",
          "value": [
-          0.4000000059604645
+          0.3499999940395355
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "grazing",
+         "value": [
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "base",
-       "type": "lerp",
+       "id": "flop",
+       "type": "multiply",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -224,78 +385,7 @@
         },
         {
          "pin": "b",
-         "link": "flake_color",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "flake_mix",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "metal",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.550000011920929
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          1.0
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "sparkle",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "rough",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.3199999928474426
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.07999999821186066
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "coat",
+         "link": "flop_amount",
          "value": [
           0.0
          ]

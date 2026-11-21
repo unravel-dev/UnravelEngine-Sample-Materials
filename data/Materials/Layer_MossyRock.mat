@@ -159,49 +159,6 @@
        "settings": []
       },
       {
-       "id": "moss",
-       "type": "make_material_attributes",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "base_color",
-         "link": "",
-         "value": [
-          0.10000000149011612,
-          0.18000000715255738,
-          0.03999999910593033
-         ]
-        },
-        {
-         "pin": "roughness",
-         "link": "",
-         "value": [
-          0.949999988079071
-         ]
-        },
-        {
-         "pin": "subsurface_color",
-         "link": "",
-         "value": [
-          0.10000000149011612,
-          0.20000000298023225,
-          0.019999999552965165
-         ]
-        },
-        {
-         "pin": "subsurface_opacity",
-         "link": "",
-         "value": [
-          0.30000001192092898
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
        "id": "normal",
        "type": "vertex_normal",
        "position": {
@@ -219,6 +176,524 @@
         "y": 0.0
        },
        "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "clumps",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          45.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "patches",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          7.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "moss_deep",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.017999999225139619,
+          0.03500000014901161,
+          0.006000000052154064
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "moss_light",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.07500000298023224,
+          0.10999999940395355,
+          0.017999999225139619
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "moss_tone",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "patches",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "green",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "moss_deep",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "moss_light",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "moss_tone",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tuft_shade",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.149999976158142
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "clumps",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tufted",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "green",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tuft_shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dry_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          18.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "drying",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.6800000071525574
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.8199999928474426
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "dry_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dried",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "drying",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dry_tips",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.08500000089406967,
+          0.06499999761581421,
+          0.02800000086426735
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "moss_color",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tufted",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "dry_tips",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "dried",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fuzz_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "clumps",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.006000000052154064
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fuzz",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "fuzz_height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tuft_cavity",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "clumps",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "moss",
+       "type": "make_material_attributes",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "base_color",
+         "link": "moss_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "roughness",
+         "link": "",
+         "value": [
+          0.9200000166893005
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "fuzz",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "tuft_cavity",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "subsurface_color",
+         "link": "",
+         "value": [
+          0.03500000014901161,
+          0.05999999865889549,
+          0.009999999776482582
+         ]
+        },
+        {
+         "pin": "subsurface_opacity",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
        "settings": []
       },
       {

@@ -27,13 +27,6 @@
          ]
         },
         {
-         "pin": "metallic",
-         "link": "",
-         "value": [
-          0.25
-         ]
-        },
-        {
          "pin": "roughness",
          "link": "rough",
          "value": [
@@ -51,7 +44,7 @@
        "settings": []
       },
       {
-       "id": "uv",
+       "id": "weave",
        "type": "tiling_offset",
        "position": {
         "x": 0.0,
@@ -62,34 +55,8 @@
          "pin": "tiling",
          "link": "",
          "value": [
-          24.0,
-          24.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "parity",
-       "type": "checker",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "uv",
-         "link": "uv",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          1.0,
-          1.0
+          80.0,
+          40.0
          ]
         }
        ],
@@ -97,6 +64,24 @@
       },
       {
        "id": "cell",
+       "type": "floor",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "weave",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "inside",
        "type": "frac",
        "position": {
         "x": 0.0,
@@ -105,7 +90,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "uv",
+         "link": "weave",
          "value": [
           0.0
          ]
@@ -114,8 +99,8 @@
        "settings": []
       },
       {
-       "id": "u_angle",
-       "type": "multiply",
+       "id": "diagonal",
+       "type": "add",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -130,25 +115,7 @@
         },
         {
          "pin": "b",
-         "link": "",
-         "value": [
-          3.141590118408203
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "across_u",
-       "type": "sine",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "in",
-         "link": "u_angle",
+         "link": "cell.out.y",
          "value": [
           0.0
          ]
@@ -157,7 +124,171 @@
        "settings": []
       },
       {
-       "id": "v_angle",
+       "id": "step_in_row",
+       "type": "modulo",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "diagonal",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "warp_on_top",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "step_in_row",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "across",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "inside.out.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "inside.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "warp_on_top",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "along",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "inside.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "inside.out.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "warp_on_top",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "float_cell",
+       "type": "modulo",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "step_in_row",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "float_step",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "float_cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "along",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "along_float",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -166,7 +297,32 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "cell.out.y",
+         "link": "float_step",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tow_angle",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "across",
          "value": [
           0.0
          ]
@@ -182,7 +338,7 @@
        "settings": []
       },
       {
-       "id": "across_v",
+       "id": "tow_arc",
        "type": "sine",
        "position": {
         "x": 0.0,
@@ -191,7 +347,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "v_angle",
+         "link": "tow_angle",
          "value": [
           0.0
          ]
@@ -200,8 +356,8 @@
        "settings": []
       },
       {
-       "id": "strand",
-       "type": "lerp",
+       "id": "rounded",
+       "type": "power",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -209,21 +365,57 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "across_u",
+         "link": "tow_arc",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "across_v",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "float_angle",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "along_float",
          "value": [
           0.0
          ]
         },
         {
-         "pin": "alpha",
-         "link": "parity",
+         "pin": "b",
+         "link": "",
+         "value": [
+          3.141590118408203
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "float_arc",
+       "type": "sine",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "float_angle",
          "value": [
           0.0
          ]
@@ -232,37 +424,7 @@
        "settings": []
       },
       {
-       "id": "fibres",
-       "type": "noise",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "uv",
-         "link": "uv",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          30.0
-         ]
-        }
-       ],
-       "settings": [
-        {
-         "name": "type",
-         "value": "value"
-        }
-       ]
-      },
-      {
-       "id": "fibre_shade",
+       "id": "rise",
        "type": "lerp",
        "position": {
         "x": 0.0,
@@ -273,7 +435,7 @@
          "pin": "a",
          "link": "",
          "value": [
-          0.8500000238418579
+          0.550000011920929
          ]
         },
         {
@@ -285,7 +447,253 @@
         },
         {
          "pin": "alpha",
-         "link": "fibres",
+         "link": "float_arc",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "weft_stretch",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.6000000238418579,
+          14.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "weft_streaks",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "weave",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "weft_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "warp_stretch",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          14.0,
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "warp_streaks",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "weave",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "warp_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "streak_uv",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "weft_streaks",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "warp_streaks",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "warp_on_top",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "streaks",
+       "type": "noise",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "uv",
+         "link": "streak_uv",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "value"
+        }
+       ]
+      },
+      {
+       "id": "sheen",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "warp_on_top",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "streak_shade",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.2000000476837159
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "streaks",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tow_shade",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rounded",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "streak_shade",
          "value": [
           0.0
          ]
@@ -303,14 +711,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "strand",
+         "link": "tow_shade",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "fibre_shade",
+         "link": "sheen",
          "value": [
           0.0
          ]
@@ -319,7 +727,7 @@
        "settings": []
       },
       {
-       "id": "dark",
+       "id": "fibre",
        "type": "vector3",
        "position": {
         "x": 0.0,
@@ -330,9 +738,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.029999999329447748,
-          0.029999999329447748,
-          0.03500000014901161
+          0.014000000432133675,
+          0.014499999582767487,
+          0.01600000075995922
          ]
         }
        ],
@@ -357,7 +765,7 @@
          "pin": "b",
          "link": "",
          "value": [
-          2.0
+          1.600000023841858
          ]
         }
        ],
@@ -382,7 +790,7 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.4000000059604645
+          0.20000000298023225
          ]
         }
        ],
@@ -398,7 +806,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "dark",
+         "link": "fibre",
          "value": [
           0.0
          ]
@@ -406,6 +814,81 @@
         {
          "pin": "b",
          "link": "lift",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "profile",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "rounded",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "rise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "streak_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "streaks",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.07999999821186066
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tow_height",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "profile",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "streak_height",
          "value": [
           0.0
          ]
@@ -423,7 +906,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "strand",
+         "link": "tow_height",
          "value": [
           0.0
          ]
@@ -432,7 +915,39 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.0006000000284984708
+          0.0003000000142492354
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.3400000035762787
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "rounded",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -458,38 +973,6 @@
          "link": "",
          "value": [
           1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "rough",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.3499999940395355
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.18000000715255738
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "strand",
-         "value": [
-          0.0
          ]
         }
        ],

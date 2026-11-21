@@ -21,7 +21,7 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "wood.rgb",
+         "link": "color",
          "value": [
           0.0
          ]
@@ -85,7 +85,7 @@
        ]
       },
       {
-       "id": "across",
+       "id": "across_axis",
        "type": "swizzle",
        "position": {
         "x": 0.0,
@@ -103,12 +103,200 @@
        "settings": [
         {
          "name": "mask",
-         "value": "xz"
+         "value": "yz"
         }
        ]
       },
       {
-       "id": "radius",
+       "id": "lean_slope",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.3499999940395355,
+          -0.20000000298023225
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lean",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "lean_slope",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "leaned",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "across_axis",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "lean",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "log_centre",
+       "type": "vector2",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.2199999988079071,
+          -0.11999999731779099
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "across",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "leaned",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "log_centre",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander_stretch",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.2000000476837159,
+          5.0,
+          5.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander_space",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wander_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "wander_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "distance",
        "type": "length",
        "position": {
         "x": 0.0,
@@ -126,7 +314,339 @@
        "settings": []
       },
       {
-       "id": "grain",
+       "id": "wander_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "wander",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wander_amount",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "wander_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.03500000014901161
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "radius",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "distance",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "wander_amount",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring_coord",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "radius",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          38.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring",
+       "type": "frac",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "ring_coord",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ring_id",
+       "type": "floor",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "ring_coord",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "strength",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "ring_id",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "late_wood",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.9300000071525574
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "ring",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "late",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "late_wood",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "strength",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_stretch",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          4.0,
+          220.0,
+          220.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_space",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pore_stretch",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "pore_space",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "value"
+        }
+       ]
+      },
+      {
+       "id": "pores",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.6200000047683716
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.8199999928474426
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "pore_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tone_noise",
        "type": "noise_3d",
        "position": {
         "x": 0.0,
@@ -151,7 +671,7 @@
          "pin": "octaves",
          "link": "",
          "value": [
-          4.0
+          3.0
          ]
         }
        ],
@@ -163,7 +683,111 @@
        ]
       },
       {
-       "id": "ring_scale",
+       "id": "tone",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.8600000143051148
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.100000023841858
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "tone_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "early",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.4000000059604645,
+          0.23000000417232514,
+          0.10999999940395355
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "late_color",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.15000000596046449,
+          0.07199999690055847,
+          0.029999999329447748
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "wood",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "early",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "late_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "late",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "toned",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -172,64 +796,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "radius",
+         "link": "wood",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "",
-         "value": [
-          22.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "grain_warp",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "grain",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          1.600000023841858
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "ring_coord",
-       "type": "add",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "ring_scale",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "grain_warp",
+         "link": "tone",
          "value": [
           0.0
          ]
@@ -238,87 +812,7 @@
        "settings": []
       },
       {
-       "id": "rings",
-       "type": "frac",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "in",
-         "link": "ring_coord",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "late_wood",
-       "type": "smoothstep",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "min",
-         "link": "",
-         "value": [
-          0.550000011920929
-         ]
-        },
-        {
-         "pin": "max",
-         "link": "",
-         "value": [
-          0.949999988079071
-         ]
-        },
-        {
-         "pin": "in",
-         "link": "rings",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "pores",
-       "type": "noise_3d",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "position",
-         "link": "local",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          60.0
-         ]
-        }
-       ],
-       "settings": [
-        {
-         "name": "type",
-         "value": "value"
-        }
-       ]
-      },
-      {
-       "id": "pore_shade",
+       "id": "pore_amount",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -336,30 +830,23 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.15000000596046449
+          0.30000001192092898
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "shade",
-       "type": "add",
+       "id": "pore_dark",
+       "type": "one_minus",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "a",
-         "link": "late_wood",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "pore_shade",
+         "pin": "in",
+         "link": "pore_amount",
          "value": [
           0.0
          ]
@@ -368,85 +855,7 @@
        "settings": []
       },
       {
-       "id": "wood",
-       "type": "color_ramp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "value",
-         "link": "shade",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "color0",
-         "link": "",
-         "value": [
-          0.41999998688697817,
-          0.23999999463558198,
-          0.10999999940395355,
-          1.0
-         ]
-        },
-        {
-         "pin": "position0",
-         "link": "",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "color1",
-         "link": "",
-         "value": [
-          0.30000001192092898,
-          0.15000000596046449,
-          0.05999999865889549,
-          1.0
-         ]
-        },
-        {
-         "pin": "position1",
-         "link": "",
-         "value": [
-          0.6000000238418579
-         ]
-        },
-        {
-         "pin": "color2",
-         "link": "",
-         "value": [
-          0.1599999964237213,
-          0.07000000029802323,
-          0.029999999329447748,
-          1.0
-         ]
-        },
-        {
-         "pin": "position2",
-         "link": "",
-         "value": [
-          1.0
-         ]
-        }
-       ],
-       "settings": [
-        {
-         "name": "count",
-         "value": "3"
-        },
-        {
-         "name": "interpolation",
-         "value": "linear"
-        }
-       ]
-      },
-      {
-       "id": "height",
+       "id": "color",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -455,7 +864,32 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "late_wood",
+         "link": "toned",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pore_dark",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "late_rise",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "late",
          "value": [
           0.0
          ]
@@ -464,7 +898,89 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.0020000000949949028
+          0.00011999999696854502
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_sink",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pores",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.00019999999494757503
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "late_rise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pore_sink",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.47999998927116396
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "pores",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -490,38 +1006,6 @@
          "link": "",
          "value": [
           1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "rough",
-       "type": "lerp",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.3799999952316284
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.550000011920929
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "late_wood",
-         "value": [
-          0.0
          ]
         }
        ],

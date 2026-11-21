@@ -46,7 +46,11 @@ public class GoreDummy : ScriptComponent
     public Mesh dropletMesh;
     /// <summary>The mesh of the blade's streak (a cube), stretched along the stroke.</summary>
     public Mesh streakMesh;
-    /// <summary>A rope of guts, spilled by a deep cut across the belly.</summary>
+    /// <summary>
+    /// Guts spilled by a deep cut across the belly: lengths of bowel with physics bodies on ball joints, coiled out of
+    /// the root. Each child named Gut Anchor marks a point tied to the wound, so the bowel between two of them hangs in a
+    /// loop.
+    /// </summary>
     public Prefab gutsPrefab;
     /// <summary>A chunk of flesh, thrown off by deep cuts.</summary>
     public Prefab chunkPrefab;
@@ -642,25 +646,30 @@ public class GoreDummy : ScriptComponent
         gutsCooldown = GUTS_COOLDOWN;
         if (gutsPrefab != null)
         {
-            var guts = Scene.Instantiate(gutsPrefab, point + normal * 0.06f);
+            var guts = Scene.Instantiate(gutsPrefab, point + normal * 0.02f);
             if (guts.IsValid())
             {
-                // The prefab's segments run up its Y axis: out of the wound, then they fall and hang.
+                // The prefab coils out of the wound along its Y axis and along the cut along its Z axis; thrown out, the
+                // bowel falls and hangs from its anchors.
                 guts.transform.rotation = Quaternion.LookRotation(along, normal);
-                Entity first = Entity.Invalid;
-                foreach (var segment in guts.transform.children)
+                var segments = new List<Entity>();
+                var anchors = new List<Vector3>();
+                foreach (var child in guts.transform.children)
                 {
-                    if (!segment.HasComponent<PhysicsComponent>())
+                    if (child.HasComponent<PhysicsComponent>())
                     {
-                        continue;
+                        segments.Add(child);
+                        Throw(child, normal * Random.Range(0.6f, 1.6f) + Vector3.down * 0.2f + along * Random.Range(-0.4f, 0.4f), 4.0f);
                     }
-                    if (!first.IsValid())
+                    else if (child.name == "Gut Anchor")
                     {
-                        first = segment;
+                        anchors.Add(child.transform.position);
                     }
-                    Throw(segment, normal * Random.Range(0.6f, 1.6f) + Vector3.down * 0.2f + along * Random.Range(-0.4f, 0.4f), 4.0f);
                 }
-                TieToWound(first, point);
+                foreach (var anchor in anchors)
+                {
+                    TieToWound(Nearest(segments, anchor), anchor);
+                }
                 KeepPiece(guts);
             }
         }
@@ -678,10 +687,10 @@ public class GoreDummy : ScriptComponent
         });
     }
 
-    /// <summary>Ties the first length of guts to the torso at the wound with a ball joint that tears when pulled hard.</summary>
-    private void TieToWound(Entity first, Vector3 point)
+    /// <summary>Ties a length of guts to the torso at <paramref name="point"/> with a ball joint that tears when pulled hard.</summary>
+    private void TieToWound(Entity segment, Vector3 point)
     {
-        if (!first.IsValid())
+        if (!segment.IsValid())
         {
             return;
         }
@@ -690,9 +699,26 @@ public class GoreDummy : ScriptComponent
         var joint = tether.AddComponent<JointComponent>();
         joint.type = JointType.Ball;
         joint.bodyA = torso;
-        joint.bodyB = first;
+        joint.bodyB = segment;
         joint.breakForce = 60.0f;
-        tether.transform.SetParent(first.transform.parent, true);
+        tether.transform.SetParent(segment.transform.parent, true);
+    }
+
+    /// <summary>The entity of <paramref name="entities"/> nearest to <paramref name="point"/>.</summary>
+    private static Entity Nearest(List<Entity> entities, Vector3 point)
+    {
+        Entity nearest = Entity.Invalid;
+        float best = float.MaxValue;
+        foreach (var entity in entities)
+        {
+            float distance = Vector3.SqrMagnitude(entity.transform.position - point);
+            if (distance < best)
+            {
+                best = distance;
+                nearest = entity;
+            }
+        }
+        return nearest;
     }
 
     private void SpawnChunks(Vector3 point, Vector3 normal, int count)

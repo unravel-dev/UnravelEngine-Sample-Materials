@@ -21,16 +21,16 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "veined",
+         "link": "bloodied",
          "value": [
           0.0
          ]
         },
         {
          "pin": "roughness",
-         "link": "",
+         "link": "smeared_roughness",
          "value": [
-          0.11999999731779099
+          0.0
          ]
         },
         {
@@ -39,13 +39,29 @@
          "value": [
           0.0
          ]
+        },
+        {
+         "pin": "subsurface_color",
+         "link": "",
+         "value": [
+          0.14000000059604646,
+          0.029999999329447748,
+          0.02500000037252903
+         ]
+        },
+        {
+         "pin": "subsurface_opacity",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
         }
        ],
        "settings": []
       },
       {
-       "id": "texcoord",
-       "type": "texcoord",
+       "id": "world",
+       "type": "world_position",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -54,33 +70,8 @@
        "settings": []
       },
       {
-       "id": "fold_phase",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "texcoord.v",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          60.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "folds",
-       "type": "sine",
+       "id": "local",
+       "type": "transform",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -88,67 +79,30 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "fold_phase",
+         "link": "world",
          "value": [
           0.0
          ]
         }
        ],
-       "settings": []
-      },
-      {
-       "id": "fold_half",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
+       "settings": [
         {
-         "pin": "a",
-         "link": "folds",
-         "value": [
-          0.0
-         ]
+         "name": "from",
+         "value": "world"
         },
         {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.5
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "fold_amount",
-       "type": "add",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "fold_half",
-         "value": [
-          0.0
-         ]
+         "name": "to",
+         "value": "object"
         },
         {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.5
-         ]
+         "name": "kind",
+         "value": "position"
         }
-       ],
-       "settings": []
+       ]
       },
       {
-       "id": "vein_stretch",
-       "type": "vector2",
+       "id": "along",
+       "type": "scalar_parameter",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -158,15 +112,106 @@
          "pin": "value",
          "link": "",
          "value": [
-          6.0,
-          14.0
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Along"
+        },
+        {
+         "name": "description",
+         "value": "Metres from the start of the guts to the middle of this length, so each length carries on the pattern of the one before."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "2.0"
+        }
+       ]
+      },
+      {
+       "id": "y_along",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local.out.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "along",
+         "value": [
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "vein_uv",
+       "id": "p_xy",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "y_along",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "p",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "p_xy",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "local.out.z",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "side",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -175,38 +220,125 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "texcoord",
+         "link": "local.out.x",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "vein_stretch",
+         "link": "",
          "value": [
-          0.0
+          62.5
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "veins",
-       "type": "voronoi",
+       "id": "wobble",
+       "type": "noise_3d",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "uv",
-         "link": "vein_uv",
+         "pin": "position",
+         "link": "p",
          "value": [
           0.0
          ]
         },
         {
          "pin": "scale",
+         "link": "",
+         "value": [
+          40.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "vessel_rings",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "y_along",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          125.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "waver_centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "wobble",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_waver",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "waver_centred",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
          "link": "",
          "value": [
           2.0
@@ -216,7 +348,317 @@
        "settings": []
       },
       {
-       "id": "vein_edge",
+       "id": "vessel_phase",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vessel_rings",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "vessel_waver",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_fract",
+       "type": "frac",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "vessel_phase",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_line_doubled",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vessel_fract",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_line_offset",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vessel_line_doubled",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_line_centred",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "vessel_line_offset",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_line_near",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "vessel_line_centred",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_line",
+       "type": "power",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vessel_line_near",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          10.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "p",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          90.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "reach_spread",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "reach_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "reach_start",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.20000000298023225
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "reach_spread",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_reach",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "reach_start",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "side",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "run_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "p",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          60.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "vessel_runs",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -227,19 +669,19 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.0
+          0.4000000059604645
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.03999999910593033
+          0.6000000238418579
          ]
         },
         {
          "pin": "in",
-         "link": "veins.edges",
+         "link": "run_noise",
          "value": [
           0.0
          ]
@@ -248,18 +690,432 @@
        "settings": []
       },
       {
-       "id": "vein",
-       "type": "one_minus",
+       "id": "vessel_broken",
+       "type": "multiply",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "in",
-         "link": "vein_edge",
+         "pin": "a",
+         "link": "vessel_line",
          "value": [
           0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "vessel_runs",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel_reached",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vessel_broken",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "vessel_reach",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "vessel",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "vessel_reached",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_noise",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "wobble",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_ragged",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fat_noise",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.4000000059604645
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_edge",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "side",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "fat_ragged",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_side",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.7799999713897705
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.949999988079071
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "fat_edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lobe_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "p",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          45.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "lobes",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "lobe_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_lobes",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fat_side",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "lobes",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fat_lobes",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tone",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "p",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          9.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "smear_noise",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "p",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          16.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          4.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "smear_shape",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.550000011920929
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.75
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "smear_noise",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smear",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "smear_shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.800000011920929
          ]
         }
        ],
@@ -277,9 +1133,9 @@
          "pin": "value",
          "link": "",
          "value": [
-          0.5600000023841858,
-          0.2199999988079071,
-          0.23999999463558198,
+          0.5,
+          0.1899999976158142,
+          0.17000000178813935,
           1.0
          ]
         }
@@ -287,7 +1143,7 @@
        "settings": []
       },
       {
-       "id": "deep_pink",
+       "id": "dusky",
        "type": "color",
        "position": {
         "x": 0.0,
@@ -299,8 +1155,8 @@
          "link": "",
          "value": [
           0.3199999928474426,
-          0.07000000029802323,
-          0.09000000357627869,
+          0.10000000149011612,
+          0.11999999731779099,
           1.0
          ]
         }
@@ -308,53 +1164,39 @@
        "settings": []
       },
       {
-       "id": "vein_color",
-       "type": "color",
+       "id": "dusk",
+       "type": "smoothstep",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "value",
+         "pin": "min",
          "link": "",
          "value": [
-          0.25,
-          0.019999999552965165,
-          0.05000000074505806,
-          1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "fold_shade",
-       "type": "multiply",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "fold_amount",
-         "value": [
-          0.0
+          0.30000001192092898
          ]
         },
         {
-         "pin": "b",
+         "pin": "max",
          "link": "",
          "value": [
-          0.6000000238418579
+          0.800000011920929
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "tone",
+         "value": [
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "tube",
+       "id": "toned",
        "type": "lerp",
        "position": {
         "x": 0.0,
@@ -370,14 +1212,14 @@
         },
         {
          "pin": "b",
-         "link": "deep_pink.rgb",
+         "link": "dusky.rgb",
          "value": [
           0.0
          ]
         },
         {
          "pin": "alpha",
-         "link": "fold_shade",
+         "link": "dusk",
          "value": [
           0.0
          ]
@@ -386,25 +1228,20 @@
        "settings": []
       },
       {
-       "id": "vein_amount",
-       "type": "multiply",
+       "id": "vessel_color",
+       "type": "vector3",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "a",
-         "link": "vein",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
+         "pin": "value",
          "link": "",
          "value": [
-          0.699999988079071
+          0.25,
+          0.019999999552965165,
+          0.03999999910593033
          ]
         }
        ],
@@ -420,21 +1257,21 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "tube",
+         "link": "toned",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "vein_color.rgb",
+         "link": "vessel_color",
          "value": [
           0.0
          ]
         },
         {
          "pin": "alpha",
-         "link": "vein_amount",
+         "link": "vessel",
          "value": [
           0.0
          ]
@@ -443,7 +1280,148 @@
        "settings": []
       },
       {
-       "id": "fold_height",
+       "id": "fat_color",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.6200000047683716,
+          0.46000000834465029,
+          0.2800000011920929
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fatty",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "veined",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "fat_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "fat",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "blood_color",
+       "type": "vector3",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.17000000178813935,
+          0.004000000189989805,
+          0.007000000216066837
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bloodied",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fatty",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "blood_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "smear",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lumps",
+       "type": "noise_3d",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "position",
+         "link": "p",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "scale",
+         "link": "",
+         "value": [
+          120.0
+         ]
+        },
+        {
+         "pin": "octaves",
+         "link": "",
+         "value": [
+          2.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "type",
+         "value": "gradient"
+        }
+       ]
+      },
+      {
+       "id": "lump_height",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -452,7 +1430,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "fold_amount",
+         "link": "lumps",
          "value": [
           0.0
          ]
@@ -461,7 +1439,121 @@
          "pin": "b",
          "link": "",
          "value": [
-          0.009999999776482582
+          0.00039999998989515007
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fat",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.0006000000284984708
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "lump_height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "fat_height",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "fat_roughness",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.10000000149011612
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.2199999988079071
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "fat",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "smeared_roughness",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "fat_roughness",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.05000000074505806
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "smear",
+         "value": [
+          0.0
          ]
         }
        ],
@@ -477,7 +1569,7 @@
        "inputs": [
         {
          "pin": "height",
-         "link": "fold_height",
+         "link": "height",
          "value": [
           0.0
          ]

@@ -48,7 +48,7 @@ the editor. Open `data/Scenes/Gallery.spfb` and press Play.
     deeper) or click to stab; left alone, an unseen blade slashes it. `GoreDummy.cs` lays a gash on the part the blade
     crossed, throws every drop of blood itself (drawn with `Graphics.DrawMeshInstanced`, raycast against the bay's
     colliders) and lays a drop where each lands, stretched by how it glanced off. Cuts keep bleeding: blood runs down
-    the body and drips into a pool that grows under it. A deep cut across the belly spills guts, a rope of capsules on
+    the body and drips into a pool that grows under it. A deep cut across the belly spills guts, loops of bowel on
     ball joints hanging from the wound, and one across the head or an arm cuts it off and the stump sprays. The dummy
     wobbles on its post, and grows back what it lost. Every mark is a Decal material that dries darker and duller over
     its lifetime (Decal Data's Normalized Age); `BloodSpawner.cs` keeps throwing splatters at the wall, raw flesh is a
@@ -79,8 +79,8 @@ Each graph's parameters show in the inspector and can be overridden per entity.
 | `data/Scripts/BloodSpawner.cs` | Throws blood splatters at the Blood and Gore bay's wall with `Decals.Spawn`. |
 | `data/Scripts/GoreDummy.cs` | The dummy: the blade (mouse, touch or the unseen one), cuts, every drop of blood, bleeding, the pool, cutting off and growing back. Its public `Slash(from, to, seconds)` draws the blade between two world points, for tests and agents (`scripts_invoke`). |
 | `data/Scripts/GoreChunk.cs` | On the pieces thrown off the dummy: a splatter where one hits something. |
-| `data/Prefabs/Gore Guts.pfb`, `Gore Chunk.pfb` | What a deep cut throws: a rope of guts on ball joints, a chunk of flesh. |
-| `data/Meshes/DummyTorso.gltf` | The dummy's torso, made by `dev/tools/make_meshes.py`. |
+| `data/Prefabs/Gore Guts.pfb`, `Gore Chunk.pfb` | What a deep cut throws: a coil of bowel on ball joints, tied to the wound at its Gut Anchor points, and a chunk of flesh. |
+| `data/Meshes/DummyTorso.gltf`, `GutSegment.gltf` | The dummy's torso and a length of its bowel, made by `dev/tools/make_meshes.py`. |
 | `data/UI/gallery_hud.rhtml`, `gallery_hud.rcss` | The HUD. |
 
 ## Platforms

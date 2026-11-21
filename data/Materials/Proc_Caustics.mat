@@ -21,21 +21,35 @@
        "inputs": [
         {
          "pin": "base_color",
-         "link": "floor",
+         "link": "diffuse",
          "value": [
           0.0
          ]
         },
         {
          "pin": "roughness",
-         "link": "",
+         "link": "roughness",
          "value": [
-          0.30000001192092898
+          0.0
+         ]
+        },
+        {
+         "pin": "normal",
+         "link": "normal",
+         "value": [
+          0.0
          ]
         },
         {
          "pin": "emissive",
-         "link": "light",
+         "link": "emissive",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "ambient_occlusion",
+         "link": "ao",
          "value": [
           0.0
          ]
@@ -44,8 +58,8 @@
        "settings": []
       },
       {
-       "id": "uv",
-       "type": "texcoord",
+       "id": "world",
+       "type": "world_position",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -54,8 +68,8 @@
        "settings": []
       },
       {
-       "id": "clock",
-       "type": "time",
+       "id": "pivot",
+       "type": "object_position",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -64,8 +78,66 @@
        "settings": []
       },
       {
-       "id": "uv_scaled",
-       "type": "multiply",
+       "id": "across",
+       "type": "swizzle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "mask",
+         "value": "xz"
+        }
+       ]
+      },
+      {
+       "id": "tile_size",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.125
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Tile Size"
+        },
+        {
+         "name": "description",
+         "value": "The width of a tile with its grout, in meters."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.03"
+        },
+        {
+         "name": "slider_max",
+         "value": "0.5"
+        }
+       ]
+      },
+      {
+       "id": "from_pivot",
+       "type": "subtract",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -73,7 +145,293 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "uv",
+         "link": "world",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "pivot",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "face_normal",
+       "type": "vertex_normal",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "facing_axes",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "face_normal",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "side_most",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "facing_axes.out.x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "facing_axes.out.z",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "faces_up",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "side_most",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "facing_axes.out.y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "faces_x",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "facing_axes.out.z",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "facing_axes.out.x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "plane_z",
+       "type": "swizzle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "from_pivot",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "mask",
+         "value": "xy"
+        }
+       ]
+      },
+      {
+       "id": "plane_x",
+       "type": "swizzle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "from_pivot",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "mask",
+         "value": "zy"
+        }
+       ]
+      },
+      {
+       "id": "on_wall",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "plane_z",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "plane_x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "faces_x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "plane_y",
+       "type": "swizzle",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "from_pivot",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "mask",
+         "value": "xz"
+        }
+       ]
+      },
+      {
+       "id": "local",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "on_wall",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "plane_y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "faces_up",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grid_scaled",
+       "type": "divide",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "local",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tile_size",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "grid",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "grid_scaled",
          "value": [
           0.0
          ]
@@ -82,15 +440,69 @@
          "pin": "b",
          "link": "",
          "value": [
-          3.0
+          0.5
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "drift",
-       "type": "multiply",
+       "id": "cell",
+       "type": "floor",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "grid",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "inside",
+       "type": "frac",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "grid",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "inside_flipped",
+       "type": "one_minus",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "inside",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "to_edge",
+       "type": "minimum",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -98,24 +510,24 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "clock",
+         "link": "inside",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "",
+         "link": "inside_flipped",
          "value": [
-          0.3499999940395355
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "position",
-       "type": "append",
+       "id": "edge",
+       "type": "minimum",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -123,14 +535,14 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "uv_scaled",
+         "link": "to_edge.out.x",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "drift",
+         "link": "to_edge.out.y",
          "value": [
           0.0
          ]
@@ -139,39 +551,7 @@
        "settings": []
       },
       {
-       "id": "cells",
-       "type": "voronoi_3d",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "position",
-         "link": "position",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          1.0
-         ]
-        },
-        {
-         "pin": "randomness",
-         "link": "",
-         "value": [
-          1.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "line_edge",
+       "id": "grout_edge",
        "type": "smoothstep",
        "position": {
         "x": 0.0,
@@ -182,19 +562,19 @@
          "pin": "min",
          "link": "",
          "value": [
-          0.0
+          0.009999999776482582
          ]
         },
         {
          "pin": "max",
          "link": "",
          "value": [
-          0.11999999731779099
+          0.02199999988079071
          ]
         },
         {
          "pin": "in",
-         "link": "cells.edges",
+         "link": "edge",
          "value": [
           0.0
          ]
@@ -203,7 +583,7 @@
        "settings": []
       },
       {
-       "id": "line",
+       "id": "grout",
        "type": "one_minus",
        "position": {
         "x": 0.0,
@@ -212,7 +592,7 @@
        "inputs": [
         {
          "pin": "in",
-         "link": "line_edge",
+         "link": "grout_edge",
          "value": [
           0.0
          ]
@@ -221,8 +601,58 @@
        "settings": []
       },
       {
-       "id": "caustic",
-       "type": "power",
+       "id": "face",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.012000000104308129
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.07000000029802323
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "edge",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "variation",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "cell",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_seed_x",
+       "type": "add",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -230,7 +660,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "line",
+         "link": "cell",
          "value": [
           0.0
          ]
@@ -239,81 +669,47 @@
          "pin": "b",
          "link": "",
          "value": [
-          3.0
+          31.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "tiles",
-       "type": "checker",
+       "id": "tilt_x",
+       "type": "random",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "uv",
-         "link": "uv",
+         "pin": "seed",
+         "link": "tilt_seed_x",
          "value": [
           0.0
          ]
         },
         {
-         "pin": "scale",
+         "pin": "min",
          "link": "",
          "value": [
-          8.0,
-          8.0
+          -1.0
          ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "tile_a",
-       "type": "vector3",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
+        },
         {
-         "pin": "value",
+         "pin": "max",
          "link": "",
          "value": [
-          0.05000000074505806,
-          0.20000000298023225,
-          0.2800000011920929
+          1.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "tile_b",
-       "type": "vector3",
-       "position": {
-        "x": 0.0,
-        "y": 0.0
-       },
-       "inputs": [
-        {
-         "pin": "value",
-         "link": "",
-         "value": [
-          0.07000000029802323,
-          0.25,
-          0.3400000035762787
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "floor",
-       "type": "lerp",
+       "id": "tilt_seed_z",
+       "type": "add",
        "position": {
         "x": 0.0,
         "y": 0.0
@@ -321,50 +717,80 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "tile_a",
+         "link": "cell",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "tile_b",
+         "link": "",
          "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "tiles",
-         "value": [
-          0.0
+          57.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "caustic_color",
-       "type": "vector3",
+       "id": "tilt_z",
+       "type": "random",
        "position": {
         "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
-         "pin": "value",
+         "pin": "seed",
+         "link": "tilt_seed_z",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
          "link": "",
          "value": [
-          0.6000000238418579,
-          1.399999976158142,
-          1.7999999523162842
+          -1.0
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "light",
+       "id": "centred",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "inside",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_along_x",
        "type": "multiply",
        "position": {
         "x": 0.0,
@@ -373,14 +799,1360 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "caustic_color",
+         "link": "centred.out.x",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "caustic",
+         "link": "tilt_x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_along_z",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "centred.out.y",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_z",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt_along_x",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_along_z",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "column",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "cell.out.x",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "row",
+       "type": "abs",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "cell.out.y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lane_length",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          12.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Lane Length"
+        },
+        {
+         "name": "description",
+         "value": "Tiles from the centre to each end of the lane line; below 0, no lane line."
+        },
+        {
+         "name": "slider_min",
+         "value": "-1.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "30.0"
+        }
+       ]
+      },
+      {
+       "id": "on_axis",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lane_end",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "lane_length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "within_length",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "row",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "lane_end",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "in_line",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "on_axis",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "within_length",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tee_start",
+       "type": "subtract",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "lane_length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tee_from",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tee_start",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "row",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tee_end",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "lane_length",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tee_to",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "row",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tee_end",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tee_row",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tee_from",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tee_to",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tee_width",
+       "type": "step",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "column",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          2.5
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "in_tee",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tee_row",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tee_width",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "lane",
+       "type": "maximum",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "in_line",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "in_tee",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tile_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.20000000298023225,
+          0.41999998688697817,
+          0.5199999809265137,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Tile Color"
+        },
+        {
+         "name": "description",
+         "value": "The glazed tiles' colour."
+        }
+       ]
+      },
+      {
+       "id": "lane_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.019999999552965165,
+          0.05999999865889549,
+          0.20000000298023225,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Lane Color"
+        },
+        {
+         "name": "description",
+         "value": "The lane line's colour."
+        }
+       ]
+      },
+      {
+       "id": "grout_color",
+       "type": "color_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.41999998688697817,
+          0.46000000834465029,
+          0.46000000834465029,
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Grout Color"
+        },
+        {
+         "name": "description",
+         "value": "The grout's colour."
+        }
+       ]
+      },
+      {
+       "id": "shade_seed",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "cell",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          13.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shade",
+       "type": "random",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "seed",
+         "link": "shade_seed",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.8600000143051148
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          1.059999942779541
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glaze_color",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tile_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "lane_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "lane",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glaze",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "glaze_color",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "shade",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "albedo",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "glaze",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "grout_color.rgb",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "grout",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "bevel",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "face",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.001500000013038516
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_scale",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tile_size",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "tilt_height",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "tilt_scale",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.012000000104308129
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "height",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "bevel",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "tilt_height",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "normal",
+       "type": "normal_from_height",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "height",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "strength",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "glaze_rough",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          0.05999999865889549
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.14000000059604646
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "variation",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "roughness",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "glaze_rough",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.699999988079071
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "grout",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ripple_size",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Ripple Size"
+        },
+        {
+         "name": "description",
+         "value": "Scales the ripples' wavelengths, 8 to 60 cm at 1."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.25"
+        },
+        {
+         "name": "slider_max",
+         "value": "4.0"
+        }
+       ]
+      },
+      {
+       "id": "focus",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Focus"
+        },
+        {
+         "name": "description",
+         "value": "How strongly the ripples focus the light: 0 is still water, 0.5 the sharpest lines, more folds them."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "1.0"
+        }
+       ]
+      },
+      {
+       "id": "ripple_speed",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Ripple Speed"
+        },
+        {
+         "name": "description",
+         "value": "Time scale of the ripples: 1 moves them as fast as real water waves of their length."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "2.0"
+        }
+       ]
+      },
+      {
+       "id": "ripple_time",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "ripple_clock",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripple_time",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "ripple_speed",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "dispersion",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          3.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Dispersion"
+        },
+        {
+         "name": "description",
+         "value": "How far apart the colours of the light fall at the lines' edges: 1 is water's own."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "10.0"
+        }
+       ]
+      },
+      {
+       "id": "caustic_light",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.33000001311302187
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Caustic Light"
+        },
+        {
+         "name": "description",
+         "value": "The light the ripples focus onto the floor: match it to the light falling on the pool."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "4.0"
+        }
+       ]
+      },
+      {
+       "id": "diffuse_share",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.30000001192092898
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Diffuse Share"
+        },
+        {
+         "name": "description",
+         "value": "How much of the scene's light the floor still takes; the caustics bring the rest."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "1.0"
+        }
+       ]
+      },
+      {
+       "id": "size_focus",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "ripple_size",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "focus",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shape",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "size_focus",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "dispersion",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "caustics",
+       "type": "custom",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "across",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "c",
+         "link": "ripple_clock",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "output",
+         "value": "vec3"
+        },
+        {
+         "name": "code",
+         "value": "// Light from above refracts through the rippled surface and gathers into lines on the floor.\n// a: the point (world X, Z). b: x Ripple Size, y Focus, z Dispersion. c: the time times the speed.\n// The point is traced back to where its light crossed the surface; the curvature of the surface there focuses\n// that light (the Jacobian of the refraction). Returns the light per channel, 1 under still water.\nfloat size = max(b.x, 0.01);\nfloat focus = b.y;\nfloat clock = c;\nfloat footprint = max(length(dFdx(a)), length(dFdy(a))) + 1e-5;\nvec2 p = a;\nvec2 shift = vec2_splat(0.0);\nfor (int n = 0; n < 16; n++)\n{\n\tfloat f_n = (float(n) + 0.5) / 16.0;\n\tfloat base_n = 0.08 * pow(7.5, f_n);\n\tfloat wavelength = base_n * size;\n\tfloat k = 6.2831853 / wavelength;\n\tfloat angle = float(n) * 2.3999632;\n\tvec2 dir = vec2(cos(angle), sin(angle));\n\tfloat omega = sqrt(9.81 * k + 7.3e-5 * k * k * k);\n\tfloat theta = k * dot(dir, p) - omega * clock + fract(float(n) * 0.618034) * 6.2831853;\n\tfloat bend = focus * 6.450075 * pow(base_n / 6.2831853, 0.75) * saturate(wavelength / footprint * 0.25 - 0.5);\n\tshift += dir * (bend / k * cos(theta));\n}\nvec2 origin = a - shift;\np = origin;\nvec3 curve = vec3_splat(0.0);\nfor (int m = 0; m < 16; m++)\n{\n\tfloat f_m = (float(m) + 0.5) / 16.0;\n\tfloat base_m = 0.08 * pow(7.5, f_m);\n\tfloat wavelength = base_m * size;\n\tfloat k = 6.2831853 / wavelength;\n\tfloat angle = float(m) * 2.3999632;\n\tvec2 dir = vec2(cos(angle), sin(angle));\n\tfloat omega = sqrt(9.81 * k + 7.3e-5 * k * k * k);\n\tfloat theta = k * dot(dir, p) - omega * clock + fract(float(m) * 0.618034) * 6.2831853;\n\tfloat bend = focus * 6.450075 * pow(base_m / 6.2831853, 0.75) * saturate(wavelength / footprint * 0.25 - 0.5);\n\tcurve -= vec3(dir.x * dir.x, dir.x * dir.y, dir.y * dir.y) * (bend * sin(theta));\n}\n// Red bends a little less than green, blue a little more (water's refractive index by wavelength).\nvec3 spread = vec3(1.0 - 0.0045 * b.z, 1.0, 1.0 + 0.0099 * b.z);\nfloat flat_det = (1.0 + curve.x) * (1.0 + curve.z) - curve.y * curve.y;\nfloat soften = 0.05 + 0.6 * fwidth(flat_det);\nvec3 det = (1.0 + curve.x * spread) * (1.0 + curve.z * spread) - curve.y * curve.y * spread * spread;\nvec3 light = vec3_splat(1.0) / sqrt(det * det + soften * soften);\nreturn light / (1.0 + 0.72 * smoothstep(0.2, 0.6, focus));\n"
+        },
+        {
+         "name": "name",
+         "value": "Caustics"
+        }
+       ]
+      },
+      {
+       "id": "up",
+       "type": "vertex_normal",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "facing",
+       "type": "saturate",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "up.xyz.y",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "caustic_albedo",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "albedo",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "caustics",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "light_facing",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "caustic_light",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "facing",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "emissive",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "caustic_albedo",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "light_facing",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "diffuse",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "albedo",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "diffuse_share",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "ao",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.6000000238418579
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "grout",
          "value": [
           0.0
          ]

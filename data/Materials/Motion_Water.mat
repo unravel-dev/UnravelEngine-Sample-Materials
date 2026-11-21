@@ -15,29 +15,29 @@
        "id": "output",
        "type": "surface_output",
        "position": {
-        "x": -310.0,
+        "x": 0.0,
         "y": 0.0
        },
        "inputs": [
         {
          "pin": "world_position_offset",
-         "link": "offset.out",
+         "link": "offset",
          "value": [
           0.0
          ]
         },
         {
          "pin": "base_color",
-         "link": "color",
+         "link": "body",
          "value": [
           0.0
          ]
         },
         {
          "pin": "roughness",
-         "link": "rough",
+         "link": "",
          "value": [
-          0.0
+          0.03999999910593033
          ]
         },
         {
@@ -56,14 +56,7 @@
         },
         {
          "pin": "opacity_mask",
-         "link": "opacity",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "material_attributes",
-         "link": "",
+         "link": "cover",
          "value": [
           0.0
          ]
@@ -88,8 +81,8 @@
        "id": "world",
        "type": "world_position",
        "position": {
-        "x": -3123.0,
-        "y": 77.33334350585938
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [],
        "settings": []
@@ -98,8 +91,8 @@
        "id": "clock",
        "type": "time",
        "position": {
-        "x": -2632.0,
-        "y": 328.844482421875
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [],
        "settings": []
@@ -108,8 +101,8 @@
        "id": "across",
        "type": "swizzle",
        "position": {
-        "x": -2850.0,
-        "y": 77.33334350585938
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -131,8 +124,8 @@
        "id": "w1_dir",
        "type": "vector2",
        "position": {
-        "x": -2876.0,
-        "y": -309.4000244140625
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -150,8 +143,8 @@
        "id": "w1_dot",
        "type": "dot",
        "position": {
-        "x": -2577.0,
-        "y": -277.15557861328127
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -175,8 +168,8 @@
        "id": "w1_space",
        "type": "multiply",
        "position": {
-        "x": -2345.0,
-        "y": -262.95556640625
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -200,8 +193,8 @@
        "id": "w1_time",
        "type": "multiply",
        "position": {
-        "x": -2345.0,
-        "y": -60.95555114746094
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -225,8 +218,8 @@
        "id": "w1_phase",
        "type": "subtract",
        "position": {
-        "x": -2127.0,
-        "y": -29.355545043945314
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -250,8 +243,8 @@
        "id": "w1_sine",
        "type": "sine",
        "position": {
-        "x": -1909.0,
-        "y": 15.644454956054688
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -268,8 +261,8 @@
        "id": "w1",
        "type": "multiply",
        "position": {
-        "x": -1638.0,
-        "y": 15.644454956054688
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -293,8 +286,8 @@
        "id": "w2_dir",
        "type": "vector2",
        "position": {
-        "x": -2876.0,
-        "y": 257.33331298828127
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -312,8 +305,8 @@
        "id": "w2_dot",
        "type": "dot",
        "position": {
-        "x": -2577.0,
-        "y": 126.84446716308594
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -337,8 +330,8 @@
        "id": "w2_space",
        "type": "multiply",
        "position": {
-        "x": -2345.0,
-        "y": 141.04446411132813
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -362,8 +355,8 @@
        "id": "w2_time",
        "type": "multiply",
        "position": {
-        "x": -2345.0,
-        "y": 343.0444641113281
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -387,8 +380,8 @@
        "id": "w2_phase",
        "type": "subtract",
        "position": {
-        "x": -2127.0,
-        "y": 172.64447021484376
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -412,8 +405,8 @@
        "id": "w2_sine",
        "type": "sine",
        "position": {
-        "x": -1909.0,
-        "y": 217.64447021484376
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -430,8 +423,8 @@
        "id": "w2",
        "type": "multiply",
        "position": {
-        "x": -1638.0,
-        "y": 217.64447021484376
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -455,8 +448,8 @@
        "id": "h12",
        "type": "add",
        "position": {
-        "x": -1372.0,
-        "y": 111.14445495605469
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -480,8 +473,8 @@
        "id": "w3_dir",
        "type": "vector2",
        "position": {
-        "x": -2596.0,
-        "y": 552.8444213867188
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -499,8 +492,8 @@
        "id": "w3_dot",
        "type": "dot",
        "position": {
-        "x": -2352.0,
-        "y": 545.04443359375
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -524,8 +517,8 @@
        "id": "w3_space",
        "type": "multiply",
        "position": {
-        "x": -2127.0,
-        "y": 374.64447021484377
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -549,8 +542,8 @@
        "id": "w3_time",
        "type": "multiply",
        "position": {
-        "x": -2127.0,
-        "y": 576.6444702148438
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -574,8 +567,8 @@
        "id": "w3_phase",
        "type": "subtract",
        "position": {
-        "x": -1909.0,
-        "y": 419.64447021484377
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -599,8 +592,8 @@
        "id": "w3_sine",
        "type": "sine",
        "position": {
-        "x": -1638.0,
-        "y": 419.64447021484377
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -617,8 +610,8 @@
        "id": "w3",
        "type": "multiply",
        "position": {
-        "x": -1372.0,
-        "y": 313.14447021484377
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -642,8 +635,8 @@
        "id": "height",
        "type": "add",
        "position": {
-        "x": -1092.0,
-        "y": 190.14443969726563
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -667,8 +660,8 @@
        "id": "up",
        "type": "vector3",
        "position": {
-        "x": -874.0,
-        "y": 581.86669921875
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -686,8 +679,8 @@
        "id": "offset",
        "type": "multiply",
        "position": {
-        "x": -528.0,
-        "y": 527.2000122070313
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -708,97 +701,216 @@
        "settings": []
       },
       {
-       "id": "drift",
-       "type": "panner",
+       "id": "ripple_size",
+       "type": "scalar_parameter",
        "position": {
-        "x": -1691.0,
-        "y": -252.3555450439453
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
-         "pin": "speed",
+         "pin": "value",
          "link": "",
          "value": [
-          0.029999999329447748,
-          0.05000000074505806
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "ripples",
-       "type": "noise",
-       "position": {
-        "x": -1420.0,
-        "y": -156.8555450439453
-       },
-       "inputs": [
-        {
-         "pin": "uv",
-         "link": "drift",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "scale",
-         "link": "",
-         "value": [
-          18.0
-         ]
-        },
-        {
-         "pin": "octaves",
-         "link": "",
-         "value": [
-          3.0
+          1.0
          ]
         }
        ],
        "settings": [
         {
-         "name": "type",
-         "value": "simplex"
+         "name": "name",
+         "value": "Ripple Size"
+        },
+        {
+         "name": "description",
+         "value": "Scales the ripples' wavelengths, 8 to 60 cm at 1."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.25"
+        },
+        {
+         "name": "slider_max",
+         "value": "4.0"
         }
        ]
       },
       {
-       "id": "ripple_height",
+       "id": "focus",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Focus"
+        },
+        {
+         "name": "description",
+         "value": "How strongly the ripples focus the light: 0 is still water, 0.5 the sharpest lines, more folds them."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "1.0"
+        }
+       ]
+      },
+      {
+       "id": "ripple_speed",
+       "type": "scalar_parameter",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Ripple Speed"
+        },
+        {
+         "name": "description",
+         "value": "Time scale of the ripples: 1 moves them as fast as real water waves of their length."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "2.0"
+        }
+       ]
+      },
+      {
+       "id": "ripple_time",
+       "type": "time",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [],
+       "settings": []
+      },
+      {
+       "id": "ripple_clock",
        "type": "multiply",
        "position": {
-        "x": -1092.0,
-        "y": -11.855560302734375
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
          "pin": "a",
-         "link": "ripples",
+         "link": "ripple_time",
          "value": [
           0.0
          ]
         },
         {
          "pin": "b",
-         "link": "",
+         "link": "ripple_speed",
          "value": [
-          0.009999999776482582
+          0.0
          ]
         }
        ],
        "settings": []
       },
       {
-       "id": "detail",
-       "type": "add",
+       "id": "ripple_height",
+       "type": "scalar_parameter",
        "position": {
-        "x": -810.0,
-        "y": 155.86666870117188
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "value",
+         "link": "",
+         "value": [
+          1.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "name",
+         "value": "Ripple Height"
+        },
+        {
+         "name": "description",
+         "value": "How tall the ripples stand on the surface."
+        },
+        {
+         "name": "slider_min",
+         "value": "0.0"
+        },
+        {
+         "name": "slider_max",
+         "value": "3.0"
+        }
+       ]
+      },
+      {
+       "id": "size_focus",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
          "pin": "a",
-         "link": "height",
+         "link": "ripple_size",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "focus",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "shape",
+       "type": "append",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "size_focus",
          "value": [
           0.0
          ]
@@ -814,11 +926,81 @@
        "settings": []
       },
       {
+       "id": "ripples",
+       "type": "custom",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "across",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "shape",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "c",
+         "link": "ripple_clock",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": [
+        {
+         "name": "output",
+         "value": "float"
+        },
+        {
+         "name": "code",
+         "value": "// The pool's ripples: the waves whose light the floor's caustics trace, as tall as they stand on water 2 m deep.\n// a: the point (world X, Z). b: x Ripple Size, y Focus, z Ripple Height. c: the time times the speed.\nfloat size = max(b.x, 0.01);\nfloat focus = b.y;\nfloat clock = c;\nfloat footprint = max(length(dFdx(a)), length(dFdy(a))) + 1e-5;\nvec2 p = a;\nfloat height = 0.0;\nfor (int n = 0; n < 16; n++)\n{\n\tfloat f_n = (float(n) + 0.5) / 16.0;\n\tfloat base_n = 0.08 * pow(7.5, f_n);\n\tfloat wavelength = base_n * size;\n\tfloat k = 6.2831853 / wavelength;\n\tfloat angle = float(n) * 2.3999632;\n\tvec2 dir = vec2(cos(angle), sin(angle));\n\tfloat omega = sqrt(9.81 * k + 7.3e-5 * k * k * k);\n\tfloat theta = k * dot(dir, p) - omega * clock + fract(float(n) * 0.618034) * 6.2831853;\n\tfloat bend = focus * 6.450075 * pow(base_n / 6.2831853, 0.75) * saturate(wavelength / footprint * 0.25 - 0.5);\n\theight += bend / (0.5 * k * k) * sin(theta);\n}\nreturn height * b.z;\n"
+        },
+        {
+         "name": "name",
+         "value": "Ripples"
+        }
+       ]
+      },
+      {
+       "id": "detail",
+       "type": "add",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "height",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "ripples",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
        "id": "normal",
        "type": "normal_from_height",
        "position": {
-        "x": -592.0,
-        "y": 123.20001220703125
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -839,43 +1021,11 @@
        "settings": []
       },
       {
-       "id": "foam",
-       "type": "smoothstep",
-       "position": {
-        "x": -824.0,
-        "y": -68.1333236694336
-       },
-       "inputs": [
-        {
-         "pin": "min",
-         "link": "",
-         "value": [
-          0.09000000357627869
-         ]
-        },
-        {
-         "pin": "max",
-         "link": "",
-         "value": [
-          0.15000000596046449
-         ]
-        },
-        {
-         "pin": "in",
-         "link": "height",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
        "id": "depth",
        "type": "depth_fade",
        "position": {
-        "x": -1417.0,
-        "y": 515.1444091796875
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -892,8 +1042,8 @@
        "id": "glancing",
        "type": "fresnel",
        "position": {
-        "x": -1154.0,
-        "y": 594.1444702148438
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -910,8 +1060,8 @@
        "id": "depth_cover",
        "type": "multiply",
        "position": {
-        "x": -1092.0,
-        "y": 392.14447021484377
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -935,8 +1085,8 @@
        "id": "cover",
        "type": "lerp",
        "position": {
-        "x": -810.0,
-        "y": 357.8666687011719
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -964,36 +1114,11 @@
        "settings": []
       },
       {
-       "id": "opacity",
-       "type": "maximum",
-       "position": {
-        "x": -528.0,
-        "y": 325.20001220703127
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "cover",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "foam",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
        "id": "body",
        "type": "vector3",
        "position": {
-        "x": -874.0,
-        "y": -428.1333312988281
+        "x": 0.0,
+        "y": 0.0
        },
        "inputs": [
         {
@@ -1003,90 +1128,6 @@
           0.009999999776482582,
           0.07000000029802323,
           0.07999999821186066
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "foam_color",
-       "type": "vector3",
-       "position": {
-        "x": -874.0,
-        "y": -248.13333129882813
-       },
-       "inputs": [
-        {
-         "pin": "value",
-         "link": "",
-         "value": [
-          0.800000011920929,
-          0.8500000238418579,
-          0.8500000238418579
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "color",
-       "type": "lerp",
-       "position": {
-        "x": -528.0,
-        "y": -324.79998779296877
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "body",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "foam_color",
-         "value": [
-          0.0
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "foam",
-         "value": [
-          0.0
-         ]
-        }
-       ],
-       "settings": []
-      },
-      {
-       "id": "rough",
-       "type": "lerp",
-       "position": {
-        "x": -528.0,
-        "y": -100.79998779296875
-       },
-       "inputs": [
-        {
-         "pin": "a",
-         "link": "",
-         "value": [
-          0.03999999910593033
-         ]
-        },
-        {
-         "pin": "b",
-         "link": "",
-         "value": [
-          0.6000000238418579
-         ]
-        },
-        {
-         "pin": "alpha",
-         "link": "foam",
-         "value": [
-          0.0
          ]
         }
        ],

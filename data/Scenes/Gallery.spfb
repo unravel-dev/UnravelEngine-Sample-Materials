@@ -19805,7 +19805,31 @@
           "uid": "1fb354df-6729-4d47-b4ab-18f269a52ebf"
          }
         ],
-        "material_instances": [],
+        "material_instances": [
+         {
+          "material_type": "graph_material",
+          "graph_parameters": {
+           "Tile Size": {
+            "x": 0.04500000178813934,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+           },
+           "Lane Length": {
+            "x": -1.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+           },
+           "Ripple Size": {
+            "x": 0.3499999940395355,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+           }
+          }
+         }
+        ],
         "lod_override_enabled": false,
         "lod_override_level": 0,
         "lod_selection_bias": 0.0,

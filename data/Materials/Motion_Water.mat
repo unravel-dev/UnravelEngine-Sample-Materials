@@ -15,13 +15,13 @@
        "id": "output",
        "type": "surface_output",
        "position": {
-        "x": 0.0,
+        "x": -310.0,
         "y": 0.0
        },
        "inputs": [
         {
          "pin": "world_position_offset",
-         "link": "offset",
+         "link": "offset.out",
          "value": [
           0.0
          ]
@@ -60,6 +60,13 @@
          "value": [
           0.0
          ]
+        },
+        {
+         "pin": "material_attributes",
+         "link": "",
+         "value": [
+          0.0
+         ]
         }
        ],
        "settings": [
@@ -70,6 +77,10 @@
         {
          "name": "max_world_position_offset",
          "value": "0.3"
+        },
+        {
+         "name": "gi_reflections",
+         "value": "on"
         }
        ]
       },
@@ -77,8 +88,8 @@
        "id": "world",
        "type": "world_position",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -3123.0,
+        "y": 77.33334350585938
        },
        "inputs": [],
        "settings": []
@@ -87,8 +98,8 @@
        "id": "clock",
        "type": "time",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2632.0,
+        "y": 328.844482421875
        },
        "inputs": [],
        "settings": []
@@ -97,8 +108,8 @@
        "id": "across",
        "type": "swizzle",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2850.0,
+        "y": 77.33334350585938
        },
        "inputs": [
         {
@@ -120,8 +131,8 @@
        "id": "w1_dir",
        "type": "vector2",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2876.0,
+        "y": -309.4000244140625
        },
        "inputs": [
         {
@@ -139,8 +150,8 @@
        "id": "w1_dot",
        "type": "dot",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2577.0,
+        "y": -277.15557861328127
        },
        "inputs": [
         {
@@ -164,8 +175,8 @@
        "id": "w1_space",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2345.0,
+        "y": -262.95556640625
        },
        "inputs": [
         {
@@ -189,8 +200,8 @@
        "id": "w1_time",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2345.0,
+        "y": -60.95555114746094
        },
        "inputs": [
         {
@@ -214,8 +225,8 @@
        "id": "w1_phase",
        "type": "subtract",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2127.0,
+        "y": -29.355545043945314
        },
        "inputs": [
         {
@@ -239,8 +250,8 @@
        "id": "w1_sine",
        "type": "sine",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1909.0,
+        "y": 15.644454956054688
        },
        "inputs": [
         {
@@ -257,8 +268,8 @@
        "id": "w1",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1638.0,
+        "y": 15.644454956054688
        },
        "inputs": [
         {
@@ -282,8 +293,8 @@
        "id": "w2_dir",
        "type": "vector2",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2876.0,
+        "y": 257.33331298828127
        },
        "inputs": [
         {
@@ -301,8 +312,8 @@
        "id": "w2_dot",
        "type": "dot",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2577.0,
+        "y": 126.84446716308594
        },
        "inputs": [
         {
@@ -326,8 +337,8 @@
        "id": "w2_space",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2345.0,
+        "y": 141.04446411132813
        },
        "inputs": [
         {
@@ -351,8 +362,8 @@
        "id": "w2_time",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2345.0,
+        "y": 343.0444641113281
        },
        "inputs": [
         {
@@ -376,8 +387,8 @@
        "id": "w2_phase",
        "type": "subtract",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2127.0,
+        "y": 172.64447021484376
        },
        "inputs": [
         {
@@ -401,8 +412,8 @@
        "id": "w2_sine",
        "type": "sine",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1909.0,
+        "y": 217.64447021484376
        },
        "inputs": [
         {
@@ -419,8 +430,8 @@
        "id": "w2",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1638.0,
+        "y": 217.64447021484376
        },
        "inputs": [
         {
@@ -444,8 +455,8 @@
        "id": "h12",
        "type": "add",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1372.0,
+        "y": 111.14445495605469
        },
        "inputs": [
         {
@@ -469,8 +480,8 @@
        "id": "w3_dir",
        "type": "vector2",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2596.0,
+        "y": 552.8444213867188
        },
        "inputs": [
         {
@@ -488,8 +499,8 @@
        "id": "w3_dot",
        "type": "dot",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2352.0,
+        "y": 545.04443359375
        },
        "inputs": [
         {
@@ -513,8 +524,8 @@
        "id": "w3_space",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2127.0,
+        "y": 374.64447021484377
        },
        "inputs": [
         {
@@ -538,8 +549,8 @@
        "id": "w3_time",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -2127.0,
+        "y": 576.6444702148438
        },
        "inputs": [
         {
@@ -563,8 +574,8 @@
        "id": "w3_phase",
        "type": "subtract",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1909.0,
+        "y": 419.64447021484377
        },
        "inputs": [
         {
@@ -588,8 +599,8 @@
        "id": "w3_sine",
        "type": "sine",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1638.0,
+        "y": 419.64447021484377
        },
        "inputs": [
         {
@@ -606,8 +617,8 @@
        "id": "w3",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1372.0,
+        "y": 313.14447021484377
        },
        "inputs": [
         {
@@ -631,8 +642,8 @@
        "id": "height",
        "type": "add",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1092.0,
+        "y": 190.14443969726563
        },
        "inputs": [
         {
@@ -656,8 +667,8 @@
        "id": "up",
        "type": "vector3",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -874.0,
+        "y": 581.86669921875
        },
        "inputs": [
         {
@@ -675,8 +686,8 @@
        "id": "offset",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -528.0,
+        "y": 527.2000122070313
        },
        "inputs": [
         {
@@ -700,8 +711,8 @@
        "id": "drift",
        "type": "panner",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1691.0,
+        "y": -252.3555450439453
        },
        "inputs": [
         {
@@ -719,8 +730,8 @@
        "id": "ripples",
        "type": "noise",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1420.0,
+        "y": -156.8555450439453
        },
        "inputs": [
         {
@@ -756,8 +767,8 @@
        "id": "ripple_height",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1092.0,
+        "y": -11.855560302734375
        },
        "inputs": [
         {
@@ -781,8 +792,8 @@
        "id": "detail",
        "type": "add",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -810.0,
+        "y": 155.86666870117188
        },
        "inputs": [
         {
@@ -806,8 +817,8 @@
        "id": "normal",
        "type": "normal_from_height",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -592.0,
+        "y": 123.20001220703125
        },
        "inputs": [
         {
@@ -831,8 +842,8 @@
        "id": "foam",
        "type": "smoothstep",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -824.0,
+        "y": -68.1333236694336
        },
        "inputs": [
         {
@@ -863,8 +874,8 @@
        "id": "depth",
        "type": "depth_fade",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1417.0,
+        "y": 515.1444091796875
        },
        "inputs": [
         {
@@ -881,8 +892,8 @@
        "id": "glancing",
        "type": "fresnel",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1154.0,
+        "y": 594.1444702148438
        },
        "inputs": [
         {
@@ -899,8 +910,8 @@
        "id": "depth_cover",
        "type": "multiply",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -1092.0,
+        "y": 392.14447021484377
        },
        "inputs": [
         {
@@ -924,8 +935,8 @@
        "id": "cover",
        "type": "lerp",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -810.0,
+        "y": 357.8666687011719
        },
        "inputs": [
         {
@@ -956,8 +967,8 @@
        "id": "opacity",
        "type": "maximum",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -528.0,
+        "y": 325.20001220703127
        },
        "inputs": [
         {
@@ -981,8 +992,8 @@
        "id": "body",
        "type": "vector3",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -874.0,
+        "y": -428.1333312988281
        },
        "inputs": [
         {
@@ -1001,8 +1012,8 @@
        "id": "foam_color",
        "type": "vector3",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -874.0,
+        "y": -248.13333129882813
        },
        "inputs": [
         {
@@ -1021,8 +1032,8 @@
        "id": "color",
        "type": "lerp",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -528.0,
+        "y": -324.79998779296877
        },
        "inputs": [
         {
@@ -1053,8 +1064,8 @@
        "id": "rough",
        "type": "lerp",
        "position": {
-        "x": 0.0,
-        "y": 0.0
+        "x": -528.0,
+        "y": -100.79998779296875
        },
        "inputs": [
         {

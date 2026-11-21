@@ -59,6 +59,10 @@
         {
          "name": "blend_mode",
          "value": "translucent"
+        },
+        {
+         "name": "gi_reflections",
+         "value": "on"
         }
        ]
       },

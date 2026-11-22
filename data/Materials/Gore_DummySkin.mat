@@ -270,6 +270,131 @@
        "settings": []
       },
       {
+       "id": "pore_footprint",
+       "type": "fwidth",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "uv",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_footprint_size",
+       "type": "length",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "in",
+         "link": "pore_footprint",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_cycles_per_pixel",
+       "type": "multiply",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pore_footprint_size",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          90.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_blur",
+       "type": "smoothstep",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "min",
+         "link": "",
+         "value": [
+          0.15000000596046449
+         ]
+        },
+        {
+         "pin": "max",
+         "link": "",
+         "value": [
+          0.44999998807907107
+         ]
+        },
+        {
+         "pin": "in",
+         "link": "pore_cycles_per_pixel",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
+       "id": "pore_detail",
+       "type": "lerp",
+       "position": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "inputs": [
+        {
+         "pin": "a",
+         "link": "pores",
+         "value": [
+          0.0
+         ]
+        },
+        {
+         "pin": "b",
+         "link": "",
+         "value": [
+          0.5
+         ]
+        },
+        {
+         "pin": "alpha",
+         "link": "pore_blur",
+         "value": [
+          0.0
+         ]
+        }
+       ],
+       "settings": []
+      },
+      {
        "id": "pore_height",
        "type": "multiply",
        "position": {
@@ -279,7 +404,7 @@
        "inputs": [
         {
          "pin": "a",
-         "link": "pores",
+         "link": "pore_detail",
          "value": [
           0.0
          ]
@@ -343,7 +468,7 @@
         },
         {
          "pin": "alpha",
-         "link": "pores",
+         "link": "pore_detail",
          "value": [
           0.0
          ]

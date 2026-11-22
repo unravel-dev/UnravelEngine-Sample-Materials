@@ -7,12 +7,12 @@
  },
  "entities": [
   {
-   "prefab_uid": "c8394a5f-88aa-f241-ba55-3702818c326f",
-   "uid": "d253acaf-96a9-9e44-a6ec-c612f08a2d68",
+   "prefab_uid": "c75301c4-18eb-624f-a974-2f8a8df0af82",
+   "uid": "123153b6-54d2-ac49-8791-d8a8910ff925",
    "components": {
     "has_id_component": true,
     "id_component": {
-     "id": "d253acaf-96a9-9e44-a6ec-c612f08a2d68"
+     "id": "123153b6-54d2-ac49-8791-d8a8910ff925"
     },
     "has_tag_component": true,
     "tag_component": {
@@ -27,7 +27,7 @@
     },
     "has_prefab_id_component": true,
     "prefab_id_component": {
-     "id": "c8394a5f-88aa-f241-ba55-3702818c326f",
+     "id": "c75301c4-18eb-624f-a974-2f8a8df0af82",
      "document": "194e6fac-bea5-4b4f-a8ee-027763003c53"
     },
     "has_transform_component": true,
@@ -36,7 +36,7 @@
       "position": {
        "x": 0.0,
        "y": -10.0,
-       "z": 81.0
+       "z": 90.0
       },
       "rotation_euler": {
        "x": 0.0,
@@ -86,7 +86,8 @@
       "lod_transition_time": {
        "count": 0.0
       }
-     }
+     },
+     "sort_priority": 0
     },
     "has_physics_component": true,
     "physics_component": {
@@ -150,7 +151,7 @@
      "script_components": [
       {
        "type": "GoreChunk",
-       "@slot": "7830a228-2572-404b-b040-8cfeb96d8abe",
+       "@slot": "ff5afd68-e8d3-6d40-a589-f3ccd74b5cad",
        "splatter": {
         "uid": "0c2c7cf9-52fe-534e-b83d-a97b52dd1343"
        },

@@ -105,10 +105,14 @@ public class GalleryTour : ScriptComponent
                 GoTo(digit);
             }
         }
-        // 0 is the tenth bay, as on a keyboard's row of digits.
+        // 0 is the tenth bay and - the eleventh, as on a keyboard's row of digits.
         if(Input.IsPressed(KeyCode.Digit0) && points.Count > 9)
         {
             GoTo(9);
+        }
+        if(Input.IsPressed(KeyCode.Minus) && points.Count > 10)
+        {
+            GoTo(10);
         }
         if(Input.IsPressed(KeyCode.Right))
         {

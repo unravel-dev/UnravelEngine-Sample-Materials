@@ -1,4 +1,5 @@
-/* The Material Gallery's HUD: a quiet card in the lower left, sized in dp so it reads the same on any screen. */
+/* The Material Gallery's HUD: a quiet card in the lower left, sized in dp so it reads the same on any screen. A phone
+   held sideways has about 380 dp of height: there the card becomes one strip along the bottom. */
 
 body
 {
@@ -99,4 +100,92 @@ button.nav:active
 {
 	font-size: 11dp;
 	color: #85827c;
+}
+
+/* A phone held sideways (under 500 dp tall): one strip along the bottom, the text beside the buttons, no key hints. */
+@media (max-height: 500dp)
+{
+	#panel
+	{
+		left: 3vw;
+		right: 3vw;
+		bottom: 8dp;
+		width: auto;
+		padding: 8dp 12dp 8dp 12dp;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 14dp;
+	}
+
+	#info
+	{
+		flex: 1 1 0dp;
+	}
+
+	#header
+	{
+		margin-bottom: 2dp;
+	}
+
+	#brand,
+	#bay-index
+	{
+		font-size: 10dp;
+	}
+
+	#bay-title
+	{
+		font-size: 17dp;
+		margin-bottom: 2dp;
+	}
+
+	#bay-text
+	{
+		font-size: 12dp;
+		line-height: 16dp;
+		margin-bottom: 0;
+	}
+
+	#controls
+	{
+		flex: 0 0 auto;
+		margin-bottom: 0;
+	}
+
+	button.nav
+	{
+		width: 46dp;
+		height: 36dp;
+		padding: 0;
+		line-height: 36dp;
+		font-size: 18dp;
+	}
+
+	button.nav.wide
+	{
+		width: 92dp;
+		font-size: 13dp;
+	}
+
+	#keys
+	{
+		display: none;
+	}
+}
+
+/* A phone held upright (under 600 dp wide): the card spans the width, without key hints. */
+@media (max-width: 600dp)
+{
+	#panel
+	{
+		left: 3vw;
+		right: 3vw;
+		width: auto;
+	}
+
+	#keys
+	{
+		display: none;
+	}
 }
